@@ -4,6 +4,11 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
+    <%= f.input :first_name, required: true, %>
+    <%= f.input :last_name %>
+    <%= f.input :phone %>
+    <%= f.input :suburb %>
+    <%= f.input :dob %>
     <%= f.input :email,
                 required: true,
                 autofocus: true,
