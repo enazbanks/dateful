@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_28_021425) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_28_033311) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,6 +42,24 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_28_021425) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "bookings", force: :cascade do |t|
+    t.date "when"
+    t.text "instructions"
+    t.boolean "suprise"
+    t.integer "status"
+    t.bigint "date_id", null: false
+    t.bigint "couple_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["couple_id"], name: "index_bookings_on_couple_id"
+    t.index ["date_id"], name: "index_bookings_on_date_id"
+  end
+
+  create_table "couples", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "dates", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -52,18 +70,50 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_28_021425) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "ratings", force: :cascade do |t|
+    t.integer "stars"
+    t.text "comment"
+    t.bigint "date_id", null: false
+    t.bigint "booking_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["booking_id"], name: "index_ratings_on_booking_id"
+    t.index ["date_id"], name: "index_ratings_on_date_id"
+  end
+
+  create_table "special_days", force: :cascade do |t|
+    t.bigint "couple_id", null: false
+    t.date "date"
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["couple_id"], name: "index_special_days_on_couple_id"
+  end
+
   create_table "users", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "suburb"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.date "dob"
+    t.string "phone"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "couple_id"
+    t.index ["couple_id"], name: "index_users_on_couple_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "bookings", "couples"
+  add_foreign_key "bookings", "dates"
+  add_foreign_key "ratings", "bookings"
+  add_foreign_key "ratings", "dates"
+  add_foreign_key "special_days", "couples"
 end
