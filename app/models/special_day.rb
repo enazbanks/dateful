@@ -1,4 +1,5 @@
 class SpecialDay < ApplicationRecord
-  has_many :users, though: :couple
-  validates :title, date:, presence: true
+  validates :title, :date, presence: true
+  belongs_to :couple
+  has_many :users, through: :couple
 end
