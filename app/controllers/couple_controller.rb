@@ -22,7 +22,6 @@ class CoupleController < ApplicationController
     redirect_to '/', status: :see_other
   end
 
-
   private
 
   def find_couple
