@@ -18,6 +18,7 @@ class Experience < ApplicationRecord
         total += rating.stars
       end
       return total unless total.positive?
+
       return total / number
     end
     false
