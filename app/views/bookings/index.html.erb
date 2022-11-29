@@ -1,0 +1,12 @@
+  <div id="bookings" class="d-flex flex-wrap justify-content-evenly pb-4">
+    <div class="col">
+      <h1> Your Bookings </h1>
+      <ul>
+        <% @bookings.each do |booking| %>
+          <div class="col">
+              <%= render 'bookings/book', {booking: booking} %>
+
+          </div>
+        <% end %>
+      </ul>
+  </div>
