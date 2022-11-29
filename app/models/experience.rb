@@ -9,4 +9,17 @@ class Experience < ApplicationRecord
   has_many_attached :photos
 
   validates :title, :description, :address, :cost, :time, presence: true
+
+  def average_rating
+    number = ratings.length
+    if number.positive?
+      total = 0
+      ratings.each do |rating|
+        total += rating.stars
+      end
+      return total unless total.positive?
+      return total / number
+    end
+    false
+  end
 end
