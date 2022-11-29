@@ -17,3 +17,18 @@
   line-height: 40px;
   margin-left: 20px;
 }
+
+.button-calendar {
+  height: 100%;
+  width: 117px;
+  padding: 4px;
+  background-color: rgba(192.31, 44.87, 59.43, 1);
+  box-shadow: 0px 1px 2px rgba(31, 41, 55, 0.08);
+  border-radius: 100px;
+  justify-content: center;
+  display: flex;
+}
+
+.mood-icons {
+  width: 610px;
+}

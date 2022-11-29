@@ -1,7 +1,28 @@
 <div class="show-container">
-  <p class="title">Moonlight Kayak Tour<%#= experience.title %></p>
-    <div class="d-flex">
-      <div class="m-4 w-100"> <%= render 'experiences/img_carousel'%> </div>
-        <div class="show-card p-2 m-4 flex-shrink-1"> </div>
+  <h2 class="title">Moonlight Kayak Tour<%#= experience.title %></h2>
+  <%# icon with text Bertha likes this date idea%>
+  <div class="d-flex">
+    <div class="m-4 w-100"> <%= render 'experiences/img_carousel'%> </div>
+      <div class="show-card p-2 m-4 flex-shrink-1">
+        <div class="d-flex flex-column mb-3">
+          <h6 class="p-2 d-flex justify-content-center">Avaliable Dates</h6>
+            <div class="calendar p-2 d-flex justify-content-center">calendar
+            </div>
+              <div class="p-2 d-flex justify-content-end ">
+                <div class="button-calendar">
+                  <p style="margin-bottom: 0px;">
+                  <%= link_to "Book Now", "/bookings", class: "button-white-text"%> </p>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  <div class="d-flex">
+    <div class="info-card m-4 w-100 flex-shrink-1">
+      <h4>What you'll do</h4>
+        <br>
+      <h6> description </h6>
     </div>
+    <div class="mood-icons p-2 m-4 flex-shrink-1"> font awesome tags</div>
+  </div>
 </div>
