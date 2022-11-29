@@ -1,3 +1,4 @@
 <h1>index page</h1>
-
-<%= render 'layouts/cards'%>
+<% @experiences.each do |experience| %>
+  <%= render 'experiences/index_card', {experience: experience} %>
+<% end %>
