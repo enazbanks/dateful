@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  acts_as_favoritor
   validates :first_name, presence: true
   has_one :couple
   has_one_attached :avatar
