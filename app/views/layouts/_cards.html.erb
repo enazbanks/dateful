@@ -1,37 +1,24 @@
-<div class="index-container" style="width: 610px; height: 240px;">
-    <div class="index-card" style="width: 610px; height: 240px; background-color: white; border-radius: 16px; position: relative;box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);">
+<div class="index-container">
+    <div class="index-card">
+        <p class="cost"><%= experience.cost %></p>
+        <p class="description"><%= experience.description %></p>
+        <p class="reviews">(22 reviews)</p>
+        <p class="mood">Adventure |  City  |  Activity </p>
+        <p class="dollars">$$$</p>
+        <%# <p class="host">MK Tours</p> %>
+        <p class="exp-title"><%= experience.title %></p>
+        <p class="exp-address"><%= experience.address %></p>
 
-        <p class="price" style="width: 155px; height: 22px; left: 421px; top: 140px; position: absolute; font-size: 20px; font-weight: 600; line-height: 100%; text-align: right; color: rgba(34, 34, 34, 1);">$100</p>
-        <p class="description" style="left: 257px; top: 112px; position: absolute; font-size: 10px; font-weight: 500; line-height: 100%; color: rgba(113, 113, 113, 1);">Description</p>
-        <p class="reviews" style="left: 337px; top: 191px; position: absolute; font-size: 10px; font-weight: 500; line-height: 100%; color: rgba(113, 113, 113, 1);">(22 reviews)</p>
-        <p class="category" style="left: 254px; top: 77px; position: absolute; font-size: 10px; font-weight: 500; line-height: 100%; color: rgba(192, 45, 59, 1);">Adventure |  City  |  Activity </p>
-        <p class="dollar-tag" style="width: 20px; left: 453px; top: 78px; position: absolute; font-size: 13px; font-weight: 500; line-height: 100%; color: rgba(113, 113, 113, 1);">$$$</p>
-        <p class="host" style="width: 272px; height: 24px; left: 253px; top: 25px; position: absolute; font-size: 14px; font-weight: 500; line-height: 100%; color: rgba(113, 113, 113, 1);">MK Tours</p>
-        <p class="h3" style="left: 253px; top: 48px; position: absolute; font-size: 20px; font-weight: 600; line-height: 100%; color: rgba(34, 34, 34, 1);">Moonlight Kayak Tour</p>
+        <img class="exp-image" src="https://via.placeholder.com/229x193"/>
 
-        <img class="exp-image" style="width: 229px; height: 193px; left: 14px; top: 26px; position: absolute; border-radius: 8px;" src="https://via.placeholder.com/229x193"/>
+        <div class="fa-solid fa-star"></div>
+        <img class="avatar-user" src="https://via.placeholder.com/229x193">
+        <img class="avatar-partner" src="https://via.placeholder.com/229x193">
 
-        <div class="fa-solid fa-star" style="width: 9.85px; height: 9.40px; left: 257px; top: 193px; position: absolute; color: rgba(214, 49, 49, 1); border-radius: 8px;"></div>
-        <div class="avatar" style="width: 32px; height: 32px; left: 514px; top: 25px; position: absolute;">
-            <div class="avatar-base" style="width: 32px; height: 32px; background-color: rgba(243, 244, 246, 1); border-radius: 1000px;">
-                <div class="icon" style="width: 32px; height: 32px; position: relative;">
-                    <div class="ellipse1" style="width: 32px; height: 32px; left: 0px; top: 0px; position: absolute; background-color: rgba(243, 244, 246, 1); border-radius: 9999px;"> </div>
-                    <div class="profile-icon" style="width: 32px; height: 25.33px; left: 0px; top: 6.67px; position: absolute; background-color: rgba(209, 213, 219, 1); border-radius: 8px;"> </div>
-                </div>
-            </div>
-        </div>
-        <div class="avatar" style="width: 32px; height: 32px; left: 556px; top: 25px; position: absolute;">
-            <div class="avatar-base" style="width: 32px; height: 32px; background-color: rgba(243, 244, 246, 1); border-radius: 1000px;">
-                <div class="icon" style="width: 32px; height: 32px; position: relative;">
-                    <div class="ellipse1" style="width: 32px; height: 32px; left: 0px; top: 0px; position: absolute; background-color: rgba(243, 244, 246, 1); border-radius: 9999px;"> </div>
-                    <div class="profile-icon" style="width: 32px; height: 25.33px; left: 0px; top: 6.67px; position: absolute; background-color: rgba(209, 213, 219, 1); border-radius: 8px;"> </div>
-                </div>
-            </div>
-        </div>
-        <div class="button-red" style="width: 117px; height: 32px; left: 473px; top: 177px; position: absolute;">
-        <div class="button-red-base" style="flex: 1 1 0%; height: 100%; padding: 4px; background-color: rgba(192.31, 44.87, 59.43, 1); box-shadow: 0px 1px 2px rgba(31, 41, 55, 0.08); border-radius: 100px; display: flex; flex-direction: row; align-items: center; justify-content: center;">
+        <div class="button-red">
+        <div class="button-red-base">
           <p style="margin-bottom: 0px;">
-          <%= link_to "Book Now", "/bookings", class: "book-now", style:"left: 502px; top: 184px; font-size: 12px; font-weight: 600; line-height: 100%; color: white; text-decoration: none;" %> </p>
+          <%= link_to "Book Now", "/bookings", class: "button-white-text"%> </p>
         </div>
     </div>
 </div>
