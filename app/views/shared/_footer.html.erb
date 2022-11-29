@@ -1,0 +1,33 @@
+<div class="footer navbar">
+  <div class="footer-links">
+    <a href="https://www.instagram.com"><i class="fa-brands fa-square-instagram"></i></a>
+    <a href="https://www.facebook.com"><i class="fa-brands fa-facebook"></i></a>
+
+    <%# <a href="about_us_icon.jpg.png"></a> %>
+    <%# <img src="about_us_icon.jpg.png" alt="about us icon">
+    <img src="contact_us_icon.png" alt="contact us icon"> %>
+
+    <%=link_to "/", class: "navbar-brand" do %>
+      <%=image_tag "about_us_icon.png", height:30, width:30, alt: "About Us Icon" %>
+    <% end %>
+    <%=link_to "/", class: "navbar-brand" do %>
+      <%=image_tag "contact_us_icon.png", height:40, width:50, alt: "Contact Us Icon" %>
+    <% end %>
+  </div>
+  <div class="footer-copyright">
+    Have a meaningful meal <i class="fas fa-heart"></i> at Mealful
+  </div>
+</div>
+
+<div class="footer">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <div class="footer-copyright">
+    This footer is made with <i class="fas fa-heart"></i> at Le Wagon
+  </div>
+</div>
