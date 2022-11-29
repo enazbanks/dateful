@@ -10,20 +10,21 @@ MOOD = %w[Romantic Adventrous Relaxed Playful Spicy Foodie Instagrammable Pamper
 couple = Couple.new
 couple.save
 
-frank = User.create(
+frank = User.create!(
   first_name: 'Frank',
   last_name: 'liaison',
   email: 'frank@lewagon.com',
-  password: 'franktest',
-  couple_id: couple.id
+  password: 'franktest'
 )
+frank.couple = couple
+frank.save
 
 bertha = User.create(
   first_name: 'Bertha',
   last_name: 'liaison',
   email: 'bertha@lewagon.com',
   password: 'berthatest',
-  couple_id: couple.id
+  couple: couple
 )
 
 couple = Couple.new
@@ -190,3 +191,5 @@ booking.save
   rating.booking = booking
   rating.save
 end
+
+puts "seed done"

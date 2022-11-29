@@ -12,9 +12,9 @@
         <img class="exp-image" src="https://via.placeholder.com/229x193"/>
 
         <div class="fa-solid fa-star"></div>
-        <img class="avatar-user" src="https://via.placeholder.com/229x193">
-        <img class="avatar-partner" src="https://via.placeholder.com/229x193">
-
+        <% if user_signed_in? %>
+          <%= render 'experiences/favorites', {experience: experience} %>
+        <% end %>
         <div class="button-red">
         <div class="button-red-base">
           <p style="margin-bottom: 0px;">
