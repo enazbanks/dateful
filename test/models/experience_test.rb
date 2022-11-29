@@ -1,6 +1,6 @@
 require "test_helper"
 
-class DatesControllerTest < ActionDispatch::IntegrationTest
+class ExperienceTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
