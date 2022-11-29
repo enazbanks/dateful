@@ -1,0 +1,173 @@
+.index-container {
+  width: 610px;
+  height: 240px;
+}
+
+.index-card {
+  width: 610px;
+  height: 240px;
+  background-color: white;
+  border-radius: 16px;
+  position: relative;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
+}
+
+.cost {
+  width: 155px;
+  height: 22px;
+  left: 421px;
+  top: 140px;
+  position: absolute;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 100%;
+  text-align: right;
+  color: rgba(34, 34, 34, 1);
+}
+
+.description {
+  left: 257px;
+  top: 112px;
+  position: absolute;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 100%;
+  color: rgba(113, 113, 113, 1);
+}
+
+.reviews {
+  left: 337px;
+  top: 197px;
+  position: absolute;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 100%;
+  color: rgba(113, 113, 113, 1);
+  margin-bottom: 0px;
+}
+
+.mood {
+  left: 254px;
+  top: 77px;
+  position: absolute;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 100%;
+  color: rgba(192, 45, 59, 1);
+}
+.dollars {
+  width: 20px;
+  left: 453px;
+  top: 78px;
+  position: absolute;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 100%;
+  color: rgba(113, 113, 113, 1);
+}
+
+.host {
+  width: 272px;
+  height: 24px;
+  left: 253px;
+  top: 25px;
+  position: absolute;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 100%;
+  color: rgba(113, 113, 113, 1);
+}
+
+.exp-title {
+  left: 253px;
+  top: 27px;
+  position: absolute;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 100%;
+  color: rgba(34, 34, 34, 1);
+}
+
+.exp-address {
+  width: 272px;
+  height: 24px;
+  left: 253px;
+  top: 53px;
+  position: absolute;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 100%;
+  color: rgba(113, 113, 113, 1);
+}
+
+.exp-image {
+  width: 225px;
+  height: 193px;
+  left: 14px;
+  top: 20px;
+  position: absolute;
+  border-radius: 8px;
+}
+
+.fa-star {
+  width: 9.85px;
+  height: 9.40px;
+  left: 257px;
+  top: 193px;
+  position: absolute;
+  color: rgba(214, 49, 49, 1);
+  border-radius: 8px;
+}
+
+.avatar-user {
+  width: 32px;
+  height: 32px;
+  left: 514px;
+  top: 25px;
+  position: absolute;
+  border-radius: 1000px;
+}
+
+.avatar-partner {
+  width: 32px;
+  height: 32px;
+  left: 556px;
+  top: 25px;
+  position: absolute;
+  border-radius: 1000px;
+}
+
+.button-red {
+  width: 117px;
+  height: 32px;
+  left: 473px;
+  top: 177px;
+  position: absolute;
+}
+
+.button-red-base {
+  flex: 1 1 0%;
+  height: 100%;
+  padding: 4px;
+  background-color: rgba(192.31, 44.87, 59.43, 1);
+  box-shadow: 0px 1px 2px rgba(31, 41, 55, 0.08);
+  border-radius: 100px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-white-text {
+  left: 502px;
+  top: 184px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 100%;
+  color: white;
+  text-decoration: none;
+}
+
+.button-white-text:hover {
+  color: rgb(216, 206, 206);
+}
