@@ -1,0 +1,24 @@
+<div class="index-container">
+    <div class="index-card">
+        <p class="cost"><%= experience.cost %></p>
+        <p class="description"><%= experience.description %></p>
+        <p class="reviews">(22 reviews)</p>
+        <p class="mood">Adventure |  City  |  Activity </p>
+        <p class="dollars">$$$</p>
+        <%# <p class="host">MK Tours</p> %>
+        <p class="exp-title"><%= experience.title %></p>
+        <p class="exp-address"><%= experience.address %></p>
+
+        <img class="exp-image" src="https://via.placeholder.com/229x193"/>
+
+        <div class="fa-solid fa-star"></div>
+        <img class="avatar-user" src="https://via.placeholder.com/229x193">
+        <img class="avatar-partner" src="https://via.placeholder.com/229x193">
+
+        <div class="button-red">
+        <div class="button-red-base">
+          <p style="margin-bottom: 0px;">
+          <%= link_to "Book Now", "/bookings", class: "button-white-text"%> </p>
+        </div>
+    </div>
+</div>
