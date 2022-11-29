@@ -1,0 +1,25 @@
+<br>
+<div class="container col-4">
+  <h1>Create Booking</h1>
+</div>
+<br>
+<div class="container col-4">
+  <%= simple_form_for [@experience, @booking], data: { controller: 'flatpickr' } do |f| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+    <div class="form-inputs">
+      <%= f.input :when, as: :string, collection: (Date.today)..(Date.today + 60), input_html: { data: { flatpickr_target: "date" } }%>
+      <%= f.input :suprise %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
+
+<br>
+
+<div class="container col-4">
+  <%= link_to "Back to Dates", experience_path %>
+</div>

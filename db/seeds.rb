@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+MOOD = %w[Romantic Adventrous Relaxed Playful Spicy Foodie Instagrammable Pamper Active Retro]
 couple = Couple.new
 couple.save
 
@@ -16,7 +17,6 @@ frank = User.create(
   password: 'franktest',
   couple_id: couple.id
 )
-
 
 bertha = User.create(
   first_name: 'Bertha',
@@ -37,7 +37,11 @@ experience = Experience.new(
   time: "1-2 hours"
 )
 
+experience.mood_list.add(MOOD.sample)
+experience.mood_list.add(MOOD.sample)
+experience.mood_list.add(MOOD.sample)
 experience.save
+
 booking = Booking.new(
   when: Date.today,
   instructions: "none",
@@ -66,6 +70,9 @@ experience = Experience.new(
   cost: Faker::Number.decimal(l_digits: 2, r_digits: 2),
   time: "1-2 hours"
 )
+experience.mood_list.add(MOOD.sample)
+experience.mood_list.add(MOOD.sample)
+experience.mood_list.add(MOOD.sample)
 experience.save
 booking = Booking.new(
   when: Date.today,
@@ -95,6 +102,9 @@ experience = Experience.new(
   cost: Faker::Number.decimal(l_digits: 2, r_digits: 2),
   time: "30 minutes"
 )
+experience.mood_list.add(MOOD.sample)
+experience.mood_list.add(MOOD.sample)
+experience.mood_list.add(MOOD.sample)
 experience.save
 booking = Booking.new(
   when: Date.today,
@@ -124,6 +134,9 @@ experience = Experience.new(
   cost: Faker::Number.decimal(l_digits: 2, r_digits: 2),
   time: "45 minutes"
 )
+experience.mood_list.add(MOOD.sample)
+experience.mood_list.add(MOOD.sample)
+experience.mood_list.add(MOOD.sample)
 experience.save
 booking = Booking.new(
   when: Date.today,
@@ -153,6 +166,9 @@ experience = Experience.new(
   cost: Faker::Number.decimal(l_digits: 2, r_digits: 2),
   time: "10 minutes"
 )
+experience.mood_list.add(MOOD.sample)
+experience.mood_list.add(MOOD.sample)
+experience.mood_list.add(MOOD.sample)
 experience.save
 booking = Booking.new(
   when: Date.today,
