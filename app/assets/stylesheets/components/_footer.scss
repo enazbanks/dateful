@@ -21,14 +21,18 @@
   padding: 0px 10px;
 }
 
-.list-inline-item {
-  opacity: 0.80;
-}
-
 .nav-links a {
   opacity: 0.80;
 }
 
+.list-inline-item {
+  opacity: 0.80;
+ }
+
 .footer-links a:hover {
+  opacity: 1.00;
+}
+
+.list-inline-item:hover {
   opacity: 1.00;
 }
