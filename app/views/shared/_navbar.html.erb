@@ -27,20 +27,20 @@
         <ul class="navbar-nav me-auto">
           <% if user_signed_in? %>
 
-              <li class="nav-item dropdown ">
-                <%= link_to "#{current_user.first_name} #{current_user.last_name}", "#", class: "btn btn-light dropdown-toggle", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <li class="nav-item dropdown position-relative mx-3" style="z-index:1">
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                <%# <%= current_user.total_pending %>
+                  <span class="visually-hidden">unread messages</span>
+              </span>
+
+              <%= image_tag "avatar.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                   <%= link_to "View My Dates", "#", class: "dropdown-item"%>
                   <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
                 </div>
               </li>
-            <li class="nav-item dropdown position-relative mx-3" style="z-index:1">
-              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                <%#= current_user.total_pending %>
-                  <span class="visually-hidden">unread messages</span>
-              </span>
-
-              <%= image_tag "avatar.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <li class="nav-item dropdown ">
+                <%= link_to "#{current_user.first_name} #{current_user.last_name}", "#", class: "btn btn-light dropdown-toggle", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                   <%= link_to "View My Dates", "#", class: "dropdown-item"%>
                   <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
