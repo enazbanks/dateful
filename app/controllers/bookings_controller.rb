@@ -1,7 +1,14 @@
 class BookingsController < ApplicationController
+
+  def index
+    @bookings = policy_scope(Booking)
+    @experiences = Experience.all
+  end
+
   def new
     @experience = Experience.find(params[:experience_id])
     @booking = Booking.new
+    authorize @booking
     # render 'bookings/new.html.erb'
   end
 
@@ -10,6 +17,7 @@ class BookingsController < ApplicationController
     @experience = Experience.find(params[:experience_id])
     @booking.experience = @experience
     @booking.user = current_user
+    authorize @booking
     # @booking.save # => true/false
     if @booking.save
       redirect_to experience_path(@experience)

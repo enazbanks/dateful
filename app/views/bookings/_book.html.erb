@@ -1,0 +1,13 @@
+<div>
+  <li>
+    <div>
+      <strong> <%= link_to booking.experience.title, experience_path(booking.experience) %> </strong>
+    </div>
+    <%= "You are booked in for #{booking.when}" %>
+    <%= "#{booking.instructions}" %>
+    <%= "Total cost $#{booking.experience.cost}" %>
+    <div>
+      <%= booking.status %>
+    </div>
+  </li>
+</div>

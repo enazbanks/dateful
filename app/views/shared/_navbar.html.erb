@@ -9,12 +9,8 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto">
-          <% if user_signed_in? %>
-            <li class="nav-item active">
-              <%= link_to "Home", "/", class: "nav-link" %>
-            </li>
+       <% if user_signed_in? %>
+          <div class="navbar-nav">
             <li class="nav-item">
               <%= link_to "Explore", "/", class: "nav-link" %>
             </li>
@@ -24,30 +20,29 @@
               <li class="nav-item">
               <%= link_to "Weekend Away", "#", class: "nav-link" %>
             </li>
-            </li>
-              <li class="nav-item">
-              <%= link_to "Log In", "#", class: "nav-link" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "Avatar", "#", class: "btn btn-light" %>
-            </li>
+          </div>
+        <% end %>
 
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto">
+          <% if user_signed_in? %>
+
+              <li class="nav-item dropdown ">
+                <%= link_to "#{current_user.first_name} #{current_user.last_name}", "#", class: "btn btn-light dropdown-toggle", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                  <%= link_to "View My Dates", "#", class: "dropdown-item"%>
+                  <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
+                </div>
+              </li>
             <li class="nav-item dropdown position-relative mx-3" style="z-index:1">
               <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                <%= current_user.total_pending %>
+                <%#= current_user.total_pending %>
                   <span class="visually-hidden">unread messages</span>
               </span>
 
               <%= image_tag "avatar.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                  <%= link_to "View My Dates", my_dates_path, class: "dropdown-item"%>
-                  <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
-                </div>
-              </li>
-              <li class="nav-item dropdown ">
-                <%= link_to "#{current_user.first_name} #{current_user.last_name}", "#", class: "btn btn-light dropdown-toggle", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                  <%= link_to "View My Dates", my_dates_path, class: "dropdown-item"%>
+                  <%= link_to "View My Dates", "#", class: "dropdown-item"%>
                   <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
                 </div>
               </li>
