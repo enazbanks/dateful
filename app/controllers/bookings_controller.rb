@@ -1,4 +1,9 @@
 class BookingsController < ApplicationController
+
+  def index
+    @bookings = bookings.all
+  end
+
   def new
     @experience = Experience.find(params[:experience_id])
     @booking = Booking.new
