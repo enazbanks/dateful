@@ -1,4 +1,4 @@
-class Date < ApplicationRecord
+class Experience < ApplicationRecord
   acts_as_favoritable
   acts_as_taggable_on :tags
   acts_as_taggable_on :mood, :location #You can also configure multiple tag types per model
