@@ -4,6 +4,12 @@ class ExperiencesController < ApplicationController
 
   def index
     @experiences = policy_scope(Experience)
+    if params[:query].present?
+      sql_query = "title ILIKE :query OR description ILIKE :query"
+      @experiences = Experience.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @experiences
+    end
   end
 
   def show
