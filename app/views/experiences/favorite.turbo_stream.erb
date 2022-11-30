@@ -1,0 +1,3 @@
+<%= turbo_stream.replace dom_id(@experience, :favorite_btn) do %>
+  <%= render 'experiences/favorites_turbo', {experience: @experience} %>
+<% end %>

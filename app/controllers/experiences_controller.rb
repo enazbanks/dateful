@@ -19,9 +19,12 @@ class ExperiencesController < ApplicationController
   def favorite
     authorize @experience
     current_user.favorite(@experience)
+    @experience.save
+    puts "hi there"
     respond_to do |format|
+      # format.turbo_stream { render turbo_stream: turbo_stream.replace('dom_id(@experience, :favourite)', partial: 'experiences/index_card', locals: { experience: @experience} )}
       format.turbo_stream
-      format.html { redirect_to experiences_path, status: :see_other, notice: "Favorite Added" }
+      format.html { redirect_to @experience, status: :see_other, notice: "Favorite Added" }
     end
   end
 

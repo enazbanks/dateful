@@ -119,19 +119,28 @@
   border-radius: 8px;
 }
 
+
+.red-heart {
+  left: 556px;
+  top: 30px;
+  position: absolute;
+  color:rgba(214, 49, 49, 1);
+  font-size: larger;
+}
 .avatar-user {
+  left: 556px;
+  top: 25px;
+
+  position: absolute;
   width: 32px;
   height: 32px;
-  left: 514px;
-  top: 25px;
-  position: absolute;
   border-radius: 1000px;
 }
 
 .avatar-partner {
   width: 32px;
   height: 32px;
-  left: 556px;
+  left: 514px;
   top: 25px;
   position: absolute;
   border-radius: 1000px;
