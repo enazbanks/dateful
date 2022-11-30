@@ -1,3 +1,3 @@
-<%= turbo_stream.replace 'favorites' do %>
+<%= turbo_stream.replace dom_id(@experience, :favourite_btn) do %>
   <%= render 'experiences/favorites', {experience: @experience} %>
 <% end %>
