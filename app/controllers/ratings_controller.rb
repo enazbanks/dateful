@@ -7,7 +7,6 @@ class RatingsController < ApplicationController
   end
 
   def create
-    @rating.user = current_user
     @rating = Rating.new(rating_params)
     @booking = Booking.find(params[:booking_id])
     @rating.booking = @booking
