@@ -1,11 +1,29 @@
 <div class="col-12 col-sm-6 p-2">
 <div class="index-container">
     <div class="index-card">
-        <p class="cost"><%= experience.cost %></p>
+        <% if experience.cost.positive? %>
+          <p class="cost">
+            <%= experience.cost %>
+          </p>
+        <% else %>
+          <p class="cost text-success">
+            free
+          </p>
+        <% end %>
         <p class="description"><%= experience.description %></p>
         <p class="reviews"><%="#{experience.ratings.length} reviews"%></p>
         <p class="mood"> <%= experience.mood_list %> </p>
-        <p class="dollars">$$$</p>
+        <% if experience.cost > 75 %>
+          <p class="dollars"><strong>$$$$</strong></p>
+        <% elsif experience.cost > 50 %>
+          <p class="dollars"><strong>$$$</strong>$</p>
+        <% elsif experience.cost > 25 %>
+         <p class="dollars"><strong>$$</strong>$$</p>
+        <% elsif experience.cost.positive? %>
+          <p class="dollars"><strong>$</strong>$$$</p>
+        <% else %>
+          <p class="dollars text-success"><strong>free</strong></p>
+        <% end %>
         <%# <p class="host">MK Tours</p> %>
         <p class="exp-title"><%= experience.title %></p>
         <p class="exp-address"><%= experience.address %></p>
