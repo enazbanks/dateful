@@ -21,4 +21,8 @@ class ExperiencePolicy < ApplicationPolicy
   def unfavorite?
     true
   end
+
+  def my_favorite?
+    true
+  end
 end
