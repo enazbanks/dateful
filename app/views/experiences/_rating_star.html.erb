@@ -1,0 +1,12 @@
+<div class="star-rating">
+  <% if @experience.average_rating %>
+    <%  @experience.average_rating.times do %>
+      <i class="fa-solid fa-star"></i>
+    <% end %>
+    <%  (5 - @experience.average_rating).times do %>
+      <i class="fa-regular fa-star"></i>
+    <% end %>
+  <% else %>
+    <%= "Unrated" %>
+  <% end %>
+</div>
