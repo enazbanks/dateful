@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_28_213717) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_29_052501) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -47,12 +47,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_28_213717) do
     t.text "instructions"
     t.boolean "suprise"
     t.integer "status"
-    t.bigint "date_id", null: false
+    t.bigint "experience_id", null: false
     t.bigint "couple_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["couple_id"], name: "index_bookings_on_couple_id"
-    t.index ["date_id"], name: "index_bookings_on_date_id"
+    t.index ["experience_id"], name: "index_bookings_on_experience_id"
   end
 
   create_table "couples", force: :cascade do |t|
@@ -60,7 +60,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_28_213717) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "dates", force: :cascade do |t|
+  create_table "experiences", force: :cascade do |t|
     t.string "title"
     t.text "description"
     t.string "address"
@@ -70,15 +70,31 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_28_213717) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "favorites", force: :cascade do |t|
+    t.string "favoritable_type", null: false
+    t.bigint "favoritable_id", null: false
+    t.string "favoritor_type", null: false
+    t.bigint "favoritor_id", null: false
+    t.string "scope", default: "favorite", null: false
+    t.boolean "blocked", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["blocked"], name: "index_favorites_on_blocked"
+    t.index ["favoritable_id", "favoritable_type"], name: "fk_favoritables"
+    t.index ["favoritable_type", "favoritable_id", "favoritor_type", "favoritor_id", "scope"], name: "uniq_favorites__and_favoritables", unique: true
+    t.index ["favoritable_type", "favoritable_id"], name: "index_favorites_on_favoritable"
+    t.index ["favoritor_id", "favoritor_type"], name: "fk_favorites"
+    t.index ["favoritor_type", "favoritor_id"], name: "index_favorites_on_favoritor"
+    t.index ["scope"], name: "index_favorites_on_scope"
+  end
+
   create_table "ratings", force: :cascade do |t|
     t.integer "stars"
     t.text "comment"
-    t.bigint "date_id", null: false
     t.bigint "booking_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["booking_id"], name: "index_ratings_on_booking_id"
-    t.index ["date_id"], name: "index_ratings_on_date_id"
   end
 
   create_table "special_days", force: :cascade do |t|
@@ -129,12 +145,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_28_213717) do
     t.string "encrypted_password", default: "", null: false
     t.date "dob"
     t.string "phone"
+    t.bigint "couple_id"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "couple_id"
     t.index ["couple_id"], name: "index_users_on_couple_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -143,9 +159,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_28_213717) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bookings", "couples"
-  add_foreign_key "bookings", "dates"
+  add_foreign_key "bookings", "experiences"
   add_foreign_key "ratings", "bookings"
-  add_foreign_key "ratings", "dates"
   add_foreign_key "special_days", "couples"
   add_foreign_key "taggings", "tags"
+  add_foreign_key "users", "couples"
 end

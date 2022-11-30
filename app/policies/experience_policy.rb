@@ -13,4 +13,16 @@ class ExperiencePolicy < ApplicationPolicy
   def show?
     true
   end
+
+  def favorite?
+    true
+  end
+
+  def unfavorite?
+    true
+  end
+
+  def my_favorite?
+    true
+  end
 end

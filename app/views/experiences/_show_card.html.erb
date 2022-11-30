@@ -1,0 +1,59 @@
+<div class="show-container">
+  <h2 class="title"><%= @experience.title.capitalize  %></h2>
+  <%# icon with text Bertha likes this date idea%>
+  <div class="d-flex justify-content-between" style="margin-left: 20px;">
+    <div class= "d-flex">
+      <i class="fa-regular fa-location-dot"></i>
+      <h6><%= @experience.address.capitalize %></h6>
+    </div>
+    <div class="d-flex">
+      <% if user_signed_in? %>
+        <% if @experience.favorited_by?(current_user.partner) %>
+          <img class="avatar-show" src="https://via.placeholder.com/229x193">
+          <h6>likes this!</h6>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <div class="d-flex">
+    <div class="m-4 w-100 h-100"> <%= render 'experiences/img_carousel'%></div>
+      <div class="show-card p-2 m-4 flex-shrink-1">
+        <div class="d-flex flex-column mb-3">
+          <h6 class="p-2 d-flex justify-content-center">Avaliable Dates</h6>
+            <div class="calendar p-2 d-flex justify-content-center">calendar
+            </div>
+              <div class="p-2 d-flex justify-content-end">
+                <div><%=@experience.cost %></div>
+              </div>
+              <div class="p-2 d-flex justify-content-end">
+                <div class="button-calendar">
+                  <p style="margin-bottom: 0px;">
+                  <%= link_to "Book Now", "/bookings", class: "button-white-text"%> </p>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+  <div class="d-flex">
+    <div class="info-card m-4 w-100 d-flex align-items-start flex-column">
+      <h4>What you'll do</h4>
+        <br>
+      <h6> <%= @experience.description %> </h6>
+      <div class="mood-icons mt-auto"> <%= @experience.mood_list %> </div>
+    </div>
+    <div class="map-card p-2 m-4 flex-shrink-1"> map </div>
+  </div>
+  <div class="d-flex">
+    <div class="show-card m-4 w-50">
+    <div class="d-flex flex-column mb-3">
+      <h6 class="p-2 d-flex justify-content-start m-2">Reviews</h6>
+      <div class="p-2 d-flex justify-content-start m-2">Review 1</div>
+        <div class="p-2 d-flex justify-content-end">
+          <div class="button-calendar">
+            <p style="margin-bottom: 0px;">
+            <%= link_to "Review", "/bookings", class: "button-white-text"%> </p>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
