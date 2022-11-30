@@ -38,9 +38,9 @@ experience = Experience.new(
   time: "1-2 hours"
 )
 
-experience.mood_list.add(MOOD.sample)
-experience.mood_list.add(MOOD.sample)
-experience.mood_list.add(MOOD.sample)
+rand(1..4).times do
+  experience.mood_list.add(MOOD.sample)
+end
 experience.save
 
 booking = Booking.new(
@@ -185,4 +185,34 @@ rand(10..50).times do
   rating.save
 end
 
+experience = Experience.new(
+  title: 'Mealful',
+  description: "The Best Meal you've ever had",
+  address: "At the Table",
+  cost: 0,
+  time: "1-2 hours"
+)
+
+rand(1..4).times do
+  experience.mood_list.add(MOOD.sample)
+end
+experience.save
+
+booking = Booking.new(
+  when: Date.today,
+  instructions: "none",
+  suprise: false,
+  status: 3
+)
+booking.couple = couple
+booking.experience = experience
+booking.save
+rand(10..50).times do
+  rating = Rating.new(
+    stars: 5,
+    comment: Faker::Restaurant.review
+  )
+  rating.booking = booking
+  rating.save
+end
 puts "seed done"

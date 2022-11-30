@@ -24,7 +24,7 @@ class ExperiencesController < ApplicationController
     respond_to do |format|
       # format.turbo_stream { render turbo_stream: turbo_stream.replace('dom_id(@experience, :favourite)', partial: 'experiences/index_card', locals: { experience: @experience} )}
       format.turbo_stream
-      format.html { redirect_to @experience, status: :see_other, notice: "Favorite Added" }
+      format.html { redirect_back fallback_location: experiences_path, status: :see_other, notice: "Favorite Added" }
     end
   end
 
@@ -33,7 +33,7 @@ class ExperiencesController < ApplicationController
     current_user.unfavorite(@experience)
     respond_to do |format|
       format.turbo_stream
-      format.html { redirect_to experiences_path, status: :see_other, notice: "Favorite removed" }
+      format.html { redirect_back fallback_location: experiences_path, status: :see_other, notice: "Favorite removed" }
     end
   end
 
