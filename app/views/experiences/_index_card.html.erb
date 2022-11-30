@@ -3,16 +3,27 @@
     <div class="index-card">
         <p class="cost"><%= experience.cost %></p>
         <p class="description"><%= experience.description %></p>
-        <p class="reviews">(22 reviews)</p>
-        <p class="mood">Adventure |  City  |  Activity </p>
+        <p class="reviews"><%="#{experience.ratings.length} reviews"%></p>
+        <p class="mood"> <%= experience.mood_list %> </p>
         <p class="dollars">$$$</p>
         <%# <p class="host">MK Tours</p> %>
         <p class="exp-title"><%= experience.title %></p>
         <p class="exp-address"><%= experience.address %></p>
 
         <img class="exp-image" src="https://via.placeholder.com/229x193"/>
+        <div class="star-rating">
+          <% if experience.average_rating %>
+            <%  experience.average_rating.times do %>
+              <i class="fa-solid fa-star"></i>
+            <% end %>
+            <%  (5 - experience.average_rating).times do %>
+              <i class="fa-regular fa-star"></i>
+            <% end %>
+          <% else %>
+            <%= "Unrated" %>
+          <% end %>
+        </div>
 
-        <div class="fa-solid fa-star"></div>
         <% if user_signed_in? %>
           <%= render 'experiences/favorites', {experience: experience} %>
         <% end %>
