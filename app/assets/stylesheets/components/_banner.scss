@@ -1,0 +1,22 @@
+.banner {
+  height: 100vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-image: image-url("sunset_hike.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+h1 {
+  color: white;
+  font-weight: bold;
+  font-size: 45px;
+  // text-align: right;
+  // background-position: right;
+}
+
+.btn {
+  padding: 15px 50px;
+  // text-align: right;
+}

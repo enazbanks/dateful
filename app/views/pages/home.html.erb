@@ -1,3 +1,48 @@
-<h1>Welcome to Dateful</h1>
-<div style="height:100vh;">
+<div>
+
+  <div class="banner">
+    <div class="banner-content text-center">
+      <h1>Not sure what to do? Perfect.</h1>
+      <%= link_to "Plan my date", "#", class: "btn btn-lg btn-primary"  %>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>What mood are you in?</h2>
+  </div>
+
+  <%= render "pages/carousel" %>
+
+  <div>
+    <div class="section big-card-container">
+
+      <%= link_to "#" do %>
+        <div class="big-card card-category picnic">
+          <h2 style="text-decoration: none;">Go on a romantic date</h2>
+        </div>
+      <% end %>
+
+      <%= link_to "#" do %>
+        <div class="big-card card-category feast">
+          <h2 style="text-decoration: none;">Have a relaxed date at home</h2>
+      </div>
+      <% end %>
+
+    </div>
+  </div>
 </div>
+
+<%# <div class="row">
+<div class="col"> %>
+
+<%# <section>
+  <div class="title">
+    <h2>Go on a romantic date</h2>
+    <div class="btn"></div>
+   </div>
+  <div class="row">
+    <div class="col"></div>
+      <img src="./img/couple_picnic_forest.jpeg" alt="">
+      <a href="#" class="ctn">Experiences</a>
+  </div>
+</section> %>

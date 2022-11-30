@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+require "open-uri"
 
 MOOD = %w[Romantic Adventrous Relaxed Playful Spicy Foodie Instagrammable Pamper Active Retro]
 couple = Couple.new
@@ -16,16 +17,22 @@ frank = User.create!(
   email: 'frank@lewagon.com',
   password: 'franktest'
 )
-frank.couple = couple
-frank.save
 
-User.create(
+frank.couple = couple
+file = URI.open("https://cdn.pixabay.com/photo/2016/12/13/16/17/dancer-1904467__340.png")
+frank.avatar.attach(io: file, filename: "nes.png", content_type: "image/png")
+frank.save!
+
+bertha = User.create(
   first_name: 'Bertha',
   last_name: 'liaison',
   email: 'bertha@lewagon.com',
   password: 'berthatest',
   couple: couple
 )
+file = URI.open("https://cdn.pixabay.com/photo/2019/03/21/20/29/eyewear-4071870__340.jpg")
+bertha.avatar.attach(io: file, filename: "nes.png", content_type: "image/png")
+bertha.save!
 
 couple = Couple.new
 couple.save
@@ -38,9 +45,9 @@ experience = Experience.new(
   time: "1-2 hours"
 )
 
-experience.mood_list.add(MOOD.sample)
-experience.mood_list.add(MOOD.sample)
-experience.mood_list.add(MOOD.sample)
+rand(1..4).times do
+  experience.mood_list.add(MOOD.sample)
+end
 experience.save
 
 booking = Booking.new(
@@ -185,4 +192,34 @@ rand(10..50).times do
   rating.save
 end
 
+experience = Experience.new(
+  title: 'Mealful',
+  description: "The Best Meal you've ever had",
+  address: "At the Table",
+  cost: 0,
+  time: "1-2 hours"
+)
+
+rand(1..4).times do
+  experience.mood_list.add(MOOD.sample)
+end
+experience.save
+
+booking = Booking.new(
+  when: Date.today,
+  instructions: "none",
+  suprise: false,
+  status: 3
+)
+booking.couple = couple
+booking.experience = experience
+booking.save
+rand(10..50).times do
+  rating = Rating.new(
+    stars: 5,
+    comment: Faker::Restaurant.review
+  )
+  rating.booking = booking
+  rating.save
+end
 puts "seed done"
