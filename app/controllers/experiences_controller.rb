@@ -37,6 +37,11 @@ class ExperiencesController < ApplicationController
     end
   end
 
+  def my_favorite
+    authorize Experience
+    @experiences = policy_scope(Experience).select { |exp| exp.favorited_by?(current_user) || exp.favorited_by?(current_user.partner) }
+  end
+
   private
 
   def find_experience
