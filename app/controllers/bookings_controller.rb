@@ -16,7 +16,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @experience = Experience.find(params[:experience_id])
     @booking.experience = @experience
-    @booking.user = current_user
+    @booking.couple = current_user.couple
     authorize @booking
     # @booking.save # => true/false
     if @booking.save

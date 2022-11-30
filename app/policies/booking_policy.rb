@@ -4,7 +4,7 @@ class BookingPolicy < ApplicationPolicy
     def resolve
       #   scope.all
       # user.admin? ? scope.all : scope.where(user: user)
-      scope.where(user: user) # If users can only see their bookings
+      scope.where(couple: user.couple) # If users can only see their bookings
       # scope.where("name LIKE 't%'") # If users can only see meals starting with `t
     end
   end
