@@ -19,7 +19,7 @@ frank = User.create!(
 frank.couple = couple
 frank.save
 
-bertha = User.create(
+User.create(
   first_name: 'Bertha',
   last_name: 'liaison',
   email: 'bertha@lewagon.com',
@@ -52,7 +52,7 @@ booking = Booking.new(
 booking.couple = couple
 booking.experience = experience
 booking.save
-25.times do
+rand(10..50).times do
   y = rand(0..5)
   x = rand(0..5)
   y = x if x > y
@@ -71,9 +71,9 @@ experience = Experience.new(
   cost: Faker::Number.decimal(l_digits: 2, r_digits: 2),
   time: "1-2 hours"
 )
-experience.mood_list.add(MOOD.sample)
-experience.mood_list.add(MOOD.sample)
-experience.mood_list.add(MOOD.sample)
+rand(1..4).times do
+  experience.mood_list.add(MOOD.sample)
+end
 experience.save
 booking = Booking.new(
   when: Date.today,
@@ -84,10 +84,8 @@ booking = Booking.new(
 booking.couple = couple
 booking.experience = experience
 booking.save
-25.times do
+rand(10..50).times do
   y = rand(0..5)
-  x = rand(0..5)
-  y = x if x > y
   rating = Rating.new(
     stars: y,
     comment: Faker::Restaurant.review
@@ -103,9 +101,9 @@ experience = Experience.new(
   cost: Faker::Number.decimal(l_digits: 2, r_digits: 2),
   time: "30 minutes"
 )
-experience.mood_list.add(MOOD.sample)
-experience.mood_list.add(MOOD.sample)
-experience.mood_list.add(MOOD.sample)
+rand(1..4).times do
+  experience.mood_list.add(MOOD.sample)
+end
 experience.save
 booking = Booking.new(
   when: Date.today,
@@ -116,10 +114,8 @@ booking = Booking.new(
 booking.couple = couple
 booking.experience = experience
 booking.save!
-25.times do
-  y = rand(0..5)
-  x = rand(0..5)
-  y = x if x > y
+rand(10..50).times do
+  y = rand(1..5)
   rating = Rating.new(
     stars: y,
     comment: Faker::Restaurant.review
@@ -135,9 +131,9 @@ experience = Experience.new(
   cost: Faker::Number.decimal(l_digits: 2, r_digits: 2),
   time: "45 minutes"
 )
-experience.mood_list.add(MOOD.sample)
-experience.mood_list.add(MOOD.sample)
-experience.mood_list.add(MOOD.sample)
+rand(1..4).times do
+  experience.mood_list.add(MOOD.sample)
+end
 experience.save
 booking = Booking.new(
   when: Date.today,
@@ -148,10 +144,8 @@ booking = Booking.new(
 booking.couple = couple
 booking.experience = experience
 booking.save
-25.times do
-  y = rand(0..5)
-  x = rand(0..5)
-  y = x if x > y
+rand(10..50).times do
+  y = rand(2..5)
   rating = Rating.new(
     stars: y,
     comment: Faker::Restaurant.review
@@ -167,9 +161,10 @@ experience = Experience.new(
   cost: Faker::Number.decimal(l_digits: 2, r_digits: 2),
   time: "10 minutes"
 )
-experience.mood_list.add(MOOD.sample)
-experience.mood_list.add(MOOD.sample)
-experience.mood_list.add(MOOD.sample)
+rand(1..4).times do
+  experience.mood_list.add(MOOD.sample)
+end
+
 experience.save
 booking = Booking.new(
   when: Date.today,
@@ -180,10 +175,8 @@ booking = Booking.new(
 booking.couple = couple
 booking.experience = experience
 booking.save
-25.times do
-  y = rand(0..5)
-  x = rand(0..5)
-  y = x if x > y
+rand(10..50).times do
+  y = rand(3..5)
   rating = Rating.new(
     stars: y,
     comment: Faker::Restaurant.review

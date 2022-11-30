@@ -36,8 +36,8 @@
 }
 
 .reviews {
-  left: 337px;
-  top: 197px;
+  left: 355px;
+  top: 200px;
   position: absolute;
   font-size: 10px;
   font-weight: 500;
@@ -109,14 +109,17 @@
   border-radius: 8px;
 }
 
-.fa-star {
-  width: 9.85px;
-  height: 9.40px;
+.star-rating {
   left: 257px;
   top: 193px;
   position: absolute;
+}
+.fa-star {
+  width: 9.85px;
+  height: 9.40px;
   color: rgba(214, 49, 49, 1);
   border-radius: 8px;
+  margin: 2px;
 }
 
 .avatar-user {
