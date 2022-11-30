@@ -1,9 +1,12 @@
-<%= turbo_frame_tag 'favorites' do %>
+<%= turbo_frame_tag dom_id(experience, :favorite) do %>
   <% if experience.favorited_by?(current_user) %>
-    <img class="avatar-user" src="https://via.placeholder.com/229x193" %>
-    <%= link_to 'unfavorite', unfavorite_experience_path(experience), data: { turbo_method: :patch} %>
+    <%= link_to  unfavorite_experience_path(experience), data: { turbo_method: :patch} do%>
+      <img class="avatar-user favor-user" src="https://via.placeholder.com/229x193" %>
+    <% end %>
   <% else %>
-    <%= link_to 'favorite', favorite_experience_path(experience), data: { turbo_method: :patch } %>
+    <%= link_to favorite_experience_path(experience), data: { turbo_method: :patch } do %>
+      <i class="fa-regular fa-heart favor-user red-heart"></i>
+    <% end %>
   <% end %>
   <% if experience.favorited_by?(current_user.partner) %>
     <img class="avatar-partner" src="https://via.placeholder.com/229x193">
