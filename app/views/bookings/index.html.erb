@@ -4,10 +4,10 @@
       <ul>
         <% @bookings.each do |booking| %>
           <% unless booking.secret? && booking.secret_list.includes(current_user.partner.id.to_s)%>
-          <div class="col">
-              <%= render 'bookings/book', {booking: booking} %>
-
-          </div>
+            <div class="col">
+                <%= render 'bookings/book', {booking: booking} %>
+            </div>
+          <% end %>
         <% end %>
       </ul>
   </div>
