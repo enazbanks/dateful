@@ -20,7 +20,7 @@ frank = User.create!(
 
 frank.couple = couple
 file = URI.open("https://cdn.pixabay.com/photo/2016/12/13/16/17/dancer-1904467__340.png")
-frank.avatar.attach(io: file, filename: "nes.png", content_type: "image/png")
+frank.avatar.attach(io: file, filename: "frank.png", content_type: "image/png")
 frank.save!
 
 bertha = User.create(
@@ -31,7 +31,7 @@ bertha = User.create(
   couple: couple
 )
 file = URI.open("https://cdn.pixabay.com/photo/2019/03/21/20/29/eyewear-4071870__340.jpg")
-bertha.avatar.attach(io: file, filename: "nes.png", content_type: "image/png")
+bertha.avatar.attach(io: file, filename: "bertha.png", content_type: "image/png")
 bertha.save!
 
 couple = Couple.new

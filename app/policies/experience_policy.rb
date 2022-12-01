@@ -6,6 +6,10 @@ class ExperiencePolicy < ApplicationPolicy
     end
   end
 
+  def mood?
+    true
+  end
+
   def index?
     true
   end
