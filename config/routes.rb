@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'ratings/new'
   get 'ratings/create'
+  get 'ratings/show'
   devise_for :users
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -20,6 +21,6 @@ Rails.application.routes.draw do
   end
 
   resources :bookings, only: [:index, :edit, :update] do
-    resources :ratings, only: [:new, :create ]
+    resources :ratings, only: [:new, :create, :show]
   end
 end
