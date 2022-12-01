@@ -58,7 +58,7 @@
 .dollars {
   width: 20px;
   left: 553px;
-  top: 70px;
+  top: 90px;
   position: absolute;
   font-size: 13px;
   font-weight: 500;
@@ -121,13 +121,25 @@
   border-radius: 8px;
   margin: 2px;
 }
-
-
 .red-heart {
   left: 556px;
   top: 30px;
   position: absolute;
   color:rgba(214, 49, 49, 1);
+  font-size: larger;
+}
+#red-mask {
+  left: 556px;
+  top: 30px;
+  position: absolute;
+  color:rgba(214, 49, 49, 1);
+  font-size: larger;
+}
+#gold-mask {
+  color:darkgoldenrod;
+  left: 556px;
+  top: 65px;
+  position: absolute;
   font-size: larger;
 }
 .avatar-user {
@@ -139,7 +151,10 @@
   height: 32px;
   border-radius: 1000px;
 }
-
+.avatar-secret {
+  border-radius: 3px;
+  border-color: black;
+}
 .avatar-partner {
   width: 32px;
   height: 32px;

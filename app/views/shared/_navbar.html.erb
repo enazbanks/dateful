@@ -1,7 +1,7 @@
 <%= turbo_frame_tag 'navbar' do %>
   <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
     <div class="container-fluid">
-      <%= link_to "/dates", class: "navbar-brand", target:"_top" do %>
+      <%= link_to "/", class: "navbar-brand", target:"_top" do %>
         <%= image_tag "dateful_logo.png", alt: "Logo" %>
       <% end %>
 
@@ -12,13 +12,17 @@
        <% if user_signed_in? %>
           <div class="navbar-nav">
             <li class="nav-item">
-              <%= link_to "Explore", "/", class: "nav-link" %>
+              <%= link_to "Explore", experiences_path, class: "nav-link" %>
             </li>
             <li class="nav-item">
-              <%= link_to "Activities", "#", class: "nav-link" %>
+              <%= link_to "Bookings", bookings_path, class: "nav-link" %>
             </li>
               <li class="nav-item">
-              <%= link_to "Weekend Away", "#", class: "nav-link" %>
+              <%= link_to "Special Days", "#", class: "nav-link" %>
+            </li>
+            </li>
+              <li class="nav-item">
+              <%= link_to "Favourites", my_favorite_experiences_path, class: "nav-link" %>
             </li>
           </div>
         <% end %>
@@ -34,15 +38,13 @@
               </span>
 
               <%= image_tag "avatar.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                  <%= link_to "View My Dates", "#", class: "dropdown-item"%>
-                  <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
+                <div>
                 </div>
               </li>
               <li class="nav-item dropdown ">
-                <%= link_to "#{current_user.first_name} #{current_user.last_name}", "#", class: "btn btn-light dropdown-toggle", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                <%= link_to "#{current_user.first_name} #{current_user.last_name}", "#", class: "btn btn-light dropdown-toggle", id: "name_button", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                  <%= link_to "View My Dates", "#", class: "dropdown-item"%>
+                  <%= link_to "Link Partner", "#", class: "dropdown-item"%>
                   <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
                 </div>
               </li>

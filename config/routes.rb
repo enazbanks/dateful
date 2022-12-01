@@ -13,9 +13,12 @@ Rails.application.routes.draw do
     member do
       patch 'favorite', to: 'favorite', as: :favorite
       patch 'unfavorite', to: 'unfavorite', as: :unfavorite
+      patch 'secret', to: 'secret', as: :secret
+      patch 'unsecret', to: 'unsecret', as: :unsecret
     end
     collection do
       get 'my_favorite', to: 'my_favorite', as: :my_favorite
+      get 'mood', to: 'mood', as: :mood
     end
     resources :bookings, only: [:new, :create]
   end

@@ -1,6 +1,6 @@
 class ExperiencesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
-  before_action :find_experience, only: %i[show favorite unfavorite]
+  before_action :find_experience, only: %i[show favorite unfavorite secret unsecret]
 
   def index
     @experiences = policy_scope(Experience)
@@ -12,6 +12,12 @@ class ExperiencesController < ApplicationController
     end
   end
 
+  def mood
+    authorize Experience
+    @experiences = policy_scope(Experience).select { |exp| exp.mood_list.include?(params[:query]) }
+    @mood = params[:query]
+  end
+
   def show
     authorize @experience
   end
@@ -20,11 +26,29 @@ class ExperiencesController < ApplicationController
     authorize @experience
     current_user.favorite(@experience)
     @experience.save
-    puts "hi there"
     respond_to do |format|
-      # format.turbo_stream { render turbo_stream: turbo_stream.replace('dom_id(@experience, :favourite)', partial: 'experiences/index_card', locals: { experience: @experience} )}
       format.turbo_stream
       format.html { redirect_back fallback_location: experiences_path, status: :see_other, notice: "Favorite Added" }
+    end
+  end
+
+  def secret
+    authorize @experience
+    @experience.secret_list.add(current_user.id)
+    @experience.save
+    respond_to do |format|
+      format.turbo_stream
+      format.html { redirect_back fallback_location: experiences_path, status: :see_other, notice: "Secret Favourite" }
+    end
+  end
+
+  def unsecret
+    authorize @experience
+    @experience.secret_list.remove(current_user.id.to_s)
+    @experience.save
+    respond_to do |format|
+      format.turbo_stream
+      format.html { redirect_back fallback_location: experiences_path, status: :see_other, notice: "Secret Favourite" }
     end
   end
 
@@ -33,13 +57,13 @@ class ExperiencesController < ApplicationController
     current_user.unfavorite(@experience)
     respond_to do |format|
       format.turbo_stream
-      format.html { redirect_back fallback_location: experiences_path, status: :see_other, notice: "Favorite removed" }
+      format.html { redirect_back fallback_location: experiences_path, status: :see_other, notice: "Secret removed" }
     end
   end
 
   def my_favorite
     authorize Experience
-    @experiences = policy_scope(Experience).select { |exp| exp.favorited_by?(current_user) || exp.favorited_by?(current_user.partner) }
+    @experiences = policy_scope(Experience).select { |exp| exp.favorited_by?(current_user) || exp.favorited_by?(current_user.partner) || exp.secret_list.include?(current_user.id.to_s) }
   end
 
   private

@@ -6,6 +6,10 @@ class ExperiencePolicy < ApplicationPolicy
     end
   end
 
+  def mood?
+    true
+  end
+
   def index?
     true
   end
@@ -19,6 +23,14 @@ class ExperiencePolicy < ApplicationPolicy
   end
 
   def unfavorite?
+    true
+  end
+
+  def secret?
+    true
+  end
+
+  def unsecret?
     true
   end
 
