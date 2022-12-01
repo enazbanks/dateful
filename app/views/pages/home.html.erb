@@ -3,7 +3,7 @@
   <div class="banner">
     <div class="banner-content text-center">
       <h1>Not sure what to do? Perfect.</h1>
-      <%= link_to "Plan my date", "#", class: "btn btn-lg btn-primary"  %>
+      <%= link_to "Plan my date", experiences_path, class: "btn btn-lg btn-primary"  %>
     </div>
   </div>
 
@@ -16,13 +16,13 @@
   <div>
     <div class="section big-card-container">
 
-      <%= link_to "#" do %>
+      <%= link_to mood_experiences_path(query: "Romantic") do %>
         <div class="big-card card-category picnic">
           <h2 style="text-decoration: none;">Go on a romantic date</h2>
         </div>
       <% end %>
 
-      <%= link_to "#" do %>
+      <%= link_to mood_experiences_path(query: "Relaxed") do %>
         <div class="big-card card-category feast">
           <h2 style="text-decoration: none;">Have a relaxed date at home</h2>
       </div>
