@@ -49,10 +49,14 @@
       <h6 class="p-2 d-flex justify-content-start m-2">Reviews</h6>
       <div class="p-2 d-flex justify-content-start m-2">Review 1</div>
         <div class="p-2 d-flex justify-content-end">
-          <div class="button-calendar">
-            <p style="margin-bottom: 0px;">
-            <%= link_to "Review", "/bookings", class: "button-white-text"%> </p>
-          </div>
+          <% @experience.bookings.each do |booking| %>
+            <% if booking.user_completed_booking? && booking.couple == current_user.couple %>
+              <div class="button-calendar">
+                <p style="margin-bottom: 0px;">
+                  <%= link_to "Review", experience_path(@experience), data: {turbo_method: :rating}, class: "button-white-text" %>
+              </div>
+            <% end %>
+          <% end %>
       </div>
     </div>
   </div>
