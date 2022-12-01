@@ -1,12 +1,12 @@
 <div class="container">
   <div class="row justify-content-center" style="margin-top: 50px; margin-bottom: 200px;">
   <div class="col-12 col-md-6">
-    <%= simple_form_for([@special_days]) do |f| %>
+    <%= simple_form_for([@special_day]) do |f| %>
       <%= f.error_notification %>
       <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
       <div class="form-inputs">
-        <%= f.input :special_day, placeholder: '...'%>
+        <%= f.input :title, placeholder: '...'%>
         <%= f.input :date, as: :date, placeholder: '...'%>
       </div>
 

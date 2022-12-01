@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   get 'ratings/new'
   get 'ratings/create'
-  get 'special_days/new'
-  get 'special_days/create'
   devise_for :users
   root to: "pages#home"
+  # root to: 'about_us#show'
+  # root to: 'contact_us#show'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :couples, only: [:new, :edit, :update]
   # Defines the root path route ("/")
@@ -27,5 +27,5 @@ Rails.application.routes.draw do
     resources :ratings, only: [:new, :create ]
   end
 
-  resources :special_days, only: [:new, :create, :destroy]
+  resources :special_days, only: [:index, :create, :destroy]
 end
