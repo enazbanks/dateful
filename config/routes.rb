@@ -3,8 +3,11 @@ Rails.application.routes.draw do
   get 'ratings/create'
   devise_for :users
   root to: "pages#home"
+  post 'join', to: 'couples#join', as: :join
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  resources :couples, only: [:new, :edit, :update]
+  resources :couples, only: %i[new create] do
+
+  end
   # Defines the root path route ("/")
   # root "articles#index"
   resources :experiences do

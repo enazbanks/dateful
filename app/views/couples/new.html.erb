@@ -1,0 +1,20 @@
+<br>
+<div class="container col-4">
+  <h1>You are not currently in a couple</h1>
+</div>
+  <%= link_to "make a new couple", couples_path, data: { turbo_method: :post} %>
+<br>
+<div class="container col-4">
+</div>
+<div class="container col-4">
+  <form action='/join' method="post">
+    <label for="email">Partners Email:</label>
+    <input type="text" id="email" name="email"><br><br>
+    <input type="submit" value="Submit">
+  </form>
+</div>
+<br>
+
+<div class="container col-4">
+  <%= link_to "Back to Dates", experiences_path %>
+</div>
