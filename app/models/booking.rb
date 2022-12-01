@@ -1,5 +1,6 @@
 class Booking < ApplicationRecord
   validates :when, :status, presence: true
+  acts_as_taggable_on :secret
   belongs_to :experience
   belongs_to :couple
   has_one :rating

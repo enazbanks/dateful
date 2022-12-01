@@ -26,6 +26,14 @@ class ExperiencePolicy < ApplicationPolicy
     true
   end
 
+  def secret?
+    true
+  end
+
+  def unsecret?
+    true
+  end
+
   def my_favorite?
     true
   end
