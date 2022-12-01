@@ -25,10 +25,12 @@
           <p class="dollars text-success"><strong>free</strong></p>
         <% end %>
         <%# <p class="host">MK Tours</p> %>
-        <p class="exp-title"><%= experience.title %></p>
+        <p class="exp-title"><%= link_to experience.title, experience_path(experience) %></p>
         <p class="exp-address"><%= experience.address %></p>
 
+        <%= link_to experience_path(experience)do %>
         <img class="exp-image" src="https://via.placeholder.com/229x193"/>
+        <% end %>
         <div class="star-rating">
           <% if experience.average_rating %>
             <%  experience.average_rating.times do %>
@@ -48,7 +50,7 @@
         <div class="button-red">
         <div class="button-red-base">
           <p style="margin-bottom: 0px;">
-          <%= link_to "Book Now", "/bookings", class: "button-white-text"%> </p>
+          <%= link_to "Book Now", new_experience_booking_path(experience), class: "button-white-text"%> </p>
         </div>
         </div>
     </div>
