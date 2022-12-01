@@ -16,7 +16,9 @@
       <i class="fa-solid fa-mask" id="gold-mask"></i>
     <% end %>
   <% end %>
-  <% if experience.favorited_by?(current_user.partner) %>
-    <%= cl_image_tag current_user.partner.avatar.key,  crop: :fill, class:"avatar-partner"%>
+  <% if current_user.partner %>
+    <% if experience.favorited_by?(current_user.partner) %>
+      <%= cl_image_tag current_user.partner.avatar.key,  crop: :fill, class:"avatar-partner"%>
+    <% end %>
   <% end %>
 <% end %>
