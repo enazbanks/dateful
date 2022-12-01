@@ -223,3 +223,10 @@ rand(10..50).times do
   rating.save
 end
 puts "seed done"
+
+SpecialDay.create(
+  couple: Couple.first,
+  title: "anniversary",
+  date: Date.today
+
+)
