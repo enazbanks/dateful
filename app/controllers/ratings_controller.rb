@@ -1,5 +1,11 @@
 class RatingsController < ApplicationController
   # new_booking_rating GET    /bookings/:booking_id/ratings/new
+
+  def show
+    @booking = Booking.find(params[:booking_id])
+    @rating = Rating.all
+  end
+
   def new
     @booking = Booking.find(params[:booking_id])
     @rating = Rating.new
@@ -13,8 +19,9 @@ class RatingsController < ApplicationController
     authorize @rating
     if @rating.save
       redirect_to experience_path(@booking.experience)
+      flash[:notice] = 'Thank you for reviewing this date!'
     else
-      render :new, status: :unprocessable_entity
+      # render :new, status: :unprocessable_entity
     end
   end
 
