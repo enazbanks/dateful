@@ -1,0 +1,23 @@
+<div class="col-12 col-sm-6 p-2">
+  <div class="special-days-container">
+    <div class="special-days-card">
+      <% if special_days.present? %>
+        <p>
+          <%= special_days.all %>
+        </p>
+      <% else %>
+        <p>You have no saved Special Days
+        </p>
+      <% end %>
+
+      <p class="name"><%= special_day.name %></p>
+      <p class="date"><%= special_day.date %></p>
+      <%= link_to "Remove", "#", class: "button-white-text"%>
+
+    </div>
+  </div>
+  <p>Add Special Day
+  </p>
+  <%# <%= link_to "Add", "#", class: "button-white-text"%>
+  <%= render "special_days/new_special_day" %>
+</div>

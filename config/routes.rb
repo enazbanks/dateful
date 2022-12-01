@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   get 'ratings/new'
   get 'ratings/create'
+  get 'special_days/new'
+  get 'special_days/create'
   devise_for :users
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -21,4 +23,6 @@ Rails.application.routes.draw do
   resources :bookings, only: [:index, :edit, :update] do
     resources :ratings, only: [:new, :create ]
   end
+
+  resources :special_days, only: [:new, :create, :destroy]
 end
