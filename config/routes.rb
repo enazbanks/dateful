@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
   get 'ratings/new'
   get 'ratings/create'
+  get 'ratings/show'
   devise_for :users
   root to: "pages#home"
-  # root to: 'about_us#show'
-  # root to: 'contact_us#show'
+  post 'join', to: 'couples#join', as: :join
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  resources :couples, only: [:new, :edit, :update]
+  resources :couples, only: %i[new create] do
+
+  end
   # Defines the root path route ("/")
   # root "articles#index"
   resources :experiences do
@@ -24,7 +26,7 @@ Rails.application.routes.draw do
   end
 
   resources :bookings, only: [:index, :edit, :update] do
-    resources :ratings, only: [:new, :create ]
+    resources :ratings, only: [:new, :create, :show]
   end
 
   resources :special_days, only: [:index, :create, :destroy]

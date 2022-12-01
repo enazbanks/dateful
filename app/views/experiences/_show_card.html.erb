@@ -43,21 +43,28 @@
     </div>
     <div class="map-card p-2 m-4 flex-shrink-1"> map </div>
   </div>
-  <div class="d-flex">
-    <div class="show-card m-4 w-50">
-    <div class="d-flex flex-column mb-3">
-      <h6 class="p-2 d-flex justify-content-start m-2">Reviews</h6>
-      <div class="p-2 d-flex justify-content-start m-2">Review 1</div>
-        <div class="p-2 d-flex justify-content-end">
-          <% @experience.bookings.each do |booking| %>
-            <% if booking.user_completed_booking? && booking.couple == current_user.couple %>
-              <%# = render "ratings/new_rating" %>
-              <div class="button-calendar">
-                <p style="margin-bottom: 0px;">
-                  <%= link_to "Review", new_booking_rating_path(@experience), data: {turbo_method: :new}, class: "button-white-text" %>
-              </div>
-            <% end %>
+  <div class="review-card">
+    <h6>Reviews</h6>
+    <div class="reviews-list"> <%= render "experiences/rating_list" %></div>
+    <div class="p-2 d-flex justify-content-center">
+      <% @experience.bookings.each do |booking| %>
+        <% if booking.user_completed_booking? && booking.couple == current_user.couple && !booking.rating%>
+          <div class="rating-form col-12 col-md-6">
+          <h6>Review your date!</h6>
+          <br>
+          <%= simple_form_for([booking, @rating]) do |f| %>
+            <%= f.error_notification %>
+            <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+            <div class="form-inputs">
+              <%= f.input :stars, collection: (1..5), placeholder: '1-5 ⭐s'%>
+              <%= f.input :comment, placeholder: '...'%>
+            </div>
+            <div class="form-actions">
+              <%= f.button :button, "Submit", class: "btn btn-primary btn-submit" %>
+            </div>
           <% end %>
+        <% end %>
+      <% end %>
       </div>
     </div>
   </div>
