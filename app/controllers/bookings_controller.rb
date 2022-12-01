@@ -20,6 +20,7 @@ class BookingsController < ApplicationController
     authorize @booking
     # @booking.save # => true/false
     if @booking.save
+      @booking.secret_list.add(current_user.id) if @booking.secret?
       redirect_to experience_path(@experience)
       flash[:notice] = 'Successfully Booked'
     else

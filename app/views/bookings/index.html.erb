@@ -3,6 +3,7 @@
       <h1> Your Bookings </h1>
       <ul>
         <% @bookings.each do |booking| %>
+          <% unless booking.secret? && booking.secret_list.includes(current_user.partner.id.to_s)%>
           <div class="col">
               <%= render 'bookings/book', {booking: booking} %>
 
