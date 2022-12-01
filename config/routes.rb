@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     end
     collection do
       get 'my_favorite', to: 'my_favorite', as: :my_favorite
+      get 'mood', to: 'mood', as: :mood
     end
     resources :bookings, only: [:new, :create]
   end

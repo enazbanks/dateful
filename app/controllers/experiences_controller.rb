@@ -12,6 +12,12 @@ class ExperiencesController < ApplicationController
     end
   end
 
+  def mood
+    authorize Experience
+    @experiences = policy_scope(Experience).select { |exp| exp.mood_list.include?(params[:query]) }
+    @mood = params[:query]
+  end
+
   def show
     authorize @experience
   end
