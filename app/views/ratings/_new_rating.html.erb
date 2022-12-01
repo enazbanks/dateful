@@ -1,6 +1,6 @@
-<div class="container">
-  <div class="row justify-content-center" style="margin-top: 50px; margin-bottom: 200px;">
-  <div class="col-12 col-md-6">
+<%# <div class="container">
+  <div class="row justify-content-center" style="margin-top: 50px; margin-bottom: 200px;"> %>
+  <div class="rating-form col-12 col-md-6">
     <%= simple_form_for([@booking, @rating]) do |f| %>
       <%= f.error_notification %>
       <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
@@ -15,5 +15,5 @@
       </div>
     <% end %>
   </div>
-  </div>
-</div>
+  <%# </div>
+</div> %>

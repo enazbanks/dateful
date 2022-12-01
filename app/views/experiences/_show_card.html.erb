@@ -51,9 +51,10 @@
         <div class="p-2 d-flex justify-content-end">
           <% @experience.bookings.each do |booking| %>
             <% if booking.user_completed_booking? && booking.couple == current_user.couple %>
+              <%# = render "ratings/new_rating" %>
               <div class="button-calendar">
                 <p style="margin-bottom: 0px;">
-                  <%= link_to "Review", experience_path(@experience), data: {turbo_method: :rating}, class: "button-white-text" %>
+                  <%= link_to "Review", new_booking_rating_path(@experience), data: {turbo_method: :new}, class: "button-white-text" %>
               </div>
             <% end %>
           <% end %>
