@@ -2,6 +2,7 @@ class CoupleController < ApplicationController
   before_action :find_couple, only: %i[edit update]
 
   def new
+    @couple = Couple.new
   end
 
   def create
