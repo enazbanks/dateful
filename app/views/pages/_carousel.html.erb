@@ -34,42 +34,52 @@
     <div class="carousel-item" data-bs-interval="2000">
       <div class="container">
         <div class="cards">
-        <div class="card-category adventurous">
-          Home
-        </div>
-
-        <div class="card-category roadtrip">
-          Active
-        </div>
-
-        <div class="card-category foodie">
-          Pamper
-        </div>
-
-        <div class="card-category relaxed">
-          Romantic
-        </div>
+        <%= link_to mood_experiences_path(query: "Home") do %>
+          <div class="card-category adventurous">
+            Home
+          </div>
+        <% end %>
+        <%= link_to mood_experiences_path(query: "Active") do %>
+          <div class="card-category roadtrip">
+            Active
+          </div>
+        <% end %>
+        <%= link_to mood_experiences_path(query: "Pamper") do %>
+          <div class="card-category foodie">
+            Pamper
+          </div>
+        <% end %>
+        <%= link_to mood_experiences_path(query: "Romantic") do %>
+          <div class="card-category relaxed">
+            Romantic
+          </div>
+        <% end %>
       </div>
     </div>
     </div>
     <div class="carousel-item" data-bs-interval="2000">
       <div class="container">
         <div class="cards">
-        <div class="card-category adventurous">
-          Night
-        </div>
-
-        <div class="card-category roadtrip">
-          Instagrammable
-        </div>
-
-        <div class="card-category foodie">
-          Playful
-        </div>
-
-        <div class="card-category relaxed">
-          Spicy
-        </div>
+        <%= link_to mood_experiences_path(query: "Night") do %>
+          <div class="card-category adventurous">
+            Night
+          </div>
+        <% end %>
+        <%= link_to mood_experiences_path(query: "Instagrammable") do %>
+          <div class="card-category roadtrip">
+            Instagrammable
+          </div>
+        <% end %>
+        <%= link_to mood_experiences_path(query: "Foodie") do %>
+          <div class="card-category foodie">
+            Playful
+          </div>
+        <% end %>
+        <%= link_to mood_experiences_path(query: "Home") do %>
+          <div class="card-category relaxed">
+            Spicy
+          </div>
+        <% end %>
       </div>
     </div>
     </div>

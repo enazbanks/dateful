@@ -3,12 +3,9 @@
   margin: 20px 20px 50px 20px;
 }
 
-#h2{
+#card_link {
   text-decoration: none;
-  margin: 10px 10px 10px 20px;
-  float: top;
 }
-
 .cards {
   // display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -36,6 +33,9 @@
   align-items: center;
   display: flex;
   margin: 50px 20px 50px 20px;
+  a{
+    text-decoration: none;
+  }
   // text-decoration: none;
 }
 
@@ -50,7 +50,11 @@
   justify-content: space-between;
   text-decoration: none;
   margin: 50px 20px 50px 20px;
-  // text-decoration: none;
+  #h2{
+    text-decoration: none;
+    margin: 10px 10px 10px 20px;
+    float: top;
+  }
 }
 
 #banner-button {
@@ -77,6 +81,9 @@
   width: 300px;
   background-size: cover;
   background-position: center;
+  a{
+    text-decoration: none;
+  }
 }
 .roadtrip {
   background-image: url("roadtrip.png");
@@ -112,6 +119,12 @@
   background-position: center;
   // display: flex;
   // margin: 20px 20px 20px 20px;
+}
+
+.carousel-item {
+  a{
+    text-decoration: none;
+  }
 }
 // Smallest device
 // @media (min-width: 100px) and (max-width: 575px) {
