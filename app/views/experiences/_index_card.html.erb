@@ -29,8 +29,14 @@
         <p class="exp-address"><%= experience.address %></p>
 
         <%= link_to experience_path(experience)do %>
-        <img class="exp-image" src="https://via.placeholder.com/229x193"/>
+          <% if experience.photos.attached? %>
+            <% experience.photos.each do |photo| %>
+            <%= cl_image_tag photo.key, class: "exp-image" %>
+            <% end %>
+          <% end %>
+        <%# <img class="exp-image" src="https://via.placeholder.com/229x193"/> %>
         <% end %>
+
         <div class="star-rating">
           <% if experience.average_rating %>
             <%  experience.average_rating.times do %>
@@ -50,7 +56,7 @@
         <div class="button-red">
         <div class="button-red-base">
           <p style="margin-bottom: 0px;">
-          <%= link_to "Book Now", "/bookings", class: "button-white-text"%> </p>
+          <%= link_to "Book Now", new_experience_booking_path(experience), class: "button-white-text"%> </p>
         </div>
         </div>
     </div>
