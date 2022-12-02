@@ -45,7 +45,10 @@
   </div>
   <div class="review-container">
     <h6>Reviews</h6>
-     <%= render "experiences/rating_list" %>
+    <%= turbo_frame_tag dom_id(@experience, :ratings) do %>
+     <%= render "experiences/rating_list", ratings: @ratings %>
+    <%end%>
+    <%= link_to "Load more", experience_path(@experience, page: @next_page), id: dom_id(@experience, :load_ratings), data: {turbo_method: :post} %>
     <div class="p-2 d-flex justify-content-center">
       <% @experience.bookings.each do |booking| %>
         <% if booking.user_completed_booking? && booking.couple == current_user.couple && !booking.rating%>
