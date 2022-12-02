@@ -1,4 +1,11 @@
 // Specific CSS for your home-page
+.banner {
+  margin: 20px 20px 50px 20px;
+}
+
+#card_link {
+  text-decoration: none;
+}
 .cards {
   // display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -14,24 +21,51 @@
 
 .section {
   // width: 80%;
-  margin: 80px auto;
+  // margin: 80px auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin: 50px 20px 50px 20px;
 }
 
 .big-card-container{
   justify-content: space-between;
+  align-items: center;
+  display: flex;
+  margin: 50px 20px 50px 20px;
+  a{
+    text-decoration: none;
+  }
+  // text-decoration: none;
 }
 
 .big-card {
-  height: 800px;
-  width: 1000px;
+  // display: flex;
+  height: 700px;
+  width: 900px;
+  // height: auto;
+  // width: auto;
   color: white;
   align-items: center;
   justify-content: space-between;
   text-decoration: none;
+  margin: 50px 20px 50px 20px;
+  #h2{
+    text-decoration: none;
+    margin: 10px 10px 10px 20px;
+    float: top;
+  }
 }
+
+#banner-button {
+  width: 200px;
+  align-items: center;
+  float: right;
+}
+
+// #banner_header {
+//   float: right;
+// }
 
 .btn {
   padding: 15px 50px;
@@ -73,11 +107,15 @@
   background-image: url("couple_picnic_forest.jpeg");
   background-size: cover;
   background-position: center;
+  // display: flex;
+  // margin: 20px 20px 20px 20px;
 }
 .feast {
   background-image: url("feast.png");
   background-size: cover;
   background-position: center;
+  // display: flex;
+  // margin: 20px 20px 20px 20px;
 }
 // Smallest device
 // @media (min-width: 100px) and (max-width: 575px) {

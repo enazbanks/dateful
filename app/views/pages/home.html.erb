@@ -2,8 +2,8 @@
 
   <div class="banner">
     <div class="banner-content text-center">
-      <h1>Not sure what to do? Perfect.</h1>
-      <%= link_to "Plan my date", experiences_path, class: "btn btn-primary"  %>
+      <h1 id="banner_header">Not sure what to do? Perfect.</h1>
+      <%= link_to "Plan my date", experiences_path, class: "btn btn-primary", id: "banner-button"  %>
     </div>
   </div>
 
@@ -14,17 +14,17 @@
   <%= render "pages/carousel" %>
 
   <div>
-    <div class="section big-card-container">
+    <div class="big-card-container">
 
-      <%= link_to mood_experiences_path(query: "Romantic"), class: "text-decoration-none", style: "text-decoration: none;" do %>
-        <div class="big-card card-category picnic text-decoration-none">
-          <h2 class="text-decoration-none">Go on a romantic date</h2>
+      <%= link_to mood_experiences_path(query: "Romantic"), id: "card_link" do %>
+        <div class="big-card card-category picnic">
+          <h2 id="h2", style="text-decoration: none;">Go on a romantic date</h2>
         </div>
       <% end %>
 
       <%= link_to mood_experiences_path(query: "Relaxed") do %>
         <div class="big-card card-category feast">
-          <h2 style="text-decoration: none;">Have a relaxed date at home</h2>
+          <h2 id="h2", style="text-decoration: none;">Have a relaxed date at home</h2>
       </div>
       <% end %>
 

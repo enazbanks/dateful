@@ -11,12 +11,12 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
 
     <style> @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');</style>
-
+    <%= favicon_link_tag "flavicon.png", rel: "icon", type: "image/png" %>
   </head>
 
   <body>
   <%= render "shared/navbar" %>
-  <div style = "width: 90%; margin: auto;">
+  <div style = "width: 90%; margin: auto; height:fit-content;">
   <%= yield %>
   </div>
   <%= render "shared/footer" %>
