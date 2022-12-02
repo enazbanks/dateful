@@ -22,6 +22,13 @@ class ExperiencesController < ApplicationController
     authorize @experience
     # @booking = Booking.new
     @rating = Rating.new
+    @page = params[:page] ? params[:page].to_i : 1
+    @next_page = @page + 1
+    @ratings = @experience.ratings.limit(10).offset(@page * 10)
+    respond_to do |format|
+      format.turbo_stream
+      format.html
+    end
   end
 
   def favorite

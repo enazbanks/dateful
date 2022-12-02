@@ -43,9 +43,12 @@
     </div>
     <div class="map-card p-2 m-4 flex-shrink-1"> map </div>
   </div>
-  <div class="review-card">
+  <div class="review-container">
     <h6>Reviews</h6>
-    <div class="reviews-list"> <%= render "experiences/rating_list" %></div>
+    <%= turbo_frame_tag dom_id(@experience, :ratings) do %>
+     <%= render "experiences/rating_list", ratings: @ratings %>
+    <%end%>
+    <%= link_to "Load more", experience_path(@experience, page: @next_page), id: dom_id(@experience, :load_ratings), data: {turbo_method: :post} %>
     <div class="p-2 d-flex justify-content-center">
       <% @experience.bookings.each do |booking| %>
         <% if booking.user_completed_booking? && booking.couple == current_user.couple && !booking.rating%>

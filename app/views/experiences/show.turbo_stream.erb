@@ -1,0 +1,7 @@
+<%= turbo_stream.append dom_id(@experience, :ratings) do %>
+  <%= render partial: "experiences/rating_list", locals: { ratings: @ratings }  %>
+<% end %>
+
+<%= turbo_stream.update dom_id(@experience, :load_ratings) do %>
+ <%= link_to "Load more", experience_path(@experience, page: @next_page), id:dom_id(@experience, :load_ratings), data: {turbo_method: :post} %>
+<% end %>
