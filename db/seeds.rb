@@ -7,6 +7,13 @@
 #   Character.create(name: "Luke", movie: movies.first)
 require "open-uri"
 
+Couple.destroy_all
+Booking.destroy_all
+User.destroy_all
+SpecialDay.destroy_all
+Experience.destroy_all
+Rating.destroy_all
+
 MOOD = %w[Romantic Adventrous Relaxed Playful Spicy Foodie Instagrammable Pamper Active Retro]
 couple = Couple.new
 couple.save
