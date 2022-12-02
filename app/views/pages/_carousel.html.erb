@@ -34,21 +34,26 @@
     <div class="carousel-item" data-bs-interval="2000">
       <div class="container">
         <div class="cards">
-        <div class="card-category adventurous">
-          Adventurous
-        </div>
-
-        <div class="card-category roadtrip">
-          Roadtrip
-        </div>
-
-        <div class="card-category foodie">
-          Foodie
-        </div>
-
-        <div class="card-category relaxed">
-          Relaxed
-        </div>
+        <%= link_to mood_experiences_path(query: "Adventurous") do %>
+          <div class="card-category adventurous">
+            Adventurous
+          </div>
+        <% end %>
+        <%= link_to mood_experiences_path(query: "Roadtrip") do %>
+          <div class="card-category roadtrip">
+            Roadtrip
+          </div>
+        <% end %>
+        <%= link_to mood_experiences_path(query: "Foodie") do %>
+          <div class="card-category foodie">
+            Foodie
+          </div>
+        <% end %>
+        <%= link_to mood_experiences_path(query: "Relaxed") do %>
+          <div class="card-category relaxed">
+            Relaxed
+          </div>
+        <% end %>
       </div>
     </div>
     </div>
