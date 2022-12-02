@@ -23,7 +23,7 @@ class BookingsController < ApplicationController
     # @booking.save # => true/false
     if @booking.save
       @booking.secret_list.add(current_user.id) if @booking.suprise?
-      redirect_to experience_path(@experience)
+      redirect_to bookings_path
       flash[:notice] = 'Successfully Booked'
     else
       render :new, status: :unprocessable_entity
