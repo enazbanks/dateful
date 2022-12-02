@@ -7,6 +7,14 @@
 #   Character.create(name: "Luke", movie: movies.first)
 require "open-uri"
 
+SpecialDay.destroy_all
+User.destroy_all
+Rating.destroy_all
+Experience.destroy_all
+Booking.destroy_all
+Couple.destroy_all
+
+
 MOOD = %w[Romantic Adventrous Relaxed Playful Spicy Foodie Instagrammable Pamper Active Retro]
 couple = Couple.new
 couple.save
@@ -41,6 +49,7 @@ experience = Experience.new(
   title: 'zoomies playdate',
   description: 'Playtime for Dogs',
   address: "park near you",
+  instructions: "Bring your best boy doggo, head to the nearest park with your partner and don't forget the frisbee",
   cost: Faker::Number.decimal(l_digits: 2, r_digits: 2),
   time: "1-2 hours"
 )
@@ -79,7 +88,8 @@ experience = Experience.new(
   description: 'So many Balters',
   address: "Balter HQ",
   cost: Faker::Number.decimal(l_digits: 2, r_digits: 2),
-  time: "1-2 hours"
+  time: "1-2 hours",
+  instructions: "Get in early before George snags all the cold ones, suggest you organise a taxi for the ride home"
 )
 file = URI.open("https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0b/da/55/64.jpg")
 experience.photos.attach(io: file, filename: "balter.jpg", content_type: "image/jpg")
@@ -113,7 +123,8 @@ experience = Experience.new(
   description: 'Stonks!',
   address: "Office near you",
   cost: Faker::Number.decimal(l_digits: 2, r_digits: 2),
-  time: "30 minutes"
+  time: "30 minutes",
+  instructions: "Forget bitcon, ruby gems are the new hotness, Bring a calculator and your love of graphs"
 )
 file = URI.open("https://www.bonobology.com/wp-content/uploads/2018/01/signs-you%E2%80%99ve-married-a-foodie.jpg")
 experience.photos.attach(io: file, filename: "stock.jpg", content_type: "image/jpg")
@@ -146,6 +157,7 @@ experience = Experience.new(
   title: 'Gruappo Ride',
   description: 'My Legs hurt',
   address: "The Open road",
+  instructions: "Follow Jan, or if you can't keep up Ryan is happy to take you on a more relaxed ride",
   cost: Faker::Number.decimal(l_digits: 2, r_digits: 2),
   time: "45 minutes"
 )
@@ -180,6 +192,7 @@ experience = Experience.new(
   title: 'Star Gazing',
   description: 'Astrolog to the rescue',
   address: "Look up stupid",
+  instructions: "Bring a picnic blanket and meet at 6pm near the Observatory",
   cost: Faker::Number.decimal(l_digits: 2, r_digits: 2),
   time: "10 minutes"
 )
@@ -215,6 +228,7 @@ experience = Experience.new(
   title: 'Mealful',
   description: "The Best Meal you've ever had",
   address: "At the Table",
+  instructions: "Don't eat beforehand",
   cost: 0,
   time: "1-2 hours"
 )
@@ -249,6 +263,5 @@ puts "seed done"
 SpecialDay.create(
   couple: Couple.first,
   title: "anniversary",
-  date: Date.today
-
+  date: Date.today + 1
 )
