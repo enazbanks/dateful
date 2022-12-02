@@ -81,6 +81,9 @@
   width: 300px;
   background-size: cover;
   background-position: center;
+  a{
+    text-decoration: none;
+  }
 }
 .roadtrip {
   background-image: url("roadtrip.png");
@@ -116,6 +119,12 @@
   background-position: center;
   // display: flex;
   // margin: 20px 20px 20px 20px;
+}
+
+.carousel-item {
+  a{
+    text-decoration: none;
+  }
 }
 // Smallest device
 // @media (min-width: 100px) and (max-width: 575px) {
