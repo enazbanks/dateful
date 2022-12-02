@@ -81,6 +81,6 @@ test:
 #
 production:
   <<: *default
-  database: dateful_production
-  username: dateful
-  password: <%= ENV["DATEFUL_DATABASE_PASSWORD"] %>
+  database: lit-retreat-24424_production
+  username: lit-retreat-24424
+  password: <%= ENV["LIT-RETREAT-24424_DATABASE_PASSWORD"] %>

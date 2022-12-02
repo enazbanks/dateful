@@ -78,6 +78,7 @@ experience = Experience.new(
   cost: Faker::Number.decimal(l_digits: 2, r_digits: 2),
   time: "1-2 hours"
 )
+
 rand(1..4).times do
   experience.mood_list.add(MOOD.sample)
 end
