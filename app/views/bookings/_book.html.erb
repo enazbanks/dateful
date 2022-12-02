@@ -1,13 +1,27 @@
-<div>
-  <li>
-    <div>
-      <strong> <%= link_to booking.experience.title, experience_path(booking.experience) %> </strong>
+<div class="index-container">
+  <div class="p-3 justify-content-center">
+    <div class="card h-30">
+      <div class="card-body">
+        <p class="card-title">
+          <strong> <%= link_to booking.experience.title, experience_path(booking.experience) %> </strong>
+        </p>
+
+        <p class="card-title">
+        <%= "You are booked in for: #{booking.when}" %>
+        </p>
+
+        <p class="card-title">
+        <%= "#{booking.instructions}" %>
+        </p>
+
+        <p class="card-title">
+        <%= "Total cost: $#{booking.experience.cost}" %>
+        </p>
+
+        <p class="card-title">
+          <%= "Status: #{booking.status}" %>
+        </p>
+      </div>
     </div>
-    <%= "You are booked in for #{booking.when}" %>
-    <%= "#{booking.instructions}" %>
-    <%= "Total cost $#{booking.experience.cost}" %>
-    <div>
-      <%= booking.status %>
-    </div>
-  </li>
+  </div>
 </div>

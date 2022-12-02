@@ -1,13 +1,13 @@
-  <div id="bookings" class="d-flex flex-wrap justify-content-evenly pb-4" style = "height: 100vh;>
+  <div id="bookings" class="d-flex flex-wrap justify-content-evenly pb-4" style = "height: 100vh;">
     <div class="col">
       <h1> Your Bookings </h1>
-      <ul>
+      <%# <ul> %>
         <% @bookings.each do |booking| %>
           <% unless booking.suprise? && booking.secret_list.includes(current_user.partner.id.to_s)%>
-            <div class="col">
+            <%# <div class="col"> %>
                 <%= render 'bookings/book', {booking: booking} %>
-            </div>
+            <%# </div> %>
           <% end %>
         <% end %>
-      </ul>
+      <%# </ul> %>
   </div>
