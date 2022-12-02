@@ -1,0 +1,25 @@
+<div class="col-12 col-sm-6 p-2", id = "page">
+  <div class="special-days-container">
+    <div class="special-days-card">
+      <%# <% raise %>
+      <%= current_user.dob %>
+      <%= current_user.partner.dob %>
+      <% if @special_days.present? %>
+        <% @special_days.each do |day| %>
+        <p class="title"><%= day.title.capitalize %></p>
+        <p class="date"><%= day.date %></p>
+        <%= link_to "Remove", "#", class: "button-white-text"%>
+      <%end%>
+      <% else %>
+        <p>You have no saved Special Days
+        </p>
+      <% end %>
+    </div>
+  </div>
+  <div>
+    <h3>Add Special Day Below:
+    </h3>
+  </div>
+  <%# <%= link_to "Add", "#", class: "button-white-text" %>
+  <%= render "special_days/new_special_day" %>
+</div>

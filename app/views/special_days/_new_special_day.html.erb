@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row justify-content-center" style="margin-top: 50px; margin-bottom: 200px;">
+  <div class="col-12 col-md-6">
+    <%= simple_form_for (@special_day) do |f| %>
+      <%= f.error_notification %>
+      <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+      <div class="form-inputs">
+        <%= f.input :title, placeholder: '...'%>
+        <%= f.input :date, start_year: Date.today.year - 100, end_year: Date.today.year%>
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :button, "Submit", class: "btn btn-primary btn-submit" %>
+      </div>
+    <% end %>
+  </div>
+  </div>
+</div>
