@@ -44,6 +44,9 @@ experience = Experience.new(
   cost: Faker::Number.decimal(l_digits: 2, r_digits: 2),
   time: "1-2 hours"
 )
+file = URI.open("https://images.fosterwebmarketing.com/994/two-dogs-playing-tug-of-war-with-disc.jpg")
+experience.photos.attach(io: file, filename: "zoomies.jpg", content_type: "image/jpg")
+experience.save!
 
 rand(1..4).times do
   experience.mood_list.add(MOOD.sample)
@@ -78,6 +81,9 @@ experience = Experience.new(
   cost: Faker::Number.decimal(l_digits: 2, r_digits: 2),
   time: "1-2 hours"
 )
+file = URI.open("https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0b/da/55/64.jpg")
+experience.photos.attach(io: file, filename: "balter.jpg", content_type: "image/jpg")
+experience.save!
 
 rand(1..4).times do
   experience.mood_list.add(MOOD.sample)
@@ -109,6 +115,10 @@ experience = Experience.new(
   cost: Faker::Number.decimal(l_digits: 2, r_digits: 2),
   time: "30 minutes"
 )
+file = URI.open("https://www.bonobology.com/wp-content/uploads/2018/01/signs-you%E2%80%99ve-married-a-foodie.jpg")
+experience.photos.attach(io: file, filename: "stock.jpg", content_type: "image/jpg")
+experience.save!
+
 rand(1..4).times do
   experience.mood_list.add(MOOD.sample)
 end
@@ -139,6 +149,10 @@ experience = Experience.new(
   cost: Faker::Number.decimal(l_digits: 2, r_digits: 2),
   time: "45 minutes"
 )
+file = URI.open("https://ilovebicycling.com/wp-content/uploads/2018/02/p5pb11906851.jpg")
+experience.photos.attach(io: file, filename: "ride.jpg", content_type: "image/jpg")
+experience.save!
+
 rand(1..4).times do
   experience.mood_list.add(MOOD.sample)
 end
@@ -169,6 +183,10 @@ experience = Experience.new(
   cost: Faker::Number.decimal(l_digits: 2, r_digits: 2),
   time: "10 minutes"
 )
+file = URI.open("https://i.pinimg.com/originals/89/14/10/8914108a20fd73fc44dd2d0b13da4f80.jpg")
+experience.photos.attach(io: file, filename: "star.jpg", content_type: "image/jpg")
+experience.save!
+
 rand(1..4).times do
   experience.mood_list.add(MOOD.sample)
 end
@@ -200,6 +218,9 @@ experience = Experience.new(
   cost: 0,
   time: "1-2 hours"
 )
+file = URI.open("https://static.wixstatic.com/media/78d068_222e7514186a4c7db62ed9e655da89e3~mv2.jpg/v1/fill/w_560,h_374,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/78d068_222e7514186a4c7db62ed9e655da89e3~mv2.jpg")
+experience.photos.attach(io: file, filename: "meal.jpg", content_type: "image/jpg")
+experience.save!
 
 rand(1..4).times do
   experience.mood_list.add(MOOD.sample)
