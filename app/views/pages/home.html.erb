@@ -16,16 +16,16 @@
   <div>
     <div class="big-card-container">
 
-      <%= link_to mood_experiences_path(query: "Romantic"), id: "card_link" do %>
-        <div class="big-card card-category picnic">
+      <%= link_to mood_experiences_path(query: "Romantic") do %>
+        <div class="big-card card-category picnic col-sm-6">
           <h2 id="h2", style="text-decoration: none;">Go on a romantic date</h2>
         </div>
       <% end %>
 
       <%= link_to mood_experiences_path(query: "Relaxed") do %>
-        <div class="big-card card-category feast">
+        <div class="big-card card-category feast col-sm-6">
           <h2 id="h2", style="text-decoration: none;">Have a relaxed date at home</h2>
-      </div>
+        </div>
       <% end %>
 
     </div>
