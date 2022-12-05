@@ -19,7 +19,7 @@ class User < ApplicationRecord
   end
   def add_to_couple
     friend = User.find_by(email: partner_email)
-    if friend
+    if friend && friend.couple.users < 2
       couple = friend.couple
       self.couple = couple
     else
