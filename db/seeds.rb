@@ -16,31 +16,7 @@ Couple.destroy_all
 
 
 MOOD = %w[Romantic Adventrous Relaxed Playful Spicy Foodie Instagrammable Pamper Active Retro]
-couple = Couple.new
-couple.save
 
-frank = User.create!(
-  first_name: 'Frank',
-  last_name: 'liaison',
-  email: 'frank@lewagon.com',
-  password: 'franktest'
-)
-
-frank.couple = couple
-file = URI.open("https://cdn.pixabay.com/photo/2016/12/13/16/17/dancer-1904467__340.png")
-frank.avatar.attach(io: file, filename: "frank.png", content_type: "image/png")
-frank.save!
-
-bertha = User.create(
-  first_name: 'Bertha',
-  last_name: 'liaison',
-  email: 'bertha@lewagon.com',
-  password: 'berthatest',
-  couple: couple
-)
-file = URI.open("https://cdn.pixabay.com/photo/2019/03/21/20/29/eyewear-4071870__340.jpg")
-bertha.avatar.attach(io: file, filename: "bertha.png", content_type: "image/png")
-bertha.save!
 
 couple = Couple.new
 couple.save
@@ -260,8 +236,34 @@ rand(10..50).times do
 end
 puts "seed done"
 
+couple = Couple.new
+couple.save
+
+frank = User.create!(
+  first_name: 'Frank',
+  last_name: 'liaison',
+  email: 'frank@lewagon.com',
+  password: 'franktest'
+)
+
+frank.couple = couple
+file = URI.open("https://cdn.pixabay.com/photo/2016/12/13/16/17/dancer-1904467__340.png")
+frank.avatar.attach(io: file, filename: "frank.png", content_type: "image/png")
+frank.save!
+
+bertha = User.create(
+  first_name: 'Bertha',
+  last_name: 'liaison',
+  email: 'bertha@lewagon.com',
+  password: 'berthatest',
+  couple: couple
+)
+file = URI.open("https://cdn.pixabay.com/photo/2019/03/21/20/29/eyewear-4071870__340.jpg")
+bertha.avatar.attach(io: file, filename: "bertha.png", content_type: "image/png")
+bertha.save!
+
 SpecialDay.create(
-  couple: Couple.first,
+  couple: Couple.last,
   title: "anniversary",
   date: Date.today + 1
 )
