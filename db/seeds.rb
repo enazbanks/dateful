@@ -17,9 +17,32 @@ Couple.destroy_all
 
 MOOD = %w[Romantic Adventrous Relaxed Playful Spicy Foodie Instagrammable Pamper Active Retro]
 
+15.times do 
+  couple = Couple.new
+  couple.save
+  user = User.new(
+    first_name: Faker::Name.male_first_name,
+    last_name: Faker::Name.last_name,
+    email: Faker::Internet.email
+  )
+  file = URI.open("https://i.pravatar.cc/40")
+  user.avatar.attach(io: file, filename: "avatar.jpg", content_type: "image/jpg")
+  user.couple = couple
+  user.save(:validate => false)
+  puts user.name "saved"
+  user = User.new(
+    first_name: Faker::Name.female_first_name,
+    last_name: Faker::Name.last_name,
+    email: Faker::Internet.email
+  )
+  file = URI.open("https://i.pravatar.cc/40")
+  user.avatar.attach(io: file, filename: "avatar.jpg", content_type: "image/jpg")
+  user.couple = couple
+  user.save(:validate => false)
+  puts user.name "saved"
+end
 
-couple = Couple.new
-couple.save
+
 
 experience = Experience.new(
   title: 'zoomies playdate',
@@ -38,16 +61,18 @@ rand(1..4).times do
 end
 experience.save
 
-booking = Booking.new(
-  when: Date.today,
-  instructions: "none",
-  suprise: false,
-  status: 3
-)
-booking.couple = couple
-booking.experience = experience
-booking.save
 rand(10..50).times do
+  booking = Booking.new(
+    when: Date.today,
+    instructions: "none",
+    suprise: false,
+    status: 3
+  )
+
+  booking.couple = Couple.all.sample
+  booking.experience = experience
+  booking.save
+
   y = rand(0..5)
   x = rand(0..5)
   y = x if x > y
@@ -75,16 +100,17 @@ rand(1..4).times do
   experience.mood_list.add(MOOD.sample)
 end
 experience.save
-booking = Booking.new(
-  when: Date.today,
-  instructions: "none",
-  suprise: false,
-  status: 3
-)
-booking.couple = couple
-booking.experience = experience
-booking.save
 rand(10..50).times do
+  booking = Booking.new(
+    when: Date.today,
+    instructions: "none",
+    suprise: false,
+    status: 3
+  )
+  booking.couple = Couple.all.sample
+  booking.experience = experience
+  booking.save
+
   y = rand(0..5)
   rating = Rating.new(
     stars: y,
@@ -110,16 +136,17 @@ rand(1..4).times do
   experience.mood_list.add(MOOD.sample)
 end
 experience.save
-booking = Booking.new(
-  when: Date.today,
-  instructions: "none",
-  suprise: false,
-  status: 3
-)
-booking.couple = couple
-booking.experience = experience
-booking.save!
 rand(10..50).times do
+  booking = Booking.new(
+    when: Date.today,
+    instructions: "none",
+    suprise: false,
+    status: 3
+  )
+  booking.couple = Couple.all.sample
+  booking.experience = experience
+  booking.save!
+
   y = rand(1..5)
   rating = Rating.new(
     stars: y,
@@ -145,16 +172,16 @@ rand(1..4).times do
   experience.mood_list.add(MOOD.sample)
 end
 experience.save
-booking = Booking.new(
-  when: Date.today,
-  instructions: "none",
-  suprise: false,
-  status: 3
-)
-booking.couple = couple
-booking.experience = experience
-booking.save
 rand(10..50).times do
+  booking = Booking.new(
+    when: Date.today,
+    instructions: "none",
+    suprise: false,
+    status: 3
+  )
+  booking.couple = Couple.all.sample
+  booking.experience = experience
+  booking.save
   y = rand(2..5)
   rating = Rating.new(
     stars: y,
@@ -181,16 +208,17 @@ rand(1..4).times do
 end
 
 experience.save
-booking = Booking.new(
-  when: Date.today,
-  instructions: "none",
-  suprise: false,
-  status: 3
-)
-booking.couple = couple
-booking.experience = experience
-booking.save
 rand(10..50).times do
+  booking = Booking.new(
+    when: Date.today,
+    instructions: "none",
+    suprise: false,
+    status: 3
+  )
+  booking.couple = Couple.all.sample
+  booking.experience = experience
+  booking.save
+
   y = rand(3..5)
   rating = Rating.new(
     stars: y,
@@ -216,17 +244,17 @@ rand(1..4).times do
   experience.mood_list.add(MOOD.sample)
 end
 experience.save
-
-booking = Booking.new(
-  when: Date.today,
-  instructions: "none",
-  suprise: false,
-  status: 3
-)
-booking.couple = couple
-booking.experience = experience
-booking.save
 rand(10..50).times do
+  booking = Booking.new(
+    when: Date.today,
+    instructions: "none",
+    suprise: false,
+    status: 3
+  )
+  booking.couple = Couple.all.sample
+  booking.experience = experience
+  booking.save
+
   rating = Rating.new(
     stars: 5,
     comment: Faker::Restaurant.review
@@ -234,7 +262,41 @@ rand(10..50).times do
   rating.booking = booking
   rating.save
 end
-puts "seed done"
+
+experience = Experience.new(
+  title: 'Roadtrip with ServoMate',
+  description: "All the fun of the journey without the hassle",
+  address: "Open road",
+  instructions: "If you kick the tires and nod your head in a sombre manner people will think you know what you are doing",
+  cost: 0,
+  time: "5-6 hours"
+)
+file = URI.open("https://images.unsplash.com/photo-1532224589403-0e70ee166b49?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80")
+experience.photos.attach(io: file, filename: "road.jpg", content_type: "image/jpg")
+experience.save!
+
+rand(1..4).times do
+  experience.mood_list.add(MOOD.sample)
+end
+experience.save
+rand(10..50).times do
+  booking = Booking.new(
+    when: Date.today,
+    instructions: "none",
+    suprise: false,
+    status: 3
+  )
+  booking.couple = Couple.all.sample
+  booking.experience = experience
+  booking.save
+  y = rand(3..5)
+  rating = Rating.new(
+    stars: y,
+    comment: Faker::Restaurant.review
+  )
+  rating.booking = booking
+  rating.save
+end
 
 couple = Couple.new
 couple.save

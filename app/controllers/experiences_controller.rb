@@ -24,7 +24,7 @@ class ExperiencesController < ApplicationController
     @rating = Rating.new
     @page = params[:page] ? params[:page].to_i : 1
     @next_page = @page + 1
-    @ratings = @experience.ratings.limit(10).offset(@page * 10)
+    @ratings = @experience.ratings.limit(4).offset(@page * 5)
     respond_to do |format|
       format.turbo_stream
       format.html

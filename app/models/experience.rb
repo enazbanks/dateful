@@ -10,16 +10,29 @@ class Experience < ApplicationRecord
 
   validates :title, :description, :address, :cost, :time, presence: true
 
-  def average_rating
+  def average_rating_float
     number = ratings.length
     if number.positive?
-      total = 0
+      total = 0.0
       ratings.each do |rating|
         total += rating.stars
       end
       return total unless total.positive?
 
-      return total / number
+      return (total / number).round(1)
+    end
+    false
+  end
+  def average_rating
+    number = ratings.length
+    if number.positive?
+      total = 0.0
+      ratings.each do |rating|
+        total += rating.stars
+      end
+      return total.round unless total.positive?
+
+      return (total / number).round
     end
     false
   end
