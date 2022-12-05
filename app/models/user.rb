@@ -3,6 +3,8 @@ class User < ApplicationRecord
   validates :first_name, presence: true
   belongs_to :couple, optional: true
   has_one_attached :avatar
+  before_create :add_to_couple
+  attr_accessor :partner_email
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -14,6 +16,15 @@ class User < ApplicationRecord
     end
 
     false
+  end
+  def add_to_couple
+    friend = User.find_by(email: partner_email)
+    if friend
+      couple = friend.couple
+      self.couple = couple
+    else
+      self.couple = Couple.new
+    end
   end
 
   def name

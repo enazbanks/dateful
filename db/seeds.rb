@@ -22,6 +22,7 @@ couple.save
 frank = User.create!(
   first_name: 'Frank',
   last_name: 'liaison',
+  dob: Date.new()
   email: 'frank@lewagon.com',
   password: 'franktest'
 )
@@ -38,9 +39,15 @@ bertha = User.create(
   password: 'berthatest',
   couple: couple
 )
+
 file = URI.open("https://cdn.pixabay.com/photo/2019/03/21/20/29/eyewear-4071870__340.jpg")
 bertha.avatar.attach(io: file, filename: "bertha.png", content_type: "image/png")
 bertha.save!
+SpecialDay.create(
+  couple: Couple.first,
+  title: "anniversary",
+  date: Date.today + 1
+)
 
 couple = Couple.new
 couple.save
@@ -260,8 +267,4 @@ rand(10..50).times do
 end
 puts "seed done"
 
-SpecialDay.create(
-  couple: Couple.first,
-  title: "anniversary",
-  date: Date.today + 1
-)
+
