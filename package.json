@@ -12,5 +12,8 @@
   },
   "scripts": {
     "build": "webpack --config webpack.config.js"
+  },
+  "devDependencies": {
+    "@types/bootstrap": "^5.2.6"
   }
 }

@@ -6,14 +6,32 @@
     <% end %>
   <% elsif experience.secret_list.include?(current_user.id.to_s) %>
     <%= link_to unsecret_experience_path(experience), data: { turbo_method: :patch} do%>
-      <i class="fa-solid fa-mask" id="red-mask"></i>
+      <i class="fa-solid fa-mask" id="red-mask"
+        data-controller="popover"
+        data-bs-toggle="popover"
+        data-bs-trigger="hover"
+        data-bs-placement="right"
+        data-bs-content="only you see this favorite">
+        </i>
     <% end %>
   <% else %>
     <%= link_to favorite_experience_path(experience), data: { turbo_method: :patch } do %>
-      <i class="fa-regular fa-heart favor-user red-heart"></i>
+      <i class="fa-regular fa-heart favor-user red-heart"
+        data-controller="popover"
+        data-bs-toggle="popover"
+        data-bs-trigger="hover"
+        data-bs-placement="right"
+        data-bs-content="unfavorite">
+      </i>
     <% end %>
     <%= link_to secret_experience_path(experience), data: { turbo_method: :patch } do %>
-      <i class="fa-solid fa-mask" id="gold-mask"></i>
+      <i class="fa-solid fa-mask" id="gold-mask"
+        data-controller="popover"
+        data-bs-toggle="popover"
+        data-bs-trigger="hover"
+        data-bs-placement="right"
+        data-bs-content="click me if you want to keep it secret from partner">
+      </i>
     <% end %>
   <% end %>
   <% if current_user.partner %>
