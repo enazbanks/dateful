@@ -74,9 +74,9 @@
   background: #b41313;
   font-size: 12px;
 }
-
+//home page carousel 1
 .adventurous {
-  background-image: url("adventurous.png");
+  background-image: url("couple_adventurous.png");
   height: 300px;
   width: 300px;
   background-size: cover;
@@ -106,6 +106,66 @@
   background-size: cover;
   background-position: center;
 }
+//home page carousel 2
+.home {
+  background-image: url("couple_home.png");
+  height: 300px;
+  width: 300px;
+  background-size: cover;
+  background-position: center;
+}
+.active {
+  background-image: url("couple_active.png");
+  height: 300px;
+  width: 300px;
+  background-size: cover;
+  background-position: center;
+}
+.pamper {
+  background-image: url("pamper.png");
+  height: 300px;
+  width: 300px;
+  background-size: cover;
+  background-position: center;
+}
+.romantic {
+  background-image: url("romantic.png");
+  height: 300px;
+  width: 300px;
+  background-size: cover;
+  background-position: center;
+}
+//home page carousel 3
+.night {
+  background-image: url("couple_night.png");
+  height: 300px;
+  width: 300px;
+  background-size: cover;
+  background-position: center;
+}
+.instagrammable {
+  background-image: url("instagrammable.png");
+  height: 300px;
+  width: 300px;
+  background-size: cover;
+  background-position: center;
+}
+.playful {
+  background-image: url("couple_playful.png");
+  height: 300px;
+  width: 300px;
+  background-size: cover;
+  background-position: center;
+}
+.spicy {
+  background-image: url("couple_spicy.png");
+  height: 300px;
+  width: 300px;
+  background-size: cover;
+  background-position: center;
+}
+
+//2 banner images at bottom of home page
 .picnic{
   background-image: url("couple_picnic_forest.jpeg");
   background-size: cover;
@@ -114,7 +174,7 @@
   // margin: 20px 20px 20px 20px;
 }
 .feast {
-  background-image: url("feast.png");
+  background-image: url("couple_at_home.png");
   background-size: cover;
   background-position: center;
   display: table-cell;
