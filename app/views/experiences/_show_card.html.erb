@@ -16,7 +16,7 @@
             <% end %>
           <% elsif @experience.secret_list.include?(current_user.id.to_s) %>
             <%= link_to unsecret_experience_path(@experience), data: { turbo_method: :patch} do%>
-              <i class="fa-solid fa-mask heart-show" id="red-mask"></i>
+              <i class="fa-solid fa-mask heart-show" id="red-mask-show"></i>
             <% end %>
           <% else %>
             <%= link_to favorite_experience_path(@experience), data: { turbo_method: :patch } do %>
@@ -60,7 +60,11 @@
       <h6> <%= @experience.description %> </h6>
       <div class="mood-icons mt-auto"> <%= @experience.mood_list %> </div>
     </section>
-    <section> <%= render 'experiences/map'%> </section>
+    <section>
+    <% if @experience.latitude %>
+      <%= render 'experiences/map'%>
+    <% end %>
+    </section>
   </div>
   <div class="review-container">
     <h6>Reviews</h6>
