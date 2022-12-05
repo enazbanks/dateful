@@ -105,12 +105,11 @@ experience.photos.attach(io: file, filename: "balter1.jpg", content_type: "image
 
 file = URI.open("https://images.unsplash.com/photo-1500138911630-61524ea40324?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80.jpg")
 experience.photos.attach(io: file, filename: "balter2.jpg", content_type: "image/jpg")
-experience.save!
 
 rand(1..4).times do
   experience.mood_list.add(MOOD.sample)
 end
-experience.save
+experience.save!
 rand(10..50).times do
   booking = Booking.new(
     when: Date.today,
