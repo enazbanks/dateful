@@ -29,7 +29,7 @@ MOOD = %w[Romantic Adventrous Relaxed Playful Spicy Foodie Instagrammable Pamper
   user.avatar.attach(io: file, filename: "avatar.jpg", content_type: "image/jpg")
   user.couple = couple
   user.save(:validate => false)
-  puts user.name "saved"
+  puts user.name
   user = User.new(
     first_name: Faker::Name.female_first_name,
     last_name: Faker::Name.last_name,
@@ -39,7 +39,7 @@ MOOD = %w[Romantic Adventrous Relaxed Playful Spicy Foodie Instagrammable Pamper
   user.avatar.attach(io: file, filename: "avatar.jpg", content_type: "image/jpg")
   user.couple = couple
   user.save(:validate => false)
-  puts user.name "saved"
+  puts user.name
 end
 
 
