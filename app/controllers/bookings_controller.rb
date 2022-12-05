@@ -30,6 +30,32 @@ class BookingsController < ApplicationController
     end
   end
 
+  def edit
+    @booking = Booking.find(params[:id])
+    authorize @booking
+  end
+
+  # PATCH  /bookings/:id
+  def update
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    if @booking.update(booking_params)
+      redirect_to bookings_path
+      flash[:notice] = 'Successfully updated'
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    @booking.destroy
+
+    redirect_to bookings_path, status: :see_other
+    flash[:notice] = 'Successfully Deleted'
+  end
+
   private
 
   def booking_params
