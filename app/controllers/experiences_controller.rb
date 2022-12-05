@@ -7,8 +7,6 @@ class ExperiencesController < ApplicationController
     if params[:query].present?
       sql_query = "title ILIKE :query OR description ILIKE :query"
       @experiences = Experience.where(sql_query, query: "%#{params[:query]}%")
-    else
-      @experiences
     end
     # The `geocoded` scope filters only flats with coordinates
     @markers = @experiences.geocoded.map do |experience|
@@ -42,7 +40,7 @@ class ExperiencesController < ApplicationController
       {
         lat: @experience.latitude,
         lng: @experience.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { experience: @experience }),
+        info_window: render_to_string(partial: "experiences/info_window", formats: [:html], locals: { experience: @experience }),
         image_url: helpers.asset_url("location_drop_heart.svg")
       }
     ]
