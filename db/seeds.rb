@@ -17,7 +17,7 @@ Couple.destroy_all
 
 MOOD = %w[Romantic Adventrous Relaxed Playful Spicy Foodie Instagrammable Pamper Active Retro]
 
-15.times do 
+15.times do
   couple = Couple.new
   couple.save
   user = User.new(
@@ -29,7 +29,6 @@ MOOD = %w[Romantic Adventrous Relaxed Playful Spicy Foodie Instagrammable Pamper
   user.avatar.attach(io: file, filename: "avatar.jpg", content_type: "image/jpg")
   user.couple = couple
   user.save(:validate => false)
-  puts user.name "saved"
   user = User.new(
     first_name: Faker::Name.female_first_name,
     last_name: Faker::Name.last_name,
@@ -39,7 +38,6 @@ MOOD = %w[Romantic Adventrous Relaxed Playful Spicy Foodie Instagrammable Pamper
   user.avatar.attach(io: file, filename: "avatar.jpg", content_type: "image/jpg")
   user.couple = couple
   user.save(:validate => false)
-  puts user.name "saved"
 end
 
 
