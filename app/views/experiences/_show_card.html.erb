@@ -16,7 +16,7 @@
             <% end %>
           <% elsif @experience.secret_list.include?(current_user.id.to_s) %>
             <%= link_to unsecret_experience_path(@experience), data: { turbo_method: :patch} do%>
-              <i class="fa-solid fa-mask heart-show" id="red-mask"></i>
+              <i class="fa-solid fa-mask heart-show" id="red-mask-show"></i>
             <% end %>
           <% else %>
             <%= link_to favorite_experience_path(@experience), data: { turbo_method: :patch } do %>
@@ -35,33 +35,36 @@
       <% end %>
     </div>
   </div>
-  <div class="d-flex">
-    <div class="m-4 w-100 h-100"> <%= render 'experiences/img_carousel'%></div>
-      <div class="show-card p-2 m-4 flex-shrink-1">
-        <div class="d-flex flex-column mb-3">
-          <h6 class="p-2 d-flex justify-content-center">Avaliable Dates</h6>
-            <div class="calendar p-2 d-flex justify-content-center">calendar
+  <div style="display: grid;grid-template-columns: 2fr 1fr; column-gap: 15px;">
+    <section class="m-4 w-100 h-100"> <%= render 'experiences/img_carousel'%></section>
+    <section style="height: 500px; background-color: white; border-radius:16px; box-shadow: 1px 2px 4px 1px rgb(0 0 0 / 25%);"class="p-2 m-4 flex-shrink-1">
+      <div class="d-flex flex-column mb-3">
+        <h6 class="p-2 d-flex justify-content-center">Avaliable Dates</h6>
+          <div class="calendar p-2 d-flex justify-content-center">calendar</div>
+            <div class="p-2 d-flex justify-content-end">
+              <div><%=@experience.cost %></div>
             </div>
-              <div class="p-2 d-flex justify-content-end">
-                <div><%=@experience.cost %></div>
+            <div class="p-2 d-flex justify-content-end">
+              <div class="button-calendar">
+                <p style="margin-bottom: 0px;">
+                <%= link_to "Book Now", new_experience_booking_path(@experience), class: "button-white-text"%> </p>
               </div>
-              <div class="p-2 d-flex justify-content-end">
-                <div class="button-calendar">
-                  <p style="margin-bottom: 0px;">
-                  <%= link_to "Book Now", new_experience_booking_path(@experience), class: "button-white-text"%> </p>
-                </div>
-              </div>
-          </div>
+            </div>
         </div>
-      </div>
-  <div class="d-flex">
-    <div class="info-card m-4 w-100 d-flex align-items-start flex-column">
+    </section>
+  </div>
+  <div style="display: grid;grid-template-columns: 1fr 1fr;">
+    <section class="info-card d-flex align-items-start flex-column">
       <h4>What you'll do</h4>
         <br>
       <h6> <%= @experience.description %> </h6>
       <div class="mood-icons mt-auto"> <%= @experience.mood_list %> </div>
-    </div>
-    <div class="map-card p-2 m-4 flex-shrink-1"> map </div>
+    </section>
+    <section>
+    <% if @experience.latitude %>
+      <%= render 'experiences/map'%>
+    <% end %>
+    </section>
   </div>
   <div class="review-container">
     <h6>Reviews</h6>

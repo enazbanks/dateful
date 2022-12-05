@@ -30,9 +30,7 @@
 
         <%= link_to experience_path(experience)do %>
           <% if experience.photos.attached? %>
-            <% experience.photos.each do |photo| %>
-            <%= cl_image_tag photo.key, class: "exp-image", crop: :fill %>
-            <% end %>
+            <%= cl_image_tag experience.photos.first.key, class: "exp-image", crop: :fill %>
           <% end %>
         <%# <img class="exp-image" src="https://via.placeholder.com/229x193"/> %>
         <% end %>

@@ -1,18 +1,19 @@
 // Import your components CSS files here.
+@import "about";
 @import "alert";
 @import "avatar";
-@import "form_legend_clear";
-@import "navbar";
-@import "footer";
-@import "index_card";
 @import "banner";
-@import "show_card";
 @import "button";
-@import "search";
-@import "special_card";
-@import "about";
+@import "carousel";
 @import "contact_us";
+@import "footer";
+@import "form_legend_clear";
+@import "index_card";
+@import "navbar";
+@import "search";
+@import "show_card";
+@import "special_card";
 
 body {
-  background-color: white;
+  background-color: rgba(255, 206, 206, 0.25);
 }
