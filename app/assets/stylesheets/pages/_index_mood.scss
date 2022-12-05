@@ -1,0 +1,109 @@
+.mood-carousel {
+  //  display: grid;
+  //  grid-template-columns: 1fr 1fr 1fr 1fr;
+  //  grid-gap: 16px;
+  //  display: flex;
+  //  align-items: center;
+  //  justify-content: space-between;
+  //  a{
+  //    text-decoration: none !important;
+  //  }
+}
+
+//home page carousel 1
+.adventurous-icon {
+  background-image: url("icon_adventure.png");
+  height: 100px;
+  width: 100px;
+  background-size: cover;
+  background-position: center;
+  a{
+    text-decoration: none;
+  }
+}
+.roadtrip-icon {
+  background-image: url("icon_roadtripping.png");
+  height: 100px;
+  width: 100px;
+  background-size: cover;
+  background-position: center;
+}
+.foodie-icon {
+  background-image: url("icon_foodie.png");
+  height: 100px;
+  width: 100px;
+  background-size: cover;
+  background-position: center;
+}
+.relaxed-icon {
+  background-image: url("icon_relax.png");
+  height: 100px;
+  width: 100px;
+  background-size: cover;
+  background-position: center;
+}
+//home page carousel 2
+.home-icon {
+  background-image: url("icon_home.png");
+  height: 100px;
+  width: 100px;
+  background-size: cover;
+  background-position: center;
+}
+.sporty-icon {
+  background-image: url("icon_camping.png");
+  height: 100px;
+  width: 100px;
+  background-size: cover;
+  background-position: center;
+}
+.pamper-icon {
+  background-image: url("icon_relaxing.png");
+  height: 100px;
+  width: 100px;
+  background-size: cover;
+  background-position: center;
+}
+.romantic-icon {
+  background-image: url("icon_romantic.png");
+  height: 100px;
+  width: 100px;
+  background-size: cover;
+  background-position: center;
+}
+//home page carousel 3
+.night-icon {
+  background-image: url("icon_night.png");
+  height: 100px;
+  width: 100px;
+  background-size: cover;
+  background-position: center;
+}
+.instagrammable-icon {
+  background-image: url("icon_walk.png");
+  height: 100px;
+  width: 100px;
+  background-size: cover;
+  background-position: center;
+}
+.playful-icon {
+  background-image: url("icon_playful.png");
+  height: 100px;
+  width: 100px;
+  background-size: cover;
+  background-position: center;
+}
+.spicy-icon {
+  background-image: url("icon_romance.png");
+  height: 100px;
+  width: 100px;
+  background-size: cover;
+  background-position: center;
+}
+
+
+.carousel-item {
+  a{
+    text-decoration: none;
+  }
+}
