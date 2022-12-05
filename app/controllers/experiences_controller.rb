@@ -10,6 +10,15 @@ class ExperiencesController < ApplicationController
     else
       @experiences
     end
+    # The `geocoded` scope filters only flats with coordinates
+    @markers = @experiences.geocoded.map do |experience|
+      {
+        lat: experience.latitude,
+        lng: experience.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { experience: experience }),
+        image_url: helpers.asset_url("location_drop_heart.svg")
+      }
+    end
   end
 
   def mood
@@ -29,6 +38,14 @@ class ExperiencesController < ApplicationController
       format.turbo_stream
       format.html
     end
+    @markers = [
+      {
+        lat: @experience.latitude,
+        lng: @experience.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { experience: @experience }),
+        image_url: helpers.asset_url("location_drop_heart.svg")
+      }
+    ]
   end
 
   def favorite

@@ -61,7 +61,7 @@
       <h6> <%= @experience.description %> </h6>
       <div class="mood-icons mt-auto"> <%= @experience.mood_list %> </div>
     </div>
-    <div class="map-card p-2 m-4 flex-shrink-1"> map </div>
+    <div class="map-card flex-shrink-1"> <%= render 'experiences/map'%> </div>
   </div>
   <div class="review-container">
     <h6>Reviews</h6>
