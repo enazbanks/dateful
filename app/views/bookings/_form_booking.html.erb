@@ -1,0 +1,31 @@
+<div class="container col-4">
+  <%= simple_form_for [@experience, @booking] do |f| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+    <div class="form-inputs">
+      <%= f.input :when %>
+      <ul class="list-inline">
+        <li class="list-inline-item">
+          <%= f.input :suprise%>
+        </li>
+        <li class="list-inline-item">
+          <i class="fa-solid fa-circle-info"
+          data-controller="tooltip"
+          data-bs-toggle="tooltip"
+          data-bs-placement="right"
+          title="when you click this box, your booking will not be sent to your partner for making suprise "></i>
+        </li>
+      </ul>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
+
+<br>
+
+<div class="container col-4">
+  <%# <%= link_to "Back to Dates", experience_path(@experience) %>
+</div>

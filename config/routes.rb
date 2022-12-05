@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   end
   # necessary for load more of experience ratings on experience show page
   post 'experiences/:id', to: 'experiences#show'
-  resources :bookings, only: [:index, :edit, :update] do
+  resources :bookings, only: [:index, :edit, :update, :destroy] do
     resources :ratings, only: [:new, :create, :show]
   end
   resources :special_days, only: [:index, :create, :destroy]
