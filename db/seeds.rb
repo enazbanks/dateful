@@ -17,7 +17,7 @@ Couple.destroy_all
 
 MOOD = %w[Romantic Adventrous Relaxed Playful Spicy Foodie Instagrammable Pamper Active Retro]
 
-15.times do 
+15.times do
   couple = Couple.new
   couple.save
   user = User.new(
