@@ -6,8 +6,8 @@
 #card_link {
   text-decoration: none;
 }
+
 .cards {
-  // display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 16px;
   display: flex;
@@ -35,6 +35,7 @@
   margin: 50px 20px 50px 20px;
   a{
     text-decoration: none;
+    margin: 0px 10px;
   }
   // text-decoration: none;
 }
@@ -114,7 +115,7 @@
   background-size: cover;
   background-position: center;
 }
-.active {
+.sporty {
   background-image: url("couple_active.png");
   height: 300px;
   width: 300px;
