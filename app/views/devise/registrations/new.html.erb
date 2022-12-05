@@ -21,6 +21,7 @@
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
+    <%= f.input :partner_email, hint: 'only if your partner is already signed up', label: 'Your Partners Dateful email', error: 'Partners Email not Found' %>%>
   </div>
 
   <div class="form-actions">
