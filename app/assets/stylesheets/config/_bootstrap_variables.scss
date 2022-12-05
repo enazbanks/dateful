@@ -22,4 +22,23 @@ $border-radius:    2px;
 $border-radius-lg: 2px;
 $border-radius-sm: 2px;
 
+// Popover
+$popover-font-size: 11px;
+$popover-border-radius: 6px;
+$popover-max-width: 300px;
+$popover-body-padding-y: 8px;
+$popover-body-padding-x: 8px;
+
+// Tooltip
+$tooltip-font-size: 11px;
+$tooltip-border-radius: 6px;
+$tooltip-max-width: 300px;
+$tooltip-padding-y: 8px;
+$tooltip-padding-x: 8px;
+$tooltip-bg: $light-yellow;
+$tooltip-color: black;
+$tooltip-arrow-color: black;
+
+
+
 // Override other variables below!

@@ -16,34 +16,33 @@ Couple.destroy_all
 
 
 MOOD = %w[Romantic Adventrous Relaxed Playful Spicy Foodie Instagrammable Pamper Active Retro]
-couple = Couple.new
-couple.save
 
-frank = User.create!(
-  first_name: 'Frank',
-  last_name: 'liaison',
-  email: 'frank@lewagon.com',
-  password: 'franktest'
-)
+15.times do 
+  couple = Couple.new
+  couple.save
+  user = User.new(
+    first_name: Faker::Name.male_first_name,
+    last_name: Faker::Name.last_name,
+    email: Faker::Internet.email
+  )
+  file = URI.open("https://i.pravatar.cc/40")
+  user.avatar.attach(io: file, filename: "avatar.jpg", content_type: "image/jpg")
+  user.couple = couple
+  user.save(:validate => false)
+  puts user.name "saved"
+  user = User.new(
+    first_name: Faker::Name.female_first_name,
+    last_name: Faker::Name.last_name,
+    email: Faker::Internet.email
+  )
+  file = URI.open("https://i.pravatar.cc/40")
+  user.avatar.attach(io: file, filename: "avatar.jpg", content_type: "image/jpg")
+  user.couple = couple
+  user.save(:validate => false)
+  puts user.name "saved"
+end
 
-frank.couple = couple
-file = URI.open("https://cdn.pixabay.com/photo/2016/12/13/16/17/dancer-1904467__340.png")
-frank.avatar.attach(io: file, filename: "frank.png", content_type: "image/png")
-frank.save!
 
-bertha = User.create(
-  first_name: 'Bertha',
-  last_name: 'liaison',
-  email: 'bertha@lewagon.com',
-  password: 'berthatest',
-  couple: couple
-)
-file = URI.open("https://cdn.pixabay.com/photo/2019/03/21/20/29/eyewear-4071870__340.jpg")
-bertha.avatar.attach(io: file, filename: "bertha.png", content_type: "image/png")
-bertha.save!
-
-couple = Couple.new
-couple.save
 
 experience = Experience.new(
   title: 'zoomies playdate',
@@ -62,16 +61,18 @@ rand(1..4).times do
 end
 experience.save
 
-booking = Booking.new(
-  when: Date.today,
-  instructions: "none",
-  suprise: false,
-  status: 3
-)
-booking.couple = couple
-booking.experience = experience
-booking.save
 rand(10..50).times do
+  booking = Booking.new(
+    when: Date.today,
+    instructions: "none",
+    suprise: false,
+    status: 3
+  )
+
+  booking.couple = Couple.all.sample
+  booking.experience = experience
+  booking.save
+
   y = rand(0..5)
   x = rand(0..5)
   y = x if x > y
@@ -99,16 +100,17 @@ rand(1..4).times do
   experience.mood_list.add(MOOD.sample)
 end
 experience.save
-booking = Booking.new(
-  when: Date.today,
-  instructions: "none",
-  suprise: false,
-  status: 3
-)
-booking.couple = couple
-booking.experience = experience
-booking.save
 rand(10..50).times do
+  booking = Booking.new(
+    when: Date.today,
+    instructions: "none",
+    suprise: false,
+    status: 3
+  )
+  booking.couple = Couple.all.sample
+  booking.experience = experience
+  booking.save
+
   y = rand(0..5)
   rating = Rating.new(
     stars: y,
@@ -134,16 +136,17 @@ rand(1..4).times do
   experience.mood_list.add(MOOD.sample)
 end
 experience.save
-booking = Booking.new(
-  when: Date.today,
-  instructions: "none",
-  suprise: false,
-  status: 3
-)
-booking.couple = couple
-booking.experience = experience
-booking.save!
 rand(10..50).times do
+  booking = Booking.new(
+    when: Date.today,
+    instructions: "none",
+    suprise: false,
+    status: 3
+  )
+  booking.couple = Couple.all.sample
+  booking.experience = experience
+  booking.save!
+
   y = rand(1..5)
   rating = Rating.new(
     stars: y,
@@ -169,16 +172,16 @@ rand(1..4).times do
   experience.mood_list.add(MOOD.sample)
 end
 experience.save
-booking = Booking.new(
-  when: Date.today,
-  instructions: "none",
-  suprise: false,
-  status: 3
-)
-booking.couple = couple
-booking.experience = experience
-booking.save
 rand(10..50).times do
+  booking = Booking.new(
+    when: Date.today,
+    instructions: "none",
+    suprise: false,
+    status: 3
+  )
+  booking.couple = Couple.all.sample
+  booking.experience = experience
+  booking.save
   y = rand(2..5)
   rating = Rating.new(
     stars: y,
@@ -205,16 +208,17 @@ rand(1..4).times do
 end
 
 experience.save
-booking = Booking.new(
-  when: Date.today,
-  instructions: "none",
-  suprise: false,
-  status: 3
-)
-booking.couple = couple
-booking.experience = experience
-booking.save
 rand(10..50).times do
+  booking = Booking.new(
+    when: Date.today,
+    instructions: "none",
+    suprise: false,
+    status: 3
+  )
+  booking.couple = Couple.all.sample
+  booking.experience = experience
+  booking.save
+
   y = rand(3..5)
   rating = Rating.new(
     stars: y,
@@ -240,17 +244,17 @@ rand(1..4).times do
   experience.mood_list.add(MOOD.sample)
 end
 experience.save
-
-booking = Booking.new(
-  when: Date.today,
-  instructions: "none",
-  suprise: false,
-  status: 3
-)
-booking.couple = couple
-booking.experience = experience
-booking.save
 rand(10..50).times do
+  booking = Booking.new(
+    when: Date.today,
+    instructions: "none",
+    suprise: false,
+    status: 3
+  )
+  booking.couple = Couple.all.sample
+  booking.experience = experience
+  booking.save
+
   rating = Rating.new(
     stars: 5,
     comment: Faker::Restaurant.review
@@ -258,10 +262,70 @@ rand(10..50).times do
   rating.booking = booking
   rating.save
 end
-puts "seed done"
+
+experience = Experience.new(
+  title: 'Roadtrip with ServoMate',
+  description: "All the fun of the journey without the hassle",
+  address: "Open road",
+  instructions: "If you kick the tires and nod your head in a sombre manner people will think you know what you are doing",
+  cost: 0,
+  time: "5-6 hours"
+)
+file = URI.open("https://images.unsplash.com/photo-1532224589403-0e70ee166b49?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80")
+experience.photos.attach(io: file, filename: "road.jpg", content_type: "image/jpg")
+experience.save!
+
+rand(1..4).times do
+  experience.mood_list.add(MOOD.sample)
+end
+experience.save
+rand(10..50).times do
+  booking = Booking.new(
+    when: Date.today,
+    instructions: "none",
+    suprise: false,
+    status: 3
+  )
+  booking.couple = Couple.all.sample
+  booking.experience = experience
+  booking.save
+  y = rand(3..5)
+  rating = Rating.new(
+    stars: y,
+    comment: Faker::Restaurant.review
+  )
+  rating.booking = booking
+  rating.save
+end
+
+couple = Couple.new
+couple.save
+
+frank = User.create!(
+  first_name: 'Frank',
+  last_name: 'liaison',
+  email: 'frank@lewagon.com',
+  password: 'franktest'
+)
+
+frank.couple = couple
+file = URI.open("https://cdn.pixabay.com/photo/2016/12/13/16/17/dancer-1904467__340.png")
+frank.avatar.attach(io: file, filename: "frank.png", content_type: "image/png")
+frank.save!
+
+bertha = User.create(
+  first_name: 'Bertha',
+  last_name: 'liaison',
+  email: 'bertha@lewagon.com',
+  password: 'berthatest',
+  couple: couple
+)
+file = URI.open("https://cdn.pixabay.com/photo/2019/03/21/20/29/eyewear-4071870__340.jpg")
+bertha.avatar.attach(io: file, filename: "bertha.png", content_type: "image/png")
+bertha.save!
 
 SpecialDay.create(
-  couple: Couple.first,
+  couple: Couple.last,
   title: "anniversary",
   date: Date.today + 1
 )
