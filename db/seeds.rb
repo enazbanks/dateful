@@ -486,14 +486,15 @@ experience = Experience.new(
   cost: 0,
   time: "30 - 60 minutes"
 )
-file = URI.open("https://boardgamegeek.com/image/973664/carcassonne")
-experience.photos.attach(io: file, filename: "carc.jpg", content_type: "image/jpg")
-
-file = URI.open("https://boardgamegeek.com/image/586114/lost-cities")
-experience.photos.attach(io: file, filename: "lost.jpg", content_type: "image/jpg")
 
 file = URI.open("https://media-cldnry.s-nbcnews.com/image/upload/newscms/2020_28/3396036/200710-fitch-couple-game-jm-1050.jpg")
 experience.photos.attach(io: file, filename: "terra.jpg", content_type: "image/jpg")
+
+file = URI.open("app/assets/images/pic1214273.webp")
+experience.photos.attach(io: file, filename: "carc.jpg", content_type: "image/png")
+
+file = URI.open("https://boardgamegeek.com/image/586114/lost-cities")
+experience.photos.attach(io: file, filename: "lost.jpg", content_type: "image/jpg")
 
 experience.mood_list.add("Relaxed")
 experience.mood_list.add("Instagrammable")
