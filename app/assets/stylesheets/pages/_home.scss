@@ -1,6 +1,6 @@
 // Specific CSS for your home-page
 .banner {
-  margin: 20px 20px 50px 20px;
+  margin: 0px 0px 50px 0px;
 }
 
 #card_link {
@@ -25,17 +25,17 @@
 }
 
 .section {
-  display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 50px 20px 50px 20px;
+  text-align: center;
+  margin: 50px 20px 20px 20px;
 }
 
 .big-card-container{
   justify-content: space-between;
   align-items: center;
   display: flex;
-  margin: 50px 20px 50px 20px;
+  margin: 80px 20px 50px 20px;
   a{
     text-decoration: none;
     margin: 0px 10px;
@@ -189,14 +189,16 @@
   background-size: cover;
   background-position: center;
   display: table-cell;
+  filter: brightness(110%)
   // opacity: 0.8;
   // margin: 20px 20px 20px 20px;
 }
 .feast {
-  background-image: url("couple_at_home.png");
+  background-image: url("couple_laugh.png");
   background-size: cover;
   background-position: center;
   display: table-cell;
+  filter: brightness(110%)
   // opacity: 0.8;
   // margin: 20px 20px 20px 20px;
 }

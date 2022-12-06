@@ -531,8 +531,8 @@ frank = User.create!(
 )
 
 frank.couple = couple
-file = URI.open("https://cdn.pixabay.com/photo/2016/12/13/16/17/dancer-1904467__340.png")
-frank.avatar.attach(io: file, filename: "frank.png", content_type: "image/png")
+file = URI.open("app/assets/images/frank_avatar.jpg")
+frank.avatar.attach(io: file, filename: "frank_avatar.jpg", content_type: "image/jpg")
 frank.save
 
 bertha = User.create(
