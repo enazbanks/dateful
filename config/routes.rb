@@ -30,4 +30,5 @@ Rails.application.routes.draw do
     resources :ratings, only: [:new, :create, :show]
   end
   resources :special_days, only: [:index, :create, :destroy]
+  resources :ratings, only: [:destroy]
 end
