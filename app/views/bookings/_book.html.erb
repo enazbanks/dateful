@@ -1,5 +1,4 @@
-<div class="index-container">
-  <div class="p-3 justify-content-center">
+<div class="col-12 col-sm-6 mb-3 p-2 text-start">
     <div class="card h-30">
       <div class="card-body">
         <p class="card-title">
@@ -21,7 +20,16 @@
         <p class="card-title">
           <%= "Status: #{booking.status}" %>
         </p>
+
+        <ul class="list-inline text-end">
+          <li class="list-inline-item">
+            <%= link_to "Edit booking", edit_booking_path(booking) if booking.status == "pending" %>
+          </li>
+          <li class="list-inline-item">
+            <%= link_to "Delete", booking, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+          </li>
+        </ul>
+
       </div>
     </div>
-  </div>
 </div>

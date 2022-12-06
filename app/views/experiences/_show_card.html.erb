@@ -1,10 +1,10 @@
 <div class="show-container" id="page" style = height:fit-content;>
-  <h2 class="title"><%= @experience.title.capitalize  %></h2>
+  <h2 class="title-show"><%= @experience.title %></h2>
   <%# icon with text Bertha likes this date idea%>
   <div class="d-flex justify-content-between" style="margin-left: 20px;">
     <div class= "d-flex">
       <i class="fa-solid fa-location-dot"> </i>
-      <h6><%= @experience.address.capitalize %></h6>
+      <h6><%= @experience.address %></h6>
     </div>
     <div class="d-flex favs">
       <% if user_signed_in? %>
@@ -53,7 +53,7 @@
         </div>
     </section>
   </div>
-  <div style="display: grid;grid-template-columns: 1fr 1fr;">
+  <div style="display: grid;grid-template-columns: 2fr 1fr;">
     <section class="info-card d-flex align-items-start flex-column">
       <h4>What you'll do</h4>
         <br>

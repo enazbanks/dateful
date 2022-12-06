@@ -8,4 +8,8 @@ class RatingPolicy < ApplicationPolicy
   def create?
     true
   end
+
+  def destroy?
+    record.booking.couple == user.couple
+  end
 end
