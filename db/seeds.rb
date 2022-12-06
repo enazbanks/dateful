@@ -49,6 +49,7 @@ experience = Experience.new(
   description: 'For the dog lovers. Sign up to the new social media app for furballs, Zoomies! Zoomies offers a terrific, fun way to connect with other pet parents. A great opportunity to make new friends while spending time with your loved one.',
   address: "104 Coppin Street, Richmond, Victoria",
   instructions: "Bring your best boy doggo, head to the nearest park with your partner and don't forget the frisbee",
+  secret_instructions: "Wear active clothes, Turn up at the park just after lunch",
   cost: 0,
   time: "1-2 hours"
 )
@@ -68,7 +69,7 @@ experience.save
 
 rand(10..50).times do
   booking = Booking.new(
-    when: Date.today,
+    when: Faker::Date.between(from: 1.years.ago, to: Date.today),
     instructions: "none",
     suprise: false,
     status: 3
@@ -95,7 +96,8 @@ experience = Experience.new(
   address: "14 Traders Way, Currumbin Waters, Queensland",
   cost: Faker::Number.decimal(l_digits: 2, r_digits: 2),
   time: "1-2 hours",
-  instructions: "Meet at Novotel, Gold Coast. You'll be picked up by Balters tour bus. Dress to impress!"
+  instructions: "Meet at Novotel, Gold Coast. You'll be picked up by Balters tour bus. Dress to impress!",
+  secret_instructions: "Dress nice, we are going somewhere special, be at the Novotell by 3pm"
 )
 file = URI.open("https://images.unsplash.com/photo-1543791959-12b3f543282a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1674&q=80.jpg")
 experience.photos.attach(io: file, filename: "balter.jpg", content_type: "image/jpg")
@@ -113,7 +115,7 @@ experience.mood_list.add("Active")
 experience.save
 rand(10..50).times do
   booking = Booking.new(
-    when: Date.today,
+    when: Faker::Date.between(from: 1.years.ago, to: Date.today),
     instructions: "none",
     suprise: false,
     status: 3
@@ -137,7 +139,8 @@ experience = Experience.new(
   address: "Home",
   cost: 0,
   time: "30 minutes",
-  instructions: "Bring your phone or laptop fully charged and dress comfy."
+  instructions: "Bring your phone or laptop fully charged and dress comfy.",
+  secret_instructions: "Dress comfy and charge your device for 7:30pm"
 )
 file = URI.open("https://images.unsplash.com/photo-1526948531399-320e7e40f0ca?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80.jpg")
 experience.photos.attach(io: file, filename: "stock.jpg", content_type: "image/jpg")
@@ -153,7 +156,7 @@ experience.mood_list.add("Relaxed")
 experience.save
 rand(10..50).times do
   booking = Booking.new(
-    when: Date.today,
+    when: Faker::Date.between(from: 1.years.ago, to: Date.today),
     instructions: "none",
     suprise: false,
     status: 3
@@ -176,6 +179,7 @@ experience = Experience.new(
   description: "Couples that ride together, stay together. Download the hottest new app, Gruappo and join a group ride at Red Hill Trail where you will enjoy a picturesque view. Cycling with your partner can strengthen your relationship and brings the two of you together.",
   address: "Argyle Street, Camden, New South Wales",
   instructions: "Meet guide Jan at the entrance and follow along, or if you can't keep up Ryan is happy to take you on a more relaxed ride",
+  secret_instructions: "Have a light lunch, wear something active and head to Argyle street by 2pm",
   cost: Faker::Number.decimal(l_digits: 2, r_digits: 2),
   time: "45 minutes"
 )
@@ -195,7 +199,7 @@ experience.save
 
 rand(10..50).times do
   booking = Booking.new(
-    when: Date.today,
+    when: Faker::Date.between(from: 1.years.ago, to: Date.today),
     instructions: "none",
     suprise: false,
     status: 3
@@ -217,6 +221,7 @@ experience = Experience.new(
   description: "Astrolog's stargazing experience is made for space lovers. Learn about stars and our Milky Way galaxy with a romantic stargazing night. Snacks and hot cocoa provided.",
   address: "Birdwood Ave, Melbourne, Victoria",
   instructions: "Bring a picnic blanket and meet at 6pm near the Observatory",
+  secret_instructions: "6pm dress for outside, head to the space near the Observatory",
   cost: Faker::Number.decimal(l_digits: 2, r_digits: 2),
   time: "10 minutes"
 )
@@ -237,7 +242,7 @@ experience.save
 experience.save
 rand(10..50).times do
   booking = Booking.new(
-    when: Date.today,
+    when: Faker::Date.between(from: 1.years.ago, to: Date.today),
     instructions: "none",
     suprise: false,
     status: 3
@@ -260,6 +265,7 @@ experience = Experience.new(
   description: "Hire a professional chef to create an exquisite and one of a kind dining experience at your chosen location with Mealful. Meals and picnic set up can be customised to your liking. This is the perfect option for a special day.",
   address: "Central Springs Road, Daylesford, Victoria",
   instructions: "Meet at Daylesford Garden at 12pm and dress beautifully comfy.",
+  secret_instructions: "Stylish Casual is the name of the game,  Daylesford Garden 12pm sharp",
   cost: 130,
   time: "1-2 hours"
 )
@@ -280,7 +286,7 @@ experience.save
 
 rand(10..50).times do
   booking = Booking.new(
-    when: Date.today,
+    when: Faker::Date.between(from: 1.years.ago, to: Date.today),
     instructions: "none",
     suprise: false,
     status: 3
@@ -302,6 +308,7 @@ experience = Experience.new(
   description: "All the fun of the journey without the hassle. ServoMate ensures you and your lover will be safe on your journey with no hiccups along the way. Drive and venture the Great Ocean Road, you'll discover the greatest nature, food, wine and adventure",
   address: "Great Ocean Road, Victoria",
   instructions: "Download ServoMate and be ready by 6am to watch the sunrise on the drive. Dress in active wear",
+  secret_instructions: "Prep your favourite playlist and get a good nights sleep ready for a 6am start",
   cost: 120,
   time: "5-6 hours"
 )
@@ -323,7 +330,7 @@ experience.save
 
 rand(10..50).times do
   booking = Booking.new(
-    when: Date.today,
+    when: Faker::Date.between(from: 1.years.ago, to: Date.today),
     instructions: "none",
     suprise: false,
     status: 3
@@ -346,6 +353,7 @@ experience = Experience.new(
   description: "Highly exclusive, rooftop yoga class. Connect with your partner spiritually and physically. Yoga positions, moderate movement patterns, breath practise, supported silent meditation, and guided relaxation are all included in this class to help you become more attentive of your breathing and body as well as your partner.",
   address: "43 Stewart Street, Richmond, Melbourne, Victoria",
   instructions: "Enrol in Le wagon's Fullstack Bootcamp to discover it's not actually included.",
+  secret_instructions: "Set your expectations to realistic",
   cost: 0,
   time: "5-6 hours"
 )
@@ -365,7 +373,7 @@ experience.save
 
 rand(10..50).times do
   booking = Booking.new(
-    when: Date.today,
+    when: Faker::Date.between(from: 1.years.ago, to: Date.today),
     instructions: "none",
     suprise: false,
     status: 3
@@ -388,6 +396,7 @@ experience = Experience.new(
   description: "Premier indoor rock climbing and bouldering venues, this spot houses rock climbing, bouldering, high ropes course and training for all ages and sizes. Offering an exceptional 25 fully automated climbing stations, climbing walls, cargo nets, caving and even spider mountain and over 300-square-metres of bouldering with a large concession area to chill, they have nonpareil. They also offer rock climbing coaching classes for kids and adults and their most recognized Top Rope Climbing experience.",
   address: "41 Down Street, Collingwood, Victoria",
   instructions: "Meet at Collingwood and dress in active wear",
+  secret_instructions: "Wear active clothes, Head to 41 Down Street Collingwood for 10am",
   cost: 99,
   time: "5-6 hours"
 )
@@ -406,7 +415,7 @@ experience.save
 
 rand(10..50).times do
   booking = Booking.new(
-    when: Date.today,
+    when: Faker::Date.between(from: 1.years.ago, to: Date.today),
     instructions: "none",
     suprise: false,
     status: 3
@@ -428,6 +437,7 @@ experience = Experience.new(
   description: "Find tranquility in Mornington's dreamy spa house. Spoil your loved one with the relaxation and peace of a private bath. You have the choice of basking under a moonlight bathing sky or journey up to the iconic hilltop pool, followed by a couple's massage, you will never forget.",
   address: "140 Springs Lane, Fingal, Victoria",
   instructions: "Meet at Peninsula Hot Springs and dress comfy",
+  secret_instructions: "Comfort over style, be set for pickup at 11am",
   cost: 289,
   time: "5-6 hours"
 )
@@ -450,7 +460,49 @@ experience.save
 
 rand(10..50).times do
   booking = Booking.new(
-    when: Date.today,
+    when: Faker::Date.between(from: 1.years.ago, to: Date.today),
+    instructions: "none",
+    suprise: false,
+    status: 3
+  )
+  booking.couple = Couple.all.sample
+  booking.experience = experience
+  booking.save
+  y = rand(3..5)
+  rating = Rating.new(
+    stars: y,
+    comment: Faker::Restaurant.review
+  )
+  rating.booking = booking
+  rating.save
+end
+
+experience = Experience.new(
+  title: "Board Game's for two",
+  description: "Forget snap, now there is a wide range of modern boardgames perfect for that relaxing night in",
+  address: "At the comfort of your own home",
+  instructions: "Grab a coupy of Lost Cities, Carcasonne, The Crew or your own favourite",
+  secret_instructions: "Have your game face ready",
+  cost: 0,
+  time: "30 - 60 minutes"
+)
+file = URI.open("https://boardgamegeek.com/image/973664/carcassonne")
+experience.photos.attach(io: file, filename: "carc.jpg", content_type: "image/jpg")
+
+file = URI.open("https://boardgamegeek.com/image/586114/lost-cities")
+experience.photos.attach(io: file, filename: "lost.jpg", content_type: "image/jpg")
+
+file = URI.open("https://media-cldnry.s-nbcnews.com/image/upload/newscms/2020_28/3396036/200710-fitch-couple-game-jm-1050.jpg")
+experience.photos.attach(io: file, filename: "terra.jpg", content_type: "image/jpg")
+
+experience.mood_list.add("Relaxed")
+experience.mood_list.add("Instagrammable")
+experience.mood_list.add("Playful")
+experience.save
+
+rand(10..50).times do
+  booking = Booking.new(
+    when: Faker::Date.between(from: 1.years.ago, to: Date.today),
     instructions: "none",
     suprise: false,
     status: 3

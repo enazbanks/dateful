@@ -15,13 +15,16 @@
   justify-content: space-between;
 }
 
-// .big-card-container {
-//   display: flex;
-// }
+#carousel-home-text {
+  color: white;
+  background: #b41313;
+  height: 25px;
+  // align-items: center;
+  // display: flex;
+  text-align: center;
+}
 
 .section {
-  // width: 80%;
-  // margin: 80px auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -37,7 +40,24 @@
     text-decoration: none;
     margin: 0px 10px;
   }
-  // text-decoration: none;
+}
+//big card text white-red-white
+#big-card-text {
+  text-align: center;
+  margin-top: 420px;
+  margin-left: 230px;
+  font-size: 60px;
+}
+#big-card-text-red{
+  text-align: center;
+  margin-left: 230px;
+  color: #e61c1c;
+  font-size: 60px;
+}
+#big-card-text-again{
+  text-align: center;
+  margin-left: 230px;
+  font-size: 60px;
 }
 
 .big-card {
@@ -82,9 +102,6 @@
   width: 300px;
   background-size: cover;
   background-position: center;
-  a{
-    text-decoration: none;
-  }
 }
 .roadtrip {
   background-image: url("roadtrip.png");
@@ -172,6 +189,7 @@
   background-size: cover;
   background-position: center;
   display: table-cell;
+  opacity: 0.8;
   // margin: 20px 20px 20px 20px;
 }
 .feast {
@@ -179,6 +197,7 @@
   background-size: cover;
   background-position: center;
   display: table-cell;
+  opacity: 0.8;
   // margin: 20px 20px 20px 20px;
 }
 

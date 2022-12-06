@@ -25,6 +25,15 @@ class RatingsController < ApplicationController
     end
   end
 
+  def destroy
+    @rating = Rating.find(params[:id])
+    authorize @rating
+    @rating.destroy
+
+    redirect_to ratings_path, status: :see_other
+    flash[:notice] = 'Successfully Deleted'
+  end
+
   private
 
   def rating_params
