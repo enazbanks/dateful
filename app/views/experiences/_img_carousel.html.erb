@@ -4,15 +4,15 @@
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
   </div>
-  <div class="carousel-inner">
+  <div class="carousel-inner" style="border-radius: 2%;">
     <div class="carousel-item active">
-      <img src="https://res.cloudinary.com/adrenalinecomau/image/upload/q_auto,f_auto/v1558525760/adventures/eps_4188.jpg" class="d-block w-100" alt="...">
+      <%= cl_image_tag @experience.photos.first.key, class: "d-block w-100", crop: :fill %>
     </div>
     <div class="carousel-item">
-      <img src="https://res.cloudinary.com/adrenalinecomau/image/upload/q_auto,f_auto/v1558525764/adventures/eps_4189.jpg" class="d-block w-100" alt="...">
+      <%= cl_image_tag @experience.photos.second.key, class: "d-block w-100", crop: :fill %>
     </div>
     <div class="carousel-item">
-      <img src="https://res.cloudinary.com/adrenalinecomau/image/upload/q_auto,f_auto/v1618970623/adventures/eps_13047.jpg" class="d-block w-100" alt="...">
+      <%= cl_image_tag @experience.photos.third.key, class: "d-block w-100", crop: :fill %>
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
