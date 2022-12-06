@@ -5,17 +5,22 @@
 
   <% @bookings.each do |booking| %>
     <% if booking.upcomming_booking? %>
-      <% unless booking.suprise? && booking.secret_list.includes(current_user.partner.id.to_s)%>
-    <div class="row justify-content-center mb-3">
-      <h4 class="text-start mb-0"> Upcoming Bookings </h4>
-    </div>
-      <%= render 'bookings/book', {booking: booking} %>
+      <% unless booking.suprise? && booking.secret_list.include?(current_user.partner.id.to_s)%>
+        <div class="row justify-content-center mb-3">
+          <h4 class="text-start mb-0"> Upcoming Bookings </h4>
+        </div>
+      ` <%= render 'bookings/book', {booking: booking} %>
       <% else %>
+        <%= render 'bookings/secret_book', {booking: booking} %>
+      <% end %>
+    <% end %>
+  <% end %>
     <div class="row justify-content-center mb-3">
       <h4 class="text-start mb-0"> Past Bookings </h4>
     </div>
-      <%= render 'bookings/secret_book', {booking: booking} %>
-      <% end %>
+  <% @bookings.each do |booking| %>
+    <% unless booking.upcomming_booking? %>
+      <%= render 'bookings/book', {booking: booking} %>
     <% end %>
   <% end %>
 </div>
