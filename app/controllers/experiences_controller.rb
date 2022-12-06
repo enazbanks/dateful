@@ -27,7 +27,7 @@ class ExperiencesController < ApplicationController
 
   def show
     authorize @experience
-    # @booking = Booking.new
+    @booking = Booking.new
     @rating = Rating.new
     @page = params[:page] ? params[:page].to_i : 1
     @next_page = @page + 1

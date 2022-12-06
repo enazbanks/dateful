@@ -40,7 +40,7 @@
     <section style="height: 500px; background-color: white; border-radius:16px; box-shadow: 1px 2px 4px 1px rgb(0 0 0 / 25%);"class="p-2 m-4 flex-shrink-1">
       <div class="d-flex flex-column mb-3">
         <h6 class="p-2 d-flex justify-content-center">Avaliable Dates</h6>
-          <div class="calendar p-2 d-flex justify-content-center">calendar</div>
+          <div class="calendar p-2 d-flex justify-content-center"><%= render 'bookings/form_booking', booking: @booking %></div>
             <div class="p-2 d-flex justify-content-end">
               <div><%=@experience.cost %></div>
             </div>

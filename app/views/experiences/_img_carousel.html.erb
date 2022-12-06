@@ -4,7 +4,7 @@
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
   </div>
-  <div class="carousel-inner" style="border-radius: 2%;">
+  <div class="carousel-inner" style="border-radius: 2%; height: 550px;">
     <div class="carousel-item active">
       <%= cl_image_tag @experience.photos.first.key, class: "d-block w-100", crop: :fill %>
     </div>
