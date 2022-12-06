@@ -493,7 +493,7 @@ experience.photos.attach(io: file, filename: "terra.jpg", content_type: "image/j
 file = URI.open("app/assets/images/pic1214273.webp")
 experience.photos.attach(io: file, filename: "carc.jpg", content_type: "image/png")
 
-file = URI.open("https://boardgamegeek.com/image/586114/lost-cities")
+file = URI.open("app/assets/images/pic586114.webp")
 experience.photos.attach(io: file, filename: "lost.jpg", content_type: "image/jpg")
 
 experience.mood_list.add("Relaxed")
