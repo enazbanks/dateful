@@ -10,4 +10,7 @@ class Booking < ApplicationRecord
     self.when < Date.today && confirmed?
   end
 
+  def upcomming_booking?
+    self.when > Date.today && (self.status == 'pending' || self.status == 'confirmed')
+  end
 end

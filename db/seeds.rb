@@ -64,7 +64,7 @@ experience.photos.attach(io: file, filename: "zoomies2.jpg", content_type: "imag
 experience.mood_list.add("Playful")
 experience.mood_list.add("Adventurous")
 experience.mood_list.add("Active")
-experience.save!
+experience.save
 
 rand(10..50).times do
   booking = Booking.new(
@@ -76,7 +76,7 @@ rand(10..50).times do
 
   booking.couple = Couple.all.sample
   booking.experience = experience
-  booking.save!
+  booking.save
 
   y = rand(0..5)
   x = rand(0..5)
@@ -86,7 +86,7 @@ rand(10..50).times do
     comment: Faker::Restaurant.review
   )
   rating.booking = booking
-  rating.save!
+  rating.save
 end
 
 experience = Experience.new(
@@ -110,7 +110,7 @@ experience.mood_list.add("Foodie")
 experience.mood_list.add("Instagrammable")
 experience.mood_list.add("Active")
 
-experience.save!
+experience.save
 rand(10..50).times do
   booking = Booking.new(
     when: Date.today,
@@ -150,7 +150,7 @@ experience.photos.attach(io: file, filename: "stock.2jpg", content_type: "image/
 
 experience.mood_list.add("Relaxed")
 
-experience.save!
+experience.save
 rand(10..50).times do
   booking = Booking.new(
     when: Date.today,
@@ -160,7 +160,7 @@ rand(10..50).times do
   )
   booking.couple = Couple.all.sample
   booking.experience = experience
-  booking.save!
+  booking.save
 
   y = rand(1..5)
   rating = Rating.new(
@@ -191,7 +191,7 @@ experience.photos.attach(io: file, filename: "ride.jpg", content_type: "image/jp
 experience.mood_list.add("Active")
 experience.mood_list.add("Adventurous")
 experience.mood_list.add("Retro")
-experience.save!
+experience.save
 
 rand(10..50).times do
   booking = Booking.new(
@@ -232,7 +232,7 @@ experience.photos.attach(io: file, filename: "star1.jpg", content_type: "image/j
 experience.mood_list.add("Relaxed")
 experience.mood_list.add("Adventurous")
 experience.mood_list.add("Retro")
-experience.save!
+experience.save
 
 experience.save
 rand(10..50).times do
@@ -276,7 +276,7 @@ experience.mood_list.add("Relaxed")
 experience.mood_list.add("Romantic")
 experience.mood_list.add("Foodie")
 experience.mood_list.add("Instagrammable")
-experience.save!
+experience.save
 
 rand(10..50).times do
   booking = Booking.new(
@@ -319,7 +319,7 @@ experience.mood_list.add("Romantic")
 experience.mood_list.add("Foodie")
 experience.mood_list.add("Instagrammable")
 experience.mood_list.add("Adventurous")
-experience.save!
+experience.save
 
 rand(10..50).times do
   booking = Booking.new(
@@ -361,7 +361,7 @@ experience.photos.attach(io: file, filename: "yoga2.jpg", content_type: "image/j
 experience.mood_list.add("Instagrammable")
 experience.mood_list.add("Active")
 experience.mood_list.add("Spicy")
-experience.save!
+experience.save
 
 rand(10..50).times do
   booking = Booking.new(
@@ -402,7 +402,7 @@ experience.photos.attach(io: file, filename: "rock2.jpg", content_type: "image/j
 
 experience.mood_list.add("Active")
 experience.mood_list.add("Adventurous")
-experience.save!
+experience.save
 
 rand(10..50).times do
   booking = Booking.new(
@@ -446,7 +446,7 @@ experience.mood_list.add("Romantic")
 experience.mood_list.add("Spicy")
 experience.mood_list.add("Roadtrip")
 experience.mood_list.add("Instagrammable")
-experience.save!
+experience.save
 
 rand(10..50).times do
   booking = Booking.new(
@@ -480,7 +480,7 @@ frank = User.create!(
 frank.couple = couple
 file = URI.open("https://cdn.pixabay.com/photo/2016/12/13/16/17/dancer-1904467__340.png")
 frank.avatar.attach(io: file, filename: "frank.png", content_type: "image/png")
-frank.save!
+frank.save
 
 bertha = User.create(
   first_name: 'Bertha',
@@ -491,7 +491,7 @@ bertha = User.create(
 )
 file = URI.open("https://cdn.pixabay.com/photo/2019/03/21/20/29/eyewear-4071870__340.jpg")
 bertha.avatar.attach(io: file, filename: "bertha.png", content_type: "image/png")
-bertha.save!
+bertha.save
 
 SpecialDay.create(
   couple: Couple.last,
