@@ -38,4 +38,12 @@ class Experience < ApplicationRecord
     end
     false
   end
+
+  def booked_days
+    # array = []
+    # self.Bookings.each do |booking|
+        # array << booking.when
+        #end
+    # return array
+  end
 end
