@@ -1,0 +1,19 @@
+<h3 class="mt-0">What you'll do</h3>
+<br>
+<h6 class="info-description"> <%= @experience.description %> </h6>
+<br>
+  <div class="d-flex" style="padding: 10px;">
+    <i class="info-icon fa-regular fa-clock"></i>
+    <i class="info-text"><%= @experience.time%></i>
+  </div>
+<br>
+  <div class="d-flex" style="padding: 10px;">
+    <i class="info-icon fa-solid fa-utensils"></i>
+    <i class="info-text"><%= ["Meal included", "Dine-in option avaliable","Caters to dietaries"].sample%></i>
+  </div>
+<br>
+  <div class="d-flex" style="padding: 10px;">
+    <i class="info-icon fa-solid fa-wheelchair-move"></i>
+    <i class="info-text"><%= ["Wheelchair-friendly", "Accessiblity-friendly"].sample%></i>
+  </div>
+<div class="mood-icons mt-auto"> <%= @experience.mood_list %> </div>

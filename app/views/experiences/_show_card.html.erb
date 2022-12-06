@@ -36,7 +36,7 @@
     </div>
   </div>
   <div style="display: grid;grid-template-columns: 2fr 1fr; column-gap: 15px;">
-    <section class="m-4 w-100 h-100"> <%= render 'experiences/img_carousel'%></section>
+    <section class="m-4 w-100"> <%= render 'experiences/img_carousel'%></section>
     <section style="height: 500px; background-color: white; border-radius:16px; box-shadow: 1px 2px 4px 1px rgb(0 0 0 / 25%);"class="p-2 m-4 flex-shrink-1">
       <div class="d-flex flex-column mb-3">
         <h6 class="p-2 d-flex justify-content-center">Avaliable Dates</h6>
@@ -53,12 +53,9 @@
         </div>
     </section>
   </div>
-  <div style="display: grid;grid-template-columns: 2fr 1fr;">
+  <div class="show-container" style="display: grid;grid-template-columns: 2fr 1fr;">
     <section class="info-card d-flex align-items-start flex-column">
-      <h4>What you'll do</h4>
-        <br>
-      <h6> <%= @experience.description %> </h6>
-      <div class="mood-icons mt-auto"> <%= @experience.mood_list %> </div>
+      <%= render 'experiences/info_card' %>
     </section>
     <section>
     <% if @experience.latitude %>
@@ -66,7 +63,7 @@
     <% end %>
     </section>
   </div>
-  <div class="review-container">
+  <div class="show-container">
     <h6>Reviews</h6>
     <%= turbo_frame_tag dom_id(@experience, :ratings) do %>
      <%= render "experiences/rating_list", ratings: @ratings %>
