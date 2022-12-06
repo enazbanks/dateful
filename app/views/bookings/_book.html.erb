@@ -21,7 +21,11 @@
             <p class="card-title">
             <%= "#{booking.instructions}" %>
             </p>
-
+            <% if booking.suprise? %>
+              <p class="card-title">
+              <%= "#{booking.secret_instructions}" %>
+              </p>           
+            <% end %>
             <p class="card-title">
             <%= "Total cost: $#{booking.experience.cost}" %>
             </p>
