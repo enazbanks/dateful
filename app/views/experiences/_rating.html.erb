@@ -1,18 +1,23 @@
     <div class="review-card">
-      <% if rating.booking.couple.users.first %>
-        <%= cl_image_tag rating.booking.couple.users.first.avatar.key, crop: :fill, class:"avatar-show" %>
-      <% end %>
-      <% if rating.booking.couple.users.last %>
-        <%= cl_image_tag rating.booking.couple.users.last.avatar.key, crop: :fill, class:"avatar-show" %>
-      <% end %>
+      <div class="d-flex">
+        <% if rating.booking.couple.users.first %>
+          <%= cl_image_tag rating.booking.couple.users.first.avatar.key, crop: :fill, class:"avatar-show" %>
+        <% end %>
+        <% if rating.booking.couple.users.last %>
+          <%= cl_image_tag rating.booking.couple.users.last.avatar.key, crop: :fill, class:"avatar-show mr-auto", id:"last_avatar"%>
+        <% end %>
         <% if rating.stars %>
           <%  rating.stars.times do %>
-            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star ml-auto"></i>
           <% end %>
           <%  (5 - rating.stars).times do %>
             <i class="fa-regular fa-star"></i>
           <% end %>
         <% end %>
-        <br>
-        <%= rating.comment%>
+      </div>
+      <br>
+      <%= rating.comment%>
+      <% if rating.booking.couple == current_user.couple %>
+        <%= link_to "Delete", rating, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+      <% end %>
     </div>
