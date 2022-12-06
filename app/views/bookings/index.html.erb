@@ -1,14 +1,22 @@
-  <%# <div id="bookings" class="d-flex flex-wrap justify-content-evenly pb-4" style = "height: 100vh;"> %>
-  <div class="container text-center">
-    <div class="row justify-content-center mb-3">
-      <h3 class="text-center mb-0"> Your Bookings </h3>
-    </div>
-    <div class="row justify-content-start mb-3">
-      <% @bookings.each do |booking| %>
-        <% unless booking.suprise? && booking.secret_list.includes(current_user.partner.id.to_s)%>
-        <%= render 'bookings/book', {booking: booking} %>
-        <% end %>
-      <% end %>
-    </div>
+<div class="container text-center">
+  <div class="row justify-content-center mb-3">
+    <h3 class="text-center mb-0"> Your Bookings </h3>
   </div>
-  <%# </div> %>
+
+  <% @bookings.each do |booking| %>
+    <% if @booking.status == pending %>
+      <%# <% unless booking.suprise? && booking.secret_list.includes(current_user.partner.id.to_s) %>
+    <div class="row justify-content-start mb-3">
+      <%= render 'bookings/book', {booking: booking} %>
+      <%= render 'bookings/secret_book', {booking: booking} %>
+    </div>
+
+    <% else %>
+    <div class="row justify-content-start mb-3">
+      <%= render 'bookings/book', {booking: booking} %>
+      <%= render 'bookings/secret_book', {booking: booking} %>
+    </div>
+    <% end %>
+
+  <% end %>
+</div>

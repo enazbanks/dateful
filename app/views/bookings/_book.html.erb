@@ -1,5 +1,7 @@
 <div class="col-12 col-sm-6 mb-3 p-2 text-start">
-    <div class="card h-30">
+  <div class="card-product">
+    <%= image_tag "dinner.png" %>
+    <div class="card h-30 secret">
       <div class="card-body">
         <p class="card-title">
           <strong> <%= link_to booking.experience.title, experience_path(booking.experience) %> </strong>
@@ -32,4 +34,5 @@
 
       </div>
     </div>
+  </div>
 </div>
