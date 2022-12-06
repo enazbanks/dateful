@@ -14,10 +14,18 @@
             <i class="fa-regular fa-star"></i>
           <% end %>
         <% end %>
+        <% days = (Date.today - rating.booking.when).to_i  %>
       </div>
+      <% if days > 0 %>
+        <p class="text-right"><%="posted #{days} days ago"%></p>
+      <% else %>
+        <p class="text-right"><%="posted today"%></p>
+      <% end %>
       <br>
       <%= rating.comment%>
-      <% if rating.booking.couple == current_user.couple %>
-        <%= link_to "Delete", rating, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+      <% if user_signed_in? %>
+        <% if rating.booking.couple == current_user.couple %>
+          <%= link_to "Delete", rating, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+        <% end %>
       <% end %>
     </div>
