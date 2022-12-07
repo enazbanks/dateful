@@ -5,7 +5,7 @@
     <% end %>
     <%  (5 - @experience.average_rating).times do %>
       <i class="fa-regular fa-star"></i>
-      <i class='stars-show-card'><%= @experience.average_rating_float %> </i>
+      <i class='stars-show-card'> <%= @experience.average_rating_float %> </i>
     <% end %>
   <% else %>
     <%= "Unrated" %>

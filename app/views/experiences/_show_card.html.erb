@@ -57,31 +57,33 @@
     </section>
   </div>
   <div class="show-container">
+    <div class="review-container">
     <h4 style="margin-top: 5%;">Reviews</h4>
-    <%= turbo_frame_tag dom_id(@experience, :ratings) do %>
-     <%= render "experiences/rating_list", ratings: @ratings %>
-    <%end%>
-    <%= link_to "Load more", experience_path(@experience, page: @next_page), id: dom_id(@experience, :load_ratings), data: {turbo_method: :post} %>
-    <div class="p-2 d-flex justify-content-center">
-      <% @experience.bookings.each do |booking| %>
-        <% if booking.user_completed_booking? && booking.couple == current_user.couple && !booking.rating%>
-          <div class="rating-form col-12 col-md-6">
-          <h6>Review your date!</h6>
-          <br>
-          <%= simple_form_for([booking, @rating]) do |f| %>
-            <%= f.error_notification %>
-            <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-            <div class="form-inputs">
-              <%= f.input :stars, collection: (1..5), placeholder: '1-5 ⭐s'%>
-              <%= f.input :comment, placeholder: '...'%>
-            </div>
-            <div class="form-actions">
-              <%= f.button :button, "Submit", class: "btn btn-primary" %>
-            </div>
+      <%= turbo_frame_tag dom_id(@experience, :ratings) do %>
+      <%= render "experiences/rating_list", ratings: @ratings %>
+      <%end%>
+      <%= link_to "Load more", experience_path(@experience, page: @next_page), id: dom_id(@experience, :load_ratings), data: {turbo_method: :post}, class: "btn btn-book", id: "btn-width" %>
+      <div class="p-2 d-flex justify-content-center">
+        <% @experience.bookings.each do |booking| %>
+          <% if booking.user_completed_booking? && booking.couple == current_user.couple && !booking.rating%>
+            <div class="rating-form col-12 col-md-6">
+            <h6>Review your date!</h6>
+            <br>
+            <%= simple_form_for([booking, @rating]) do |f| %>
+              <%= f.error_notification %>
+              <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+              <div class="form-inputs">
+                <%= f.input :stars, collection: (1..5), placeholder: '1-5 ⭐s'%>
+                <%= f.input :comment, placeholder: '...'%>
+              </div>
+              <div class="form-actions">
+                <%= f.button :button, "Submit", class: "btn btn-primary" %>
+              </div>
+            <% end %>
           <% end %>
         <% end %>
-      <% end %>
+        </div>
       </div>
     </div>
-  </div>
+    </div>
 </div>
