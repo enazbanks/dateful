@@ -41,7 +41,7 @@
     <section class="m-4 w-100"> <%= render 'experiences/img_carousel'%></section>
     <section style="height: 550px; background-color: white; border-radius:16px; box-shadow: 1px 2px 4px 1px rgb(0 0 0 / 25%);"class="m-4 flex-shrink-1">
       <div class="d-flex flex-column mb-3">
-        <h5 class="p-2 d-flex justify-content-center">Book Your Date</h5>
+        <h5 class="p-2 d-flex justify-content-center red-text">Book Your Date</h5>
           <div class="calendar p-2 d-flex justify-content-center"><%= render 'bookings/form_booking', booking: @booking %></div>
       </div>
     </section>
@@ -58,7 +58,7 @@
   </div>
   <div class="show-container">
     <div class="review-container">
-    <h4 style="margin-top: 5%;">Reviews</h4>
+    <h4 class="border-bottom" style="margin-top: 5%;">Reviews</h4>
       <%= turbo_frame_tag dom_id(@experience, :ratings) do %>
       <%= render "experiences/rating_list", ratings: @ratings %>
       <%end%>

@@ -21,7 +21,7 @@
       <% else %>
         <p class="text-right"><%="posted today"%></p>
       <% end %>
-      <br>
+
       <%= rating.comment%>
       <% if user_signed_in? %>
         <% if rating.booking.couple == current_user.couple %>

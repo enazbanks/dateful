@@ -84,7 +84,7 @@
 }
 
 .review-container {
-  width: 70%;
+  width: 45%;
 }
 
 .review-card {
@@ -136,4 +136,24 @@
   height: 40px;
   width: 167px;
   margin: 10px;
+}
+
+.red-text {
+  color: rgba(192.31, 44.87, 59.43, 1);
+  border-bottom: 1px solid #0e00001a;
+}
+
+.border-bottom {
+  border-bottom: 2px solid #0e00001a;
+  padding-bottom: 2%;
+}
+
+.border-top {
+  border-top: 2px solid #0e00001a;
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+.text-right {
+  color: #6c757d;
 }
