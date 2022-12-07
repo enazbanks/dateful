@@ -10,7 +10,7 @@
             FREE
           </p>
         <% end %>
-        <p class="description"><%= experience.description.truncate(100) %></p>
+        <p class="description"><%= experience.description.truncate(75) %></p>
         <p class="reviews"><%="#{experience.ratings.length} reviews"%></p>
         <p class="mood" style="padding-right: 35px;"> <%= experience.mood_list %> </p>
         <% if experience.cost > 75 %>
