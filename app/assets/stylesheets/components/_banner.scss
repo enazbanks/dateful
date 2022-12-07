@@ -1,11 +1,12 @@
 .banner {
   height: 100vh;
   display: flex;
-  justify-content: space-around;
   align-items: center;
   // background-image: image-url("sunset_hike.jpg");
-  // background-size: cover;
-  // background-position: center;
+  background-size: cover;
+  background-position: center;
+  position:relative;
+  z-index:-2;
 }
 
 h1 {
@@ -13,17 +14,13 @@ h1 {
   font-size: 60px;
 }
 
-#banner-header{
-  margin-left: 650px;
-}
-
-// .btn {
-//   padding: 15px 50px;
-//   margin-right: 100px;
-// }
-
-#banner-button{
-  // margin-left: 650px;
-  align-items: right;
-  margin-right: 250px;
+.banner-text {
+  z-index: 1;
+  position: absolute;
+  top: 15%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  width: 63%;
+  margin-left: 60px;
 }
