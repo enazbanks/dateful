@@ -36,8 +36,8 @@
   color: rgb(216, 206, 206);
 }
 
-.mood-icons {
-  width: 610px;
+.mood-icon {
+  width: 150px;
 }
 
 .favs{
@@ -84,11 +84,7 @@
 }
 
 .review-container {
-  position: relative;
-  box-shadow: 1px 2px 4px 1px rgba(0, 0, 0, 0.25);
-  margin: 20px auto;
-  width: 70%;
-  padding: 16px;
+  width: 45%;
 }
 
 .review-card {
@@ -101,6 +97,14 @@
 
 .user-rating {
   margin: 20px;
+}
+
+.stars-show-card{
+  display: flex;
+  align-items: flex-end;
+  i {
+    margin: 4px;
+  }
 }
 
 .info-card {
@@ -126,4 +130,30 @@
 
 .price-large {
   font-size: 20px;
+}
+
+#btn-width {
+  height: 40px;
+  width: 167px;
+  margin: 10px;
+}
+
+.red-text {
+  color: rgba(192.31, 44.87, 59.43, 1);
+  border-bottom: 1px solid #0e00001a;
+}
+
+.border-bottom {
+  border-bottom: 2px solid #0e00001a;
+  padding-bottom: 2%;
+}
+
+.border-top {
+  border-top: 2px solid #0e00001a;
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+.text-right {
+  color: #6c757d;
 }
