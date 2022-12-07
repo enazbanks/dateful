@@ -24,15 +24,16 @@
   margin-bottom: 1%;
 }
 
-.button-calendar {
-  height: 100%;
-  width: 117px;
-  padding: 4px;
+.btn-book{
   background-color: rgba(192.31, 44.87, 59.43, 1);
-  box-shadow: 0px 1px 2px rgba(31, 41, 55, 0.08);
+  color: white;
   border-radius: 100px;
-  justify-content: center;
-  display: flex;
+  text-decoration: none;
+}
+
+.btn-book:hover {
+  background-color: rgba(192.31, 44.87, 59.43, 1);
+  color: rgb(216, 206, 206);
 }
 
 .mood-icons {
@@ -69,6 +70,14 @@
   position: relative;
 }
 
+.map {
+  width: 100%;
+  height: 600px;
+  border-radius: 2%;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin-top: 70px;
+}
+
 .fa-location-dot {
   color: rgba(192.31, 44.87, 59.43, 1);
   padding-right: 5px;
@@ -95,5 +104,26 @@
 }
 
 .info-card {
-  margin-top: 5%;
+  padding: 2%;
+}
+
+.info-description {
+  font-size: 20px;
+  line-height: 1.8;
+  word-spacing: 1px;
+}
+
+.info-icon {
+  color: rgba(192.31, 44.87, 59.43, 1);
+  font-size: 25px;
+}
+
+.info-text {
+  margin-left: 20px;
+  font-size: 20px;
+  color: rgba(113, 113, 113, 1);
+}
+
+.price-large {
+  font-size: 20px;
 }
