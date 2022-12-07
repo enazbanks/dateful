@@ -1,46 +1,46 @@
-<div class="row m-3">
-    <div class="card h-30">
-      <div class="card-body">
+<div class="row m-2">
+  <div class="card" style="max-width: 1050px;">
+    <div class="row g-0">
 
-        <div class="flex-container">
-          <div class="flex-item">
-              <% if booking.experience.photos.attached? %>
-              <%= cl_image_tag booking.experience.photos.first.key, class: "exp-image", crop: :fill %>
-            <% end %>
-          </div>
-
-          <div class="flex-item text-start booking_info">
-            <p class="card-title">
-              <%= link_to booking.experience.title, experience_path(booking.experience) %>
-            </p>
-
-            <p class="card-title">
-            <%= "You are booked in for: #{booking.when.strftime('%d-%m-%Y')}" %>
-            </p>
-
-            <p class="card-title">
-            <%= "#{booking.instructions}" %>
-            </p>
-
-            <p class="card-title">
-            <%= "Total cost: $#{booking.experience.cost}" %>
-            </p>
-
-            <p class="card-title">
-              <%= "Status: #{booking.status}" %>
-            </p>
-          </div>
-        </div>
-
-          <ul class="list-inline text-end">
-            <li class="list-inline-item">
-              <%= link_to "Edit booking", edit_booking_path(booking), class:"btn btn-primary" if booking.status == "pending" %>
-            </li>
-            <li class="list-inline-item">
-              <%= link_to "Delete", booking, class:"btn btn-primary", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
-            </li>
-          </ul>
-
+      <div class="col-md-4">
+        <% if booking.experience.photos.attached? %>
+          <%= cl_image_tag booking.experience.photos.first.key, class: "img-fluid img_info mt-3", crop: :fill %>
+        <% end %>
       </div>
+
+      <div class="col-md-8 text-start">
+        <div class="card-body" style="margin-left: 20px;">
+          <p class="card-title">
+            <%= link_to booking.experience.title, experience_path(booking.experience) %>
+          </p>
+
+          <p class="card-text">
+            <%= "You are booked in for: #{booking.when.strftime('%d-%m-%Y')}" %>
+          </p>
+
+          <p class="card-text">
+            <%= "#{booking.instructions}" %>
+          </p>
+
+          <p class="card-text">
+            <%= "Total cost: $#{booking.experience.cost}" %>
+          </p>
+
+          <p class="card-text">
+            <%= "Status: #{booking.status}" %>
+          </p>
+        </div>
+      </div>
+
+        <ul class="list-inline text-end" style="
+    padding-right: 10px;">
+          <li class="list-inline-item">
+            <%= link_to "Edit booking", edit_booking_path(booking), class:"btn btn-primary" if booking.status == "pending" %>
+          </li>
+          <li class="list-inline-item">
+            <%= link_to "Cancel", booking, class:"btn btn-primary", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+          </li>
+        </ul>
     </div>
+  </div>
 </div>
