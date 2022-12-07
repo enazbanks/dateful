@@ -527,7 +527,8 @@ frank = User.create!(
   first_name: 'Frank',
   last_name: 'liaison',
   email: 'frank@lewagon.com',
-  password: 'franktest'
+  password: 'franktest',
+  dob: Faker::Date.between(from: 28.years.ago, to: 29.years.ago)
 )
 
 frank.couple = couple
@@ -540,7 +541,8 @@ bertha = User.create(
   last_name: 'liaison',
   email: 'bertha@lewagon.com',
   password: 'berthatest',
-  couple: couple
+  couple: couple,
+  dob: Faker::Date.between(from: 28.years.ago, to: 29.years.ago)
 )
 file = URI.open("https://cdn.pixabay.com/photo/2019/03/21/20/29/eyewear-4071870__340.jpg")
 bertha.avatar.attach(io: file, filename: "bertha.png", content_type: "image/png")
