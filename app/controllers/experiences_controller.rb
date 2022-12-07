@@ -47,18 +47,18 @@ class ExperiencesController < ApplicationController
     ]
 
     @icons = {
-      "Relaxed" => "icon_relaxing.png",
-      "Romantic" => "",
+      "Relaxed" => "icon_relax.png",
+      "Romantic" => "icon_adventure.png",
       "Adventurous" => "icon_adventure.png",
-      "Roadtrip" => "",
-      "Foodie" => "",
-      "Home" => "",
+      "Roadtrip" => "icon_roadtrip.png",
+      "Foodie" => "icon_foodie.png",
+      "Home" => "icon_home.png",
       "Active" => "icon_camping.png",
-      "Pamper" => "",
-      "Night" => "",
-      "Instagrammable" => "",
-      "Playful" => "",
-      "Spicy" => ""
+      "Pamper" => "icon_relaxing.png",
+      "Night" => "icon_night.png",
+      "Instagrammable" => "icon.walk.png",
+      "Playful" => "icon_playful.png",
+      "Spicy" => "icon_romance.png"
     }
     # for each img url = hash value
   end
