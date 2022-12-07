@@ -20,7 +20,7 @@
 .cost {
   width: 155px;
   height: 22px;
-  left: 421px;
+  left: 430px;
   top: 140px;
   position: absolute;
   font-size: 20px;
@@ -34,19 +34,20 @@
   left: 257px;
   top: 112px;
   position: absolute;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 500;
   line-height: 130%;
-  color: rgba(113, 113, 113, 1);
+  color: black;
   text-align: left;
   padding-right: 100px;
+  padding-bottom: 10px;
 }
 
 .reviews {
   left: 355px;
   top: 200px;
   position: absolute;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 500;
   line-height: 100%;
   color: rgba(113, 113, 113, 1);
@@ -57,10 +58,11 @@
   left: 254px;
   top: 77px;
   position: absolute;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 500;
-  line-height: 100%;
+  line-height: 120%;
   color: rgba(192, 45, 59, 1);
+  text-align: start;
 }
 .dollars {
   width: 20px;
@@ -101,10 +103,11 @@
   left: 253px;
   top: 53px;
   position: absolute;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 500;
   line-height: 100%;
   color: rgba(113, 113, 113, 1);
+  text-align: start;
 }
 
 .exp-image {
@@ -175,8 +178,9 @@
   width: 117px;
   height: 32px;
   left: 473px;
-  top: 177px;
+  top: 184px;
   position: absolute;
+  margin-bottom: 0;
 }
 
 .button-red-base {
