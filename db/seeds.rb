@@ -16,6 +16,7 @@ Couple.destroy_all
 
 
 MOOD = %w[Romantic Adventurous Relaxed Playful Spicy Foodie Instagrammable Pamper Active Retro Roadtrip]
+FEATURE = %w[Pet Accessible Food Transport Children Alcohol]
 
 15.times do
   couple = Couple.new
