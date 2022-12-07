@@ -17,11 +17,16 @@
     <i class="info-text"><%= ["Wheelchair-friendly", "Accessiblity-friendly"].sample%></i>
   </div>
 <div class="mt-auto d-flex align-items-center">
-  <% @experience.mood_list.each do |mood| %>
-    <% if @icons[mood] %>
-    <div>
-      <%= image_tag @icons[mood], class: "mood-icon"%>
-    </div>
+    <% @experience.mood_list.each do |mood| %>
+      <% if @icons[mood] %>
+        <%= image_tag @icons[mood], class: "mood-icon"%>
+      <% end %>
     <% end %>
-  <% end %>
+</div>
+<div class=" d-flex align-items-center">
+    <% @experience.mood_list.each do |mood| %>
+      <% if @icons[mood] %>
+        <%= mood %>
+      <% end %>
+    <% end %>
 </div>
