@@ -20,9 +20,17 @@
 
           <p class="card-text">
             <%= "#{booking.instructions}" %>
-          </p>
-
-          <p class="card-text">
+            </p>
+            <% if booking.suprise? %>
+              <p class="card-title">
+              <%= "#{booking.secret_instructions}" %>
+              </p>           
+            <div class="d-flex justify-content-between">
+              <div><%= link_to booking.experience.title, experience_path(booking.experience)%></div>
+              <div><i class="fa-solid fa-mask" id="secret-mask"></i></div>
+            </div>
+            <% end %>
+            <p class="card-title">
             <%= "Total cost: $#{booking.experience.cost}" %>
           </p>
 

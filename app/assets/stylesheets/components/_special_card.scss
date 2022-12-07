@@ -1,6 +1,10 @@
+// #top-of-card {
+//   margin-top: 20px;
+// }
+
 .special-days-card {
   width: 300px;
-  height: 130px;
+  height: 150px;
   background: #b41313;
   border-radius: 16px;
   position: relative;
@@ -9,8 +13,9 @@
   text-align: center;
 }
 
-.title {
+#title {
   margin-top: 20px;
+  padding-top: 20px;
 }
 
 h3{

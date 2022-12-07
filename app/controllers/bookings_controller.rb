@@ -19,10 +19,11 @@ class BookingsController < ApplicationController
     @booking.experience = @experience
     @booking.couple = current_user.couple
     @booking.instructions = @experience.instructions
+    @booking.secret_list.add(current_user.id) if @booking.suprise?
+    @booking.secret_instructions = @experience.secret_instructions if @booking.suprise?
     authorize @booking
     # @booking.save # => true/false
     if @booking.save
-      @booking.secret_list.add(current_user.id) if @booking.suprise?
       redirect_to bookings_path
       flash[:notice] = 'Successfully Booked'
     else
