@@ -8,7 +8,7 @@
     </div>
     <div class="d-flex favs">
       <% if user_signed_in? %>
-        <%= turbo_frame_tag dom_id(@experience, :favorite) do %>
+        <%= turbo_frame_tag dom_id(@experience, :favorite_show) do %>
           <% if @experience.favorited_by?(current_user) %>
             <%= link_to  unfavorite_experience_path(@experience), data: { turbo_method: :patch} do%>
               <%= cl_image_tag current_user.avatar.key,  crop: :fill, class:"avatar-show heart-show"%>
