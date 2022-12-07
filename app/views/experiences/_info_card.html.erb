@@ -1,7 +1,5 @@
 <h3 class="mt-0">What you'll do</h3>
-<br>
-<h6 class="info-description"> <%= @experience.description %> </h6>
-<br>
+<h6 class="info-description border-top"> <%= @experience.description %> </h6>
   <div class="d-flex" style="padding: 10px;">
     <i class="info-icon fa-regular fa-clock"></i>
     <i class="info-text"><%= @experience.time%></i>
@@ -16,4 +14,19 @@
     <i class="info-icon fa-solid fa-wheelchair-move"></i>
     <i class="info-text"><%= ["Wheelchair-friendly", "Accessiblity-friendly"].sample%></i>
   </div>
-<div class="mood-icons mt-auto"> <%= @experience.mood_list %> </div>
+
+  <div class="mt-auto d-flex align-items-center">
+      <% @experience.mood_list.each do |mood| %>
+        <% if @icons[mood] %>
+          <%= image_tag @icons[mood], class: "mood-icon"%>
+        <% end %>
+      <% end %>
+  </div>
+
+<div class=" d-flex align-items-center">
+    <% @experience.mood_list.each do |mood| %>
+      <% if @icons[mood] %>
+        <%= mood %>
+      <% end %>
+    <% end %>
+</div>
