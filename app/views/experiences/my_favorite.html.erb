@@ -6,10 +6,15 @@
   </div>
 
   <div class="row justify-content-center">
-    <% @experiences.each do |experience| %>
-    <div class="col">
-        <%= render 'experiences/index_card', {experience: experience} %>
-    </div>
+    <% if @experiences.length.positive? %>
+      <% @experiences.each do |experience| %>
+        <div class="col">
+            <%= render 'experiences/index_card', {experience: experience} %>
+        </div>
       <% end %>
+    <% else %>
+      <h4> You have No current Favorites 💔💔 </h4> 
+      <h4><%= link_to "Lets find some", experiences_path %> </h4> 
+    <% end %>
   </div>
 </div>
