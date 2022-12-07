@@ -7,8 +7,8 @@
         <% if @special_days.present? %>
           <% @special_days.each do |day| %>
           <p id="title"><%= day.title.capitalize %></p>
-          <p class="date"><%= day.date %></p>
-          <%= link_to "Remove", "#", class: "button-white-text"%>
+          <p class="date"><%= day.date.to_formatted_s(:short) %></p>
+          <%= link_to "Remove", day, class:"button-white-text", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
         <%end%>
         <% else %>
           <p>You have no saved Special Days
