@@ -56,7 +56,7 @@ class ExperiencesController < ApplicationController
       "Active" => "icon_camping.png",
       "Pamper" => "icon_relaxing.png",
       "Night" => "icon_night.png",
-      "Instagrammable" => "icon.walk.png",
+      "Instagrammable" => "icon_walk.png",
       "Playful" => "icon_playful.png",
       "Spicy" => "icon_romance.png"
     }

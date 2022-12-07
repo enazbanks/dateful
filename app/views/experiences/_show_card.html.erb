@@ -2,10 +2,12 @@
   <h2 class="title-show"><%= @experience.title %></h2>
   <%# icon with text Bertha likes this date idea%>
   <div class="d-flex justify-content-between" style="margin-left: 20px;">
+
     <div class= "d-flex">
       <i class="fa-solid fa-location-dot"> </i>
       <h6><%= @experience.address %></h6>
     </div>
+    <%= render "experiences/rating_star"%>
     <div class="d-flex favs">
       <% if user_signed_in? %>
         <%= turbo_frame_tag dom_id(@experience, :favorite) do %>
@@ -55,7 +57,7 @@
     </section>
   </div>
   <div class="show-container">
-    <h6>Reviews</h6>
+    <h4 style="margin-top: 5%;">Reviews</h4>
     <%= turbo_frame_tag dom_id(@experience, :ratings) do %>
      <%= render "experiences/rating_list", ratings: @ratings %>
     <%end%>

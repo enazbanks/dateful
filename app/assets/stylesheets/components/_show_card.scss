@@ -103,6 +103,14 @@
   margin: 20px;
 }
 
+.stars-show-card{
+  display: flex;
+  align-items: flex-end;
+  i {
+    margin: 4px;
+  }
+}
+
 .info-card {
   padding: 2%;
 }

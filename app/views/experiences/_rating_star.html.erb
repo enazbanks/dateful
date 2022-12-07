@@ -1,10 +1,11 @@
-<div class="star-rating">
+<div class='stars-show-card'>
   <% if @experience.average_rating %>
     <%  @experience.average_rating.times do %>
       <i class="fa-solid fa-star"></i>
     <% end %>
     <%  (5 - @experience.average_rating).times do %>
       <i class="fa-regular fa-star"></i>
+      <i class='stars-show-card'><%= @experience.average_rating_float %> </i>
     <% end %>
   <% else %>
     <%= "Unrated" %>
