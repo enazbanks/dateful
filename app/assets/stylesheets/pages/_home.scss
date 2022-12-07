@@ -30,6 +30,10 @@
   text-align: center;
   margin: 50px 20px 20px 20px;
 }
+#mood-header{
+  color: black;
+  font-size: 38px;
+}
 
 .big-card-container{
   justify-content: space-between;
@@ -71,6 +75,9 @@
   justify-content: space-between;
   text-decoration: none;
   margin: 50px 20px 50px 20px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
   #h2{
     text-decoration: none;
     margin: 10px 10px 10px 20px;
@@ -185,20 +192,22 @@
 
 //2 banner images at bottom of home page
 .picnic{
-  background-image: url("couple_picnic_forest.jpeg");
+  // background-image: url("couple_picnic_forest.jpeg");
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("couple_picnic_forest.jpeg");
   background-size: cover;
   background-position: center;
   display: table-cell;
-  filter: brightness(110%)
+  filter: brightness(110%);
   // opacity: 0.8;
   // margin: 20px 20px 20px 20px;
 }
 .feast {
-  background-image: url("couple_laugh.png");
+  // background-image: url("couple_laugh.png");
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("couple_laugh.png");
   background-size: cover;
   background-position: center;
   display: table-cell;
-  filter: brightness(110%)
+  filter: brightness(110%);
   // opacity: 0.8;
   // margin: 20px 20px 20px 20px;
 }
