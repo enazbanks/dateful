@@ -1,28 +1,30 @@
 .ben {
-  background-image: url("male_avatar.png");
-  height: 300px;
-  width: 300px;
+  background-image: url("ben.jpg");
+  height: 350px;
+  width: 350px;
+  color: floralwhite;
   background-size: cover;
   background-position: center;
 }
 .enaz {
   background-image: url("female_avatar.png");
-  height: 300px;
-  width: 300px;
+  height: 350px;
+  width: 350px;
   background-size: cover;
   background-position: center;
 }
 .rachel {
   background-image: url("female_avatar.png");
-  height: 300px;
-  width: 300px;
+  height: 350px;
+  width: 350px;
   background-size: cover;
   background-position: center;
 }
 .brad {
-  background-image: url("male_avatar.png");
-  height: 300px;
-  width: 300px;
+  background-image: url("brad.jpeg");
+  height: 350px;
+  width: 350px;
+  color: floralwhite;
   background-size: cover;
   background-position: center;
 }
@@ -35,6 +37,7 @@
   margin-bottom: 40px;
 }
 
-// .about-us-card{
-
+// .flex-container {
+//   display: flex;
+//   justify-content: space-between;
 // }

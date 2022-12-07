@@ -16,6 +16,7 @@ Couple.destroy_all
 
 
 MOOD = %w[Romantic Adventurous Relaxed Playful Spicy Foodie Instagrammable Pamper Active Retro Roadtrip]
+FEATURE = %w[Pet Accessible Food Transport Children Alcohol]
 
 15.times do
   couple = Couple.new
@@ -65,6 +66,7 @@ experience.photos.attach(io: file, filename: "zoomies2.jpg", content_type: "imag
 experience.mood_list.add("Playful")
 experience.mood_list.add("Adventurous")
 experience.mood_list.add("Active")
+experience.feature_list.add("Pets")
 experience.save
 
 rand(10..50).times do

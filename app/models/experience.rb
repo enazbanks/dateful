@@ -3,7 +3,7 @@ class Experience < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_address?
   acts_as_favoritable
   acts_as_taggable_on :tags
-  acts_as_taggable_on :mood, :location, :secret #You can also configure multiple tag types per model
+  acts_as_taggable_on :mood, :feature, :secret #You can also configure multiple tag types per model
   has_many :bookings, dependent: :destroy
   has_many :ratings, through: :bookings
   has_many :couples, through: :bookings
