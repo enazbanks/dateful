@@ -1,0 +1,35 @@
+.second-banner {
+  height: 100vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgb(224, 178, 114);
+  // background-image: image-url("sunset_hike.jpg");
+  // background-size: cover;
+  // background-position: center;
+}
+
+h3 {
+  color: white;
+  font-size: 60px;
+}
+
+p {
+  color: white;
+  font-size: 60px;
+}
+
+#second-banner-header{
+  margin-left: 650px;
+}
+
+// .btn {
+//   padding: 15px 50px;
+//   margin-right: 100px;
+// }
+
+// #banner-button{
+//   // margin-left: 650px;
+//   align-items: right;
+//   margin-right: 250px;
+// }
