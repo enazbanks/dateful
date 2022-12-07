@@ -44,17 +44,34 @@
 
 }
 .heart-show {
-  left: 2205px;
-  top: 150px;
+  left: 88.5vw;
+  top: 200px;
   position: absolute;
 }
 
 #gold-mask-show {
   color:darkgoldenrod;
-  left: 2205px;
-  top: 125px;
+  top: 220px;
+  left: 88.4vw;
   position: absolute;
   font-size: larger;
+}
+#red-mask-show {
+  top: 206px;
+  left: 88.3vw;
+  position: absolute;
+  color:rgba(214, 49, 49, 1);
+  font-size:xx-large;
+}
+#show-avatar {
+  top: 205px;
+  left: 88vw;
+  position: absolute;
+}
+#show-partner {
+  top: 205px;
+  left: 86vw;
+  position: absolute;
 }
 .avatar-show {
   border-radius: 1000px;
