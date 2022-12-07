@@ -38,6 +38,17 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
+.talina-banner-image {
+  margin-left: 30px;
+  margin-right: 30px;
+  background-image: image-url("couple-talina.png");
+  height: 600px;
+  width: 530px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
 .banner-review-text{
   font-size: 20px;
 }

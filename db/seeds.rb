@@ -147,7 +147,7 @@ end
 experience = Experience.new(
   title: 'Take Stock Check',
   description: "For the couples who are in it for the long haul and want to retire early. Take Stock offers the greatest potential for growth both romantically and finacially. Hop online and start checking out the latest news, trends and tweets then you can start investing! Rekindle the flame with your loved one at home with a click of a button.",
-  address: "Home",
+  address: "At the comfort of your own home",
   cost: 0,
   time: "30 minutes",
   instructions: "Bring your phone or laptop fully charged and dress comfy.",
