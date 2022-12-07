@@ -3,30 +3,30 @@
     <div class="index-card">
         <% if experience.cost.positive? %>
           <p class="cost">
-            <%= experience.cost %>
+            $<%= experience.cost %>
           </p>
         <% else %>
-          <p class="cost text-success">
-            free
+          <p class="cost">
+            FREE
           </p>
         <% end %>
-        <p class="description"><%= experience.description.truncate(150) %></p>
+        <p class="description"><%= experience.description.truncate(100) %></p>
         <p class="reviews"><%="#{experience.ratings.length} reviews"%></p>
-        <p class="mood"> <%= experience.mood_list %> </p>
+        <p class="mood" style="padding-right: 35px;"> <%= experience.mood_list %> </p>
         <% if experience.cost > 75 %>
-          <p class="dollars"><strong>$$$$</strong></p>
+          <%# <p class="dollars"><strong>$$$$</strong></p> %>
         <% elsif experience.cost > 50 %>
-          <p class="dollars"><strong>$$$</strong>$</p>
+          <%# <p class="dollars"><strong>$$$</strong>$</p> %>
         <% elsif experience.cost > 25 %>
-         <p class="dollars"><strong>$$</strong>$$</p>
+         <%# <p class="dollars"><strong>$$</strong>$$</p> %>
         <% elsif experience.cost.positive? %>
-          <p class="dollars"><strong>$</strong>$$$</p>
+          <%# <p class="dollars"><strong>$</strong>$$$</p> %>
         <% else %>
-          <p class="dollars text-success"><strong>free</strong></p>
+          <%# <p class="dollars text-success"></p> %>
         <% end %>
         <%# <p class="host">MK Tours</p> %>
-        <p class="exp-title"><%= link_to experience.title, experience_path(experience) %></p>
-        <p class="exp-address"><%= experience.address %></p>
+        <p class="exp-title"><%= link_to experience.title.truncate(26), experience_path(experience), :style=>"color: black; text-decoration: none" %></p>
+        <p class="exp-address"><%= experience.address.truncate(20) %></p>
 
         <%= link_to experience_path(experience)do %>
           <% if experience.photos.attached? %>
