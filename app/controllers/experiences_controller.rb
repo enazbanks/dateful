@@ -45,6 +45,22 @@ class ExperiencesController < ApplicationController
         image_url: helpers.asset_url("location_drop_heart.svg")
       }
     ]
+
+    @icons = {
+      "Relaxed" => "icon_relaxing.png",
+      "Romantic" => "",
+      "Adventurous" => "icon_adventure.png",
+      "Roadtrip" => "",
+      "Foodie" => "",
+      "Home" => "",
+      "Active" => "icon_camping.png",
+      "Pamper" => "",
+      "Night" => "",
+      "Instagrammable" => "",
+      "Playful" => "",
+      "Spicy" => ""
+    }
+    # for each img url = hash value
   end
 
   def favorite
