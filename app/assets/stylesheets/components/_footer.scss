@@ -11,15 +11,13 @@
 }
 .footer-links {
   display: flex;
-  // align-items: center;
-  // color: white;
   opacity: 0.80;
 }
 .footer-links a {
   color: white;
   opacity: 0.80;
   // text-decoration: none;
-  font-size: 24px;
+  font-size: 34px;
   padding: 0px 10px;
 }
 
@@ -37,4 +35,16 @@
 
 .list-inline-item:hover {
   opacity: 1.00;
+}
+
+#footer-links{
+  padding-right: 40px;
+  padding-left: 10px;
+  font-size: 20px;
+}
+
+#footer-icons{
+  padding-left: 40px;
+  padding-left: 40px;
+  size:20px;
 }

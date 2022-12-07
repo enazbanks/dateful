@@ -22,6 +22,9 @@
   // align-items: center;
   // display: flex;
   text-align: center;
+  height: 40px;
+  font-size: 20px;
+  padding-top: 5px;
 }
 
 .section {
@@ -86,9 +89,10 @@
 }
 
 #banner-button {
-  width: 200px;
+  width: 235px;
   align-items: center;
-  float: right;
+  font-size: 20px;
+  text-align: center;
 }
 
 // #banner_header {
