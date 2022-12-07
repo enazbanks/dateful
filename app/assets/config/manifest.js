@@ -2,3 +2,4 @@
 //= link_directory ../stylesheets .css
 //= link_tree ../builds
 //= link beach.mp4
+//= link picnic.mp4
