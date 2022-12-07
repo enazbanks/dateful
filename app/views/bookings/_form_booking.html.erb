@@ -2,32 +2,31 @@
     <%= f.error_notification %>
     <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
     <div class="form-inputs">
-      <%= f.input :when, as: :string,
+      <%= f.input :when, as: :string, label: "Select a date", placeholder: "9 Dec 2022",
         input_html: {
-          class: "datepicker", id: "cal-click",data: { inline: true }
+          class: "datepicker", id: "cal-click", data: { inline: true }, dateFormat: 'd-m-Y'
         }
       %>
 
       <ul class="list-inline">
         <li class="list-inline-item">
-          <%= f.input :suprise%>
+          <%= f.input :suprise, label:"Make it a Surprise?"%>
         </li>
         <li class="list-inline-item">
           <i class="fa-solid fa-circle-info"
           data-controller="tooltip"
           data-bs-toggle="tooltip"
           data-bs-placement="right"
-          title="when you click this box, your booking will not be sent to your partner for making suprise "></i>
+          title="Hide details of your date from your partner and surprise them!"></i>
         </li>
         <div class="d-flex">
-          <li class="p-2 w-100"><%=@experience.cost %></li>
+          <li class="p-2 w-100 price-large"><%="$ #{@experience.cost}"%></li>
           <li class="form-actions p-2 flex-shrink-1">
             <%= f.button :submit, class: "disabled btn-book", id: "show-book" %>
           </li>
         </div>
       </ul>
     </div>
-
   <% end %>
 </div>
 
