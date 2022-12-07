@@ -8,6 +8,7 @@ Bundler.require(*Rails.groups)
 
 module Dateful
   class Application < Rails::Application
+    config.assets.paths << "#{Rails.root}/app/assets/videos"
     config.generators do |generate|
       generate.assets false
       generate.helper false
