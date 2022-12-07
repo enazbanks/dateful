@@ -57,7 +57,7 @@
               <% end %>
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                   <%= link_to "#{current_user.first_name} #{current_user.last_name}", "#", class: "btn btn-light dropdown-toggle", id: "name_button", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-                  <%= link_to "Your Profile", edit_user_session_path, class: "dropdown-item", data: {turbo_method: :get} %>
+                  <%= link_to "Your Profile", edit_user_registration_path, class: "dropdown-item", data: {turbo_method: :get} %>
                   <% unless current_user.couple %>
                     <%= link_to "Link Partner", new_couple_path, class: "dropdown-item"%>
                   <% end %>
