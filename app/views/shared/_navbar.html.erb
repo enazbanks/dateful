@@ -45,41 +45,35 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto">
           <% if user_signed_in? %>
-
             <li class="nav-item dropdown position-relative mx-3" style="z-index:1">
               <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                 <%# <%= current_user.total_pending %>
-                  <span class="visually-hidden">unread messages</span>
+                <span class="visually-hidden">unread messages</span>
               </span>
               <% if current_user.avatar.key %>
                 <%= cl_image_tag current_user.avatar.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
               <% else %>
                 <%= image_tag "avatar.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
               <% end %>
-                <div>
-                </div>
-              </li>
-              <li class="nav-item dropdown ">
-                <%= link_to "#{current_user.first_name} #{current_user.last_name}", "#", class: "btn btn-light dropdown-toggle", id: "name_button", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                  <%= link_to "#{current_user.first_name} #{current_user.last_name}", "#", class: "btn btn-light dropdown-toggle", id: "name_button", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
                   <%= link_to "Your Profile", '#', class: "dropdown-item", data: {turbo_method: :get} %>
                   <% unless current_user.couple %>
                     <%= link_to "Link Partner", new_couple_path, class: "dropdown-item"%>
                   <% end %>
                   <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
                 </div>
-              </li>
-            <% else %>
-              <li class="nav-item active">
-                <%= link_to "Sign up", "/users/sign_up", class: "nav-link" %>
-              </li>
-              <li class="nav-item">
-                <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-              <li>
-            <%end %>
-          </ul>
+            </li>
+          <% else %>
+            <li class="nav-item active">
+              <%= link_to "Sign up", "/users/sign_up", class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+            <li>
+            <% end %>
+        </ul>
       </div>
     </div>
-    <%# </div> %>
   </div>
 <% end %>
