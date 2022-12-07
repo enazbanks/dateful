@@ -17,7 +17,9 @@ class SpecialDaysController < ApplicationController
   end
 
   def destroy
-    @special_day.delete
+    @special_day = SpecialDay.find(params[:id])
+    authorize @special_day
+    @special_day.destroy
     redirect_to special_days_path
   end
 
