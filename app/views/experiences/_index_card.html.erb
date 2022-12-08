@@ -26,7 +26,7 @@
         <% end %>
         <%# <p class="host">MK Tours</p> %>
         <p class="exp-title"><%= link_to experience.title.truncate(26), experience_path(experience), :style=>"color: black; text-decoration: none" %></p>
-        <p class="exp-address"><%= experience.address.truncate(20) %></p>
+        <p class="exp-address"><%= experience.address.truncate(40) %></p>
 
         <%= link_to experience_path(experience)do %>
           <% if experience.photos.attached? %>
