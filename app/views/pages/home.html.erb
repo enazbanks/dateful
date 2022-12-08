@@ -1,9 +1,9 @@
 <div class="banner">
-  <div class="banner-content text-center">
+  <div class="banner-content text-center" style="position: relative;">
     <%= video_tag "beach.mp4", autoplay: :autoplay, loop: :loop, muted: :muted, class: "home_video" %>
       <div class="banner-text">
-      <h1 id="banner-header">Not sure what to do? <br>Perfect.</h1>
-      <%= link_to "Plan my date", experiences_path, class: "btn btn-primary", id: "banner-button"  %>
+        <h1 id="banner-header">Not sure what to do? <br>Perfect.</h1>
+        <%= link_to "Plan my date", experiences_path, class: "btn btn-primary", id: "banner-button"  %>
       </div>
   </div>
 </div>
@@ -50,3 +50,4 @@
     </div>
   </div>
 </div>
+
