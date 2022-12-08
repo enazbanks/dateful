@@ -1,19 +1,25 @@
 <div class="container">
-  <div class="row justify-content-center" style="margin-top: 50px; margin-bottom: 200px;">
-  <div class="col-12 col-md-6">
-    <%= simple_form_for (@special_day) do |f| %>
-      <%= f.error_notification %>
-      <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  <div class="row justify-content-left" style="margin-top: 100px; margin-bottom: 50px; width: 1200px">
 
-      <div class="form-inputs">
-        <%= f.input :title, placeholder: '...'%>
-        <%= f.input :date, start_year: Date.today.year - 100, end_year: Date.today.year%>
-      </div>
+    <div class="col-12 col-md-6">
+    <h4 class="special-day-header" style="margin-bottom: 50px; text-align:left;">Add Special Day Below:</h4>
+      <%= simple_form_for (@special_day) do |f| %>
+        <%= f.error_notification %>
+        <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-      <div class="form-actions">
-        <%= f.button :button, "Submit", class: "btn btn-primary btn-submit" %>
-      </div>
-    <% end %>
-  </div>
+        <div class="form-inputs">
+          <%= f.input :title, placeholder: '...'%>
+          <%= f.input :date, start_year: Date.today.year - 100, end_year: Date.today.year%>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :button, "Submit", class: "btn btn-primary btn-submit" %>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-12 col-md-6">
+      <%= video_tag "picnic.mp4", autoplay: :autoplay, loop: :loop, muted: :muted, class: "special-day-video" %>
+    </div>
+
   </div>
 </div>

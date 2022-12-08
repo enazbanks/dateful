@@ -1,26 +1,30 @@
-<div class="col-12 col-sm-6 p-2", id = "page">
-  <div class="special-days-container">
-    <div class="special-days-card">
-      <div id="top-of-card">
-        <%= current_user.dob %>
-        <%= current_user.partner.dob %>
-        <% if @special_days.present? %>
-          <% @special_days.each do |day| %>
-          <p id="title"><%= day.title.capitalize %></p>
-          <p class="date"><%= day.date.to_formatted_s(:short) %></p>
-          <%= link_to "Remove", day, class:"button-white-text", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
-        <%end%>
-        <% else %>
-          <p>You have no saved Special Days
-          </p>
-        <% end %>
-      </div>
+<div id="page">
+  <div class="container">
+    <div class="row justify-content-center mb-3">
+        <div class="col p-3">
+          <div class="card mb-3" style="background-color:transparent";>
+              <% if @special_days.present? %>
+                <% @special_days.each do |day| %>
+                   <div class="row g-0 d-flex justify-content-around special-days-card">
+                  <div class="col-md-4">
+                      <% url = 'https://source.unsplash.com/random?' + day.title %>
+                      <%= image_tag url, height: 120, width: 150, crop: :fill, class: "special-card-photo" %>
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <p class="card-title"><%= day.title.capitalize %></p>
+                      <p class="card-title"><%= day.date.to_formatted_s(:short) %></p>
+                      <%= link_to "Remove", day, class:"button-white-text", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+                    </div>
+                  </div>
+                  </div>
+                <%end%>
+              <% else %>
+                <p>You have no saved Special Days</p>
+              <% end %>
+          </div>
+        </div>
     </div>
+    <%= render "special_days/new_special_day" %>
   </div>
-  <div>
-    <h3>Add Special Day Below:
-    </h3>
-  </div>
-  <%# <%= link_to "Add", "#", class: "button-white-text" %>
-  <%= render "special_days/new_special_day" %>
 </div>
