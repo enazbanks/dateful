@@ -38,9 +38,9 @@
       </div>
     <% end %>
   <% end %><h4 class="mt-5 border-bottom">Mood</h4>
-  <div class="mt-5 d-flex align-items-center">
+  <div class="mt-5 d-flex">
       <% @experience.mood_list.each do |mood| %>
-      <div class="mb-5 d-flex align-items-center flex-column mood-show">
+      <div class="mb-5 col-4 d-flex align-items-center flex-column mood-show">
         <% if @icons[mood] %>
           <%= image_tag @icons[mood], class: "mood-icon"%>
         <%= mood %>
@@ -48,10 +48,3 @@
         <% end %>
       <% end %>
   </div>
-
-<div class="mb-5 d-flex align-items-center">
-    <% @experience.mood_list.each do |mood| %>
-      <% if @icons[mood] %>
-      <% end %>
-    <% end %>
-</div>
