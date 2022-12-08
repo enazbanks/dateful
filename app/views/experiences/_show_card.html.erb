@@ -35,7 +35,10 @@
   </div>
   <div class="show-container">
     <div class="review-container">
-    <h4 class="border-bottom" style="margin-top: 5%;">Reviews</h4>
+      <div class="d-flex justify-content-between">
+        <h4 class="d-flex" style="margin-top: 5%;">Reviews </h4>
+        <h5 class="d-flex" style="padding-top: 37px; color: #717171; padding-right: 22px;"> <%= "#{@experience.average_rating_float} / 5 "%> </h5>
+      </div>
       <%= turbo_frame_tag dom_id(@experience, :ratings) do %>
       <%= render "experiences/rating_list", ratings: @ratings %>
       <%end%>
