@@ -9,15 +9,15 @@
       </div>
 
       <div class="col-md-8 text-start">
-        <div class="card-body">
+        <div class="card-body" style="margin-left: 1px; margin-top: 10px;">
           <% if booking.suprise? %>
               <div class="d-flex justify-content-between mb-3" style="font-size: 20px;">
                 <div><%= link_to booking.experience.title, experience_path(booking.experience), :style=>"color: black; text-decoration: none"%></div>
                 <div><i class="fa-solid fa-mask" id="secret-mask"></i></div>
               </div>
           <% else %>
-            <p class="card-title">
-              <%= link_to booking.experience.title, experience_path(booking.experience) %>
+            <p class="card-title" style="font-size: 20px;">
+              <%= link_to booking.experience.title, experience_path(booking.experience), :style=>"color: black; text-decoration: none" %>
             </p>
           <% end %>
           <p class="card-title">
@@ -40,8 +40,8 @@
             <% if booking.suprise? %>
               <p class="card-title">
                 <!-- Button trigger modal -->
-                <button type="button" class="btn-light" data-bs-toggle="modal" data-bs-target=<%= "#Modal-#{booking.id}" %>>
-                <%= "#{current_user.partner.first_name} will see"%> <i class="fa-sharp fa-solid fa-caret-right fa-lg"></i>
+                <button type="button" class="btn btn-link" style="padding: 0px;text-decoration: none;" data-bs-toggle="modal" data-bs-target=<%= "#Modal-#{booking.id}" %>>
+                <%= "#{current_user.partner.first_name} will see"%>
                 </button>
 
                 <!-- Modal -->
@@ -56,7 +56,7 @@
                         <%= render 'secret_book', booking: booking %>
                       </div>
                       <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary btn-homepage" data-bs-dismiss="modal">Close</button>
                         <%# <button type="button" class="btn btn-primary">Save changes</button> %>
                       </div>
                     </div>
@@ -70,10 +70,10 @@
           <div>
             <ul class="list-inline text-end" style="margin-bottom: 0;">
               <li class="list-inline-item">
-                <%= link_to "Edit booking", edit_booking_path(booking), class:"btn btn-primary" if booking.status == "pending" %>
+                <%= link_to "Edit booking", edit_booking_path(booking), class:"btn btn-primary btn-homepage" if booking.status == "pending" %>
               </li>
               <li class="list-inline-item">
-                <%= link_to "Cancel", booking, class:"btn btn-primary", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+                <%= link_to "Cancel", booking, class:"btn btn-primary btn-homepage", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
               </li>
             </ul>
           </div>
