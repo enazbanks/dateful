@@ -1,31 +1,49 @@
-// #top-of-card {
-//   margin-top: 20px;
-// }
-
 .special-days-card {
-  width: 300px;
-  height: 150px;
+  width: 350px;
+  // height: 150px;
   background: #b41313;
   border-radius: 16px;
   position: relative;
   box-shadow: 1px 2px 4px 1px rgba(0, 0, 0, 0.25);
   color: white;
-  text-align: center;
+  text-align: left;
+  margin-left: 60px;
+  margin-top: 50px;
 }
 
-#title {
-  margin-top: 20px;
-  padding-top: 20px;
+.special-day-header{
+  margin-left: 60px;
 }
 
 h3{
-  margin-top: 80px;
+  margin-top: 10px;
 }
 
 #page {
-  height: 100vh;
+  height: fit-content;
 }
 
-// .button-white-text {
+.special-card-photo{
+  background-image: url("indian_anniversary.png");
+  height: 120px;
+  width: 150px;
+  background-size: cover;
+  border-radius: 16px;
+}
 
-// }
+.card-body{
+  margin-left: 40px;
+}
+
+.add-special-day{
+  margin-top: 50px;
+}
+
+#special-day-video{
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  position:relative;
+}

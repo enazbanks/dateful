@@ -1,26 +1,39 @@
-<div class="col-12 col-sm-6 p-2", id = "page">
-  <div class="special-days-container">
-    <div class="special-days-card">
-      <div id="top-of-card">
-        <%= current_user.dob %>
-        <%= current_user.partner.dob %>
-        <% if @special_days.present? %>
-          <% @special_days.each do |day| %>
-          <p id="title"><%= day.title.capitalize %></p>
-          <p class="date"><%= day.date.to_formatted_s(:short) %></p>
-          <%= link_to "Remove", day, class:"button-white-text", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
-        <%end%>
-        <% else %>
-          <p>You have no saved Special Days
-          </p>
-        <% end %>
-      </div>
+<div id="page">
+  <div class="container">
+    <div class="row justify-content-center mb-3">
+        <div class="col p-3">
+          <div class="special-days-card card mb-3">
+              <% if @special_days.present? %>
+            <div class="row g-0 d-flex justify-content-around">
+                <% @special_days.each do |day| %>
+                  <div class="col-md-4">
+                    <div class="special-card-photo">
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <p class="card-title"><%= day.title.capitalize %></p>
+                      <p class="card-title"><%= day.date.to_formatted_s(:short) %></p>
+                      <%= link_to "Remove", day, class:"button-white-text", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+                    </div>
+                  </div>
+                <%end%>
+              <% else %>
+                <p>You have no saved Special Days</p>
+              <% end %>
+            </div>
+          </div>
+        </div>
     </div>
   </div>
-  <div>
-    <h3>Add Special Day Below:
-    </h3>
+
+<%# special_day form   %>
+  <div class="add-special-day row g-1 col-p-3 justify-content-left">
+    <h4 class="special-day-header">Add Special Day Below:
+    </h4>
   </div>
-  <%# <%= link_to "Add", "#", class: "button-white-text" %>
   <%= render "special_days/new_special_day" %>
+<%# video %>
+ <div>
+    <%= video_tag "picnic.mp4", autoplay: :autoplay, loop: :loop, muted: :muted, class: "special-day-video" %>
 </div>
