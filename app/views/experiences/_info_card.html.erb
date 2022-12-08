@@ -5,16 +5,39 @@
     <i class="info-text"><%= @experience.time%></i>
   </div>
 <br>
-  <div class="d-flex" style="padding: 10px;">
-    <i class="info-icon fa-solid fa-utensils"></i>
-    <i class="info-text"><%= ["Meal included", "Dine-in option avaliable","Caters to dietaries"].sample%></i>
-  </div>
-<br>
-  <div class="d-flex" style="padding: 10px;">
-    <i class="info-icon fa-solid fa-wheelchair-move"></i>
-    <i class="info-text"><%= ["Wheelchair-friendly", "Accessiblity-friendly"].sample%></i>
-  </div>
-
+  <% @experience.feature_list.each do |feature| %>
+    <% if feature == "Food" %>
+      <div class="d-flex" style="padding: 10px;">
+        <i class="info-icon fa-solid fa-utensils"></i>
+        <i class="info-text"><%= "Meal included"%></i>
+      </div>
+      <br>
+    <% end %>
+    <% if feature == "Accessible" %>
+      <div class="d-flex" style="padding: 10px;">
+        <i class="info-icon fa-solid fa-wheelchair-move"></i>
+        <i class="info-text"><%="Accessiblity-friendly"%></i>
+      </div>
+    <% end %>
+    <% if feature == "Transport" %>
+      <div class="d-flex" style="padding: 10px;">
+        <i class="info-icon fa-solid fa-van-shuttle"></i>
+        <i class="info-text"><%="Transport Provided"%></i>
+      </div>
+    <% end %>
+    <% if feature == "Children" %>
+      <div class="d-flex" style="padding: 10px;">
+        <i class="info-icon fa-solid fa-child-reaching"></i>
+        <i class="info-text"><%="Child Friendly"%></i>
+      </div>
+    <% end %>
+    <% if feature == "Pets" %>
+      <div class="d-flex" style="padding: 10px;">
+        <i class="info-icon fa-solid fa-paw"></i>
+        <i class="info-text"><%="Pets Allowed"%></i>
+      </div>
+    <% end %>
+  <% end %>
   <div class="mt-auto d-flex align-items-center">
       <% @experience.mood_list.each do |mood| %>
         <% if @icons[mood] %>
