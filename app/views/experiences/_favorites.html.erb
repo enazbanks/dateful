@@ -1,7 +1,14 @@
 <%= turbo_frame_tag dom_id(experience, :favorite) do %>
   <% if experience.favorited_by?(current_user) %>
     <%= link_to  unfavorite_experience_path(experience), data: { turbo_method: :patch} do%>
-      <%= cl_image_tag current_user.avatar.key,  crop: :fill, class:"avatar-user favor-user"%>
+      <%= cl_image_tag current_user.avatar.key,  crop: :fill, class:"avatar-user favor-user",
+        data: {
+          controller: 'popover',
+          bs_toggle: 'popover',
+          bs_trigger: 'hover',
+          bs_placement: 'top',
+          bs_content: "Unfavorite"
+        }%>
       <%# <img class="avatar-user favor-user" src="https://via.placeholder.com/229x193" %>
     <% end %>
   <% elsif experience.secret_list.include?(current_user.id.to_s) %>
@@ -11,7 +18,7 @@
         data-bs-toggle="popover"
         data-bs-trigger="hover"
         data-bs-placement="right"
-        data-bs-content="only you see this favorite">
+        data-bs-content="Unfavorite">
         </i>
     <% end %>
   <% else %>
@@ -21,7 +28,7 @@
         data-bs-toggle="popover"
         data-bs-trigger="hover"
         data-bs-placement="right"
-        data-bs-content="Click to favorite">
+        data-bs-content="Favorite">
       </i>
     <% end %>
     <%= link_to secret_experience_path(experience), data: { turbo_method: :patch } do %>
@@ -30,13 +37,20 @@
         data-bs-toggle="popover"
         data-bs-trigger="hover"
         data-bs-placement="right"
-        data-bs-content="click me if you want to keep it secret from partner">
+        data-bs-content="Favorite without partner knowing">
       </i>
     <% end %>
   <% end %>
   <% if current_user.partner %>
     <% if experience.favorited_by?(current_user.partner) %>
-      <%= cl_image_tag current_user.partner.avatar.key,  crop: :fill, class:"avatar-partner"%>
+    <%= cl_image_tag current_user.partner.avatar.key,  crop: :fill, class:"avatar-partner",
+        data: {
+          controller: 'popover',
+          bs_toggle: 'popover',
+          bs_trigger: 'hover',
+          bs_placement: 'top',
+          bs_content: "#{current_user.partner.first_name} ❤️'s this!"
+        }%>
     <% end %>
   <% end %>
 <% end %>
