@@ -50,7 +50,7 @@ class ExperiencesController < ApplicationController
       "Relaxed" => "icon_relax.png",
       "Romantic" => "icon_adventure.png",
       "Adventurous" => "icon_adventure.png",
-      "Roadtrip" => "icon_roadtrip.png",
+      "Roadtrip" => "icon_roadtripping.png",
       "Foodie" => "icon_foodie.png",
       "Home" => "icon_home.png",
       "Active" => "icon_camping.png",
