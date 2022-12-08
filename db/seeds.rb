@@ -399,9 +399,8 @@ rand(10..50).times do
   rating.save
 end
 
-
 experience = Experience.new(
-  title: 'Lap Around Mount Panarama',
+  title: 'Lap Around Mount Pan',
   description: "Mount Panorama is a public road, and as such can be treated like any other road in NSW. The public is more than welcome to ride or walk around the Mount, though we do ask that you exercise caution as there are no footpaths for most of the track. There is a boardwalk of 1.7km from Griffins Bent to the Bathurst Light Car Club near the exit of Forrest's Elbow which winds through a combinationof ground level and elevated section. Although Mount Panorama has a NSW-enforced speed limit of 60km/h, a collision with a vehicle travelling at that speed can seriously or fatally injure a human being. Wear high-visibility when travelling around the Mount to reduce this risk.",
   address: "Mount Panarama Bathurst NSW",
   instructions: "Mount Panorama is located in south Bathurst. The easiest way to get there is to follow the main street of Bathurst, William Street, to the very end (south). Coming from Sydney (east), the Great Western Highway intersects with William Street, from which you turn left. After about 1.5kms, the name changes to Panorama Avenue, which shows you're on the right track. Another 1.5kms from there and you enter Mount Panorama at Murray's Corner",
