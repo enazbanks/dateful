@@ -1,6 +1,6 @@
 .card {
   border: none;
-  border-radius: 16px;
+  border-radius: 18px;
   max-width: 1020px;
   background-color: white;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.10);
@@ -12,17 +12,63 @@
 }
 
 .img_info {
-  border-radius: 16px;
-  height: 210px;
-  width: 300px;
+  border-radius: 6px;
+  height: 230px;
+  width: 310px;
 }
 
 .secret_img {
-  border-radius: 16px;
-  width: 300px;
+  border-radius: 6px;
+  height: 230px;
+  width: 310px;
 }
 
 #secret-mask {
   color:rgba(214, 49, 49, 1);
   font-size: x-large;
+}
+
+.book-title {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 100%;
+  color: rgba(34, 34, 34, 1);
+  text-decoration: none;
+}
+
+#btn-small {
+  padding: 19px;
+  font-size: 14px;
+  width: 26%;
+  background-color: #b41313;
+  border-color: #b41313;
+}
+
+.card-body {
+  padding-top: 4%;
+  margin-left: 30px;
+}
+
+.book-info {
+  font-size: 18px;
+  padding-right: 1%;
+}
+
+.book-status {
+  color:rgba(214, 49, 49, 1);
+  font-size: 18px;
+  font-weight:300;
+}
+
+#btn-clear {
+  color: #000;
+  background-color: #f1f2f2;
+  border-color: #f8f9fa;
+  font-size: small;
+}
+
+#btn-clear:hover {
+  color: #000;
+  background-color: #d3d4d5;
+  border-color: #c6c7c8;
 }
