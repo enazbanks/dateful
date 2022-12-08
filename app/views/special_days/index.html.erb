@@ -2,13 +2,13 @@
   <div class="container">
     <div class="row justify-content-center mb-3">
         <div class="col p-3">
-          <div class="special-days-card card mb-3">
+          <div class="card mb-3" style="background-color:transparent";>
               <% if @special_days.present? %>
-            <div class="row g-0 d-flex justify-content-around">
                 <% @special_days.each do |day| %>
+                   <div class="row g-0 d-flex justify-content-around special-days-card">
                   <div class="col-md-4">
-                    <div class="special-card-photo">
-                    </div>
+                      <% url = 'https://source.unsplash.com/random?' + day.title %>
+                      <%= image_tag url, height: 120, width: 150, crop: :fill, class: "special-card-photo" %>
                   </div>
                   <div class="col-md-8">
                     <div class="card-body">
@@ -17,23 +17,14 @@
                       <%= link_to "Remove", day, class:"button-white-text", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
                     </div>
                   </div>
+                  </div>
                 <%end%>
               <% else %>
                 <p>You have no saved Special Days</p>
               <% end %>
-            </div>
           </div>
         </div>
     </div>
+    <%= render "special_days/new_special_day" %>
   </div>
-
-<%# special_day form   %>
-  <div class="add-special-day row g-1 col-p-3 justify-content-left">
-    <h4 class="special-day-header">Add Special Day Below:
-    </h4>
-  </div>
-  <%= render "special_days/new_special_day" %>
-<%# video %>
- <div>
-    <%= video_tag "picnic.mp4", autoplay: :autoplay, loop: :loop, muted: :muted, class: "special-day-video" %>
 </div>

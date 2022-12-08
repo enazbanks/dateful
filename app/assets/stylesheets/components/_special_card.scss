@@ -13,6 +13,7 @@
 
 .special-day-header{
   margin-left: 60px;
+  margin-right: 60px;
 }
 
 h3{
@@ -24,10 +25,6 @@ h3{
 }
 
 .special-card-photo{
-  background-image: url("indian_anniversary.png");
-  height: 120px;
-  width: 150px;
-  background-size: cover;
   border-radius: 16px;
 }
 
@@ -36,14 +33,31 @@ h3{
 }
 
 .add-special-day{
-  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
-#special-day-video{
-  background-size: cover;
-  background-position: center;
+.special-day-video{
+  // background-size: cover;
   overflow: hidden;
   display: flex;
   align-items: center;
   position:relative;
+  width: 500px;
+  height: auto;
+  margin-left: 100px;
 }
+
+// #wrapper{
+//   width: 1000px;
+//   display: flex;
+//   // overflow: hidden;
+// }
+
+// #first {
+//   display: inline-block;
+//   margin-left: 100px;
+// }
+// #second {
+//   display: inline-block;
+//   // margin-right: 200px;
+// }
