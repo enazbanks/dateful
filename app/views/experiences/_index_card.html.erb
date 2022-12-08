@@ -12,7 +12,7 @@
         <% end %>
         <p class="description"><%= experience.description.truncate(75) %></p>
         <p class="reviews"><%="#{experience.ratings.length} reviews"%></p>
-        <p class="mood" style="padding-right: 35px;"> <%= experience.mood_list %> </p>
+        <p class="mood" style="padding-right: 35px;"> <%= experience.mood_list.max(3).join(" | ") %> </p>
         <% if experience.cost > 75 %>
           <%# <p class="dollars"><strong>$$$$</strong></p> %>
         <% elsif experience.cost > 50 %>
@@ -26,7 +26,7 @@
         <% end %>
         <%# <p class="host">MK Tours</p> %>
         <p class="exp-title"><%= link_to experience.title.truncate(26), experience_path(experience), :style=>"color: black; text-decoration: none" %></p>
-        <p class="exp-address"><%= experience.address.truncate(40) %></p>
+        <p class="exp-address"><%= experience.address.truncate(35) %></p>
 
         <%= link_to experience_path(experience)do %>
           <% if experience.photos.attached? %>
