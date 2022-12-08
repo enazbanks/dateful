@@ -20,7 +20,7 @@
           title="Hide details of your date from your partner and surprise them!"></i>
         </li>
         <div class="d-flex">
-          <li class="p-2 w-100 price-large"><%="$ #{sprintf('%.2f', @experience.cost)}"%></li>
+          <li class="p-2 w-100 price-large"><%="$ #{sprintf('%.2f', @booking.experience.cost)}"%></li>
           <li class="form-actions p-2 flex-shrink-1">
             <%= f.button :submit, class: "disabled btn-book", id: "show-book" %>
           </li>
