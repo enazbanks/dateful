@@ -14,19 +14,21 @@
     <i class="info-icon fa-solid fa-wheelchair-move"></i>
     <i class="info-text"><%= ["Wheelchair-friendly", "Accessiblity-friendly"].sample%></i>
   </div>
-
-  <div class="mt-auto d-flex align-items-center">
+<h4 class="mt-5 border-bottom">Mood</h4>
+  <div class="mt-5 d-flex align-items-center">
       <% @experience.mood_list.each do |mood| %>
+      <div class="mb-5 d-flex align-items-center flex-column mood-show">
         <% if @icons[mood] %>
           <%= image_tag @icons[mood], class: "mood-icon"%>
+        <%= mood %>
+      </div>
         <% end %>
       <% end %>
   </div>
 
-<div class=" d-flex align-items-center">
+<div class="mb-5 d-flex align-items-center">
     <% @experience.mood_list.each do |mood| %>
       <% if @icons[mood] %>
-        <%= mood %>
       <% end %>
     <% end %>
 </div>
