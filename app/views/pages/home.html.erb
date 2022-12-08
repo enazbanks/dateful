@@ -1,8 +1,10 @@
 <div class="banner">
   <div class="banner-content text-center">
     <%= video_tag "beach.mp4", autoplay: :autoplay, loop: :loop, muted: :muted, class: "home_video" %>
-    <h1 id="banner-header">Not sure what to do? Perfect.</h1>
-    <%= link_to "Plan my date", experiences_path, class: "btn btn-primary", id: "banner-button"  %>
+      <div class="banner-text">
+      <h1 id="banner-header">Not sure what to do? <br>Perfect.</h1>
+      <%= link_to "Plan my date", experiences_path, class: "btn btn-primary", id: "banner-button"  %>
+      </div>
   </div>
 </div>
 
@@ -31,14 +33,14 @@
 </div>
 
 <div class="second-banner">
-  <div class="second-banner-content text-center flex-container">
+  <div class="second-banner-content text-center d-flex justify-content-around">
     <div class="flex-item" id="second-banner-text">
       <h2 id="second-banner-header">What people are saying</h2>
       <br>
       <br>
-        <h5><strong>I am obsessed!</strong></h5>
-          <p>I am constantly browsing Dateful for new cool date ideas for my partner. I have told all of my friends about it. The design is very user friendly and intuitive, and I love that you can surprise your partner with the secret date feature. I will be a user for life, that's for sure.</p>
-          <p>- Matthieu, Melbourne</p>
+        <h4><strong>I am obsessed!</strong></h4>
+          <p class="banner-review-text">I am constantly browsing Dateful for new cool date ideas for my partner. I have told all of my friends about it. The design is very user friendly and intuitive, and I love that you can surprise your partner with the secret date feature. I will be a user for life, that's for sure.</p>
+          <p class="banner-review-text">- Matthieu, Melbourne</p>
       <%#= link_to "Plan my date", experiences_path, class: "btn btn-primary", id: "banner-button"  %>
     </div>
     <div class="flex-item">

@@ -2,36 +2,15 @@
   <h2 class="title-show"><%= @experience.title %></h2>
   <%# icon with text Bertha likes this date idea%>
   <div class="d-flex justify-content-between" style="margin-left: 20px;">
+
     <div class= "d-flex">
       <i class="fa-solid fa-location-dot"> </i>
       <h6><%= @experience.address %></h6>
     </div>
+    <%= render "experiences/rating_star"%>
     <div class="d-flex favs">
       <% if user_signed_in? %>
-        <%= turbo_frame_tag dom_id(@experience, :favorite) do %>
-          <% if @experience.favorited_by?(current_user) %>
-            <%= link_to  unfavorite_experience_path(@experience), data: { turbo_method: :patch} do%>
-              <%= cl_image_tag current_user.avatar.key,  crop: :fill, class:"avatar-show heart-show"%>
-              <%# <img class="avatar-user favor-user" src="https://via.placeholder.com/229x193" %>
-            <% end %>
-          <% elsif @experience.secret_list.include?(current_user.id.to_s) %>
-            <%= link_to unsecret_experience_path(@experience), data: { turbo_method: :patch} do%>
-              <i class="fa-solid fa-mask heart-show" id="red-mask-show"></i>
-            <% end %>
-          <% else %>
-            <%= link_to favorite_experience_path(@experience), data: { turbo_method: :patch } do %>
-              <i class="fa-regular fa-heart favor-user red-heart heart-show"></i>
-            <% end %>
-            <%= link_to secret_experience_path(@experience), data: { turbo_method: :patch } do %>
-              <i class="fa-solid fa-mask mask-show" id="gold-mask-show"></i>
-            <% end %>
-          <% end %>
-          <% if current_user.partner %>
-            <% if @experience.favorited_by?(current_user.partner) %>
-              <%= cl_image_tag current_user.partner.avatar.key,  crop: :fill, class:"avatar-show"%>
-            <% end %>
-          <% end %>
-        <% end %>
+        <%= render 'experiences/favorites_show', {experience: @experience} %>
       <% end %>
     </div>
   </div>
@@ -39,7 +18,7 @@
     <section class="m-4 w-100"> <%= render 'experiences/img_carousel'%></section>
     <section style="height: 550px; background-color: white; border-radius:16px; box-shadow: 1px 2px 4px 1px rgb(0 0 0 / 25%);"class="m-4 flex-shrink-1">
       <div class="d-flex flex-column mb-3">
-        <h5 class="p-2 d-flex justify-content-center">Book Your Date</h5>
+        <h5 class="p-2 d-flex justify-content-center red-text">Book Your Date</h5>
           <div class="calendar p-2 d-flex justify-content-center"><%= render 'bookings/form_booking', booking: @booking %></div>
       </div>
     </section>
@@ -55,31 +34,33 @@
     </section>
   </div>
   <div class="show-container">
-    <h6>Reviews</h6>
-    <%= turbo_frame_tag dom_id(@experience, :ratings) do %>
-     <%= render "experiences/rating_list", ratings: @ratings %>
-    <%end%>
-    <%= link_to "Load more", experience_path(@experience, page: @next_page), id: dom_id(@experience, :load_ratings), data: {turbo_method: :post} %>
-    <div class="p-2 d-flex justify-content-center">
-      <% @experience.bookings.each do |booking| %>
-        <% if booking.user_completed_booking? && booking.couple == current_user.couple && !booking.rating%>
-          <div class="rating-form col-12 col-md-6">
-          <h6>Review your date!</h6>
-          <br>
-          <%= simple_form_for([booking, @rating]) do |f| %>
-            <%= f.error_notification %>
-            <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-            <div class="form-inputs">
-              <%= f.input :stars, collection: (1..5), placeholder: '1-5 ⭐s'%>
-              <%= f.input :comment, placeholder: '...'%>
-            </div>
-            <div class="form-actions">
-              <%= f.button :button, "Submit", class: "btn btn-primary" %>
-            </div>
+    <div class="review-container">
+    <h4 class="border-bottom" style="margin-top: 5%;">Reviews</h4>
+      <%= turbo_frame_tag dom_id(@experience, :ratings) do %>
+      <%= render "experiences/rating_list", ratings: @ratings %>
+      <%end%>
+      <%= link_to "Load more", experience_path(@experience, page: @next_page), id: dom_id(@experience, :load_ratings), data: {turbo_method: :post}, class: "btn btn-book", id: "btn-width" %>
+      <div class="p-2 d-flex justify-content-center">
+        <% @experience.bookings.each do |booking| %>
+          <% if booking.user_completed_booking? && booking.couple == current_user.couple && !booking.rating%>
+            <div class="rating-form col-12 col-md-6">
+            <h6>Review your date!</h6>
+            <br>
+            <%= simple_form_for([booking, @rating]) do |f| %>
+              <%= f.error_notification %>
+              <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+              <div class="form-inputs">
+                <%= f.input :stars, collection: (1..5), placeholder: '1-5 ⭐s'%>
+                <%= f.input :comment, placeholder: '...'%>
+              </div>
+              <div class="form-actions">
+                <%= f.button :button, "Submit", class: "btn btn-primary" %>
+              </div>
+            <% end %>
           <% end %>
         <% end %>
-      <% end %>
+        </div>
       </div>
     </div>
-  </div>
+    </div>
 </div>

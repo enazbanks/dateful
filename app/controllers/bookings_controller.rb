@@ -2,6 +2,7 @@ class BookingsController < ApplicationController
 
   def index
     @bookings = policy_scope(Booking)
+    current_user.update!(notification:false)
     @experiences = Experience.all
   end
 
@@ -21,6 +22,7 @@ class BookingsController < ApplicationController
     @booking.instructions = @experience.instructions
     @booking.secret_list.add(current_user.id) if @booking.suprise?
     @booking.secret_instructions = @experience.secret_instructions if @booking.suprise?
+    current_user.partner.update!(notification:true) if @booking.suprise?
     authorize @booking
     # @booking.save # => true/false
     if @booking.save

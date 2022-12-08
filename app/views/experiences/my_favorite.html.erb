@@ -1,5 +1,5 @@
-<div class="container text-center">
-  <div class="row align-items-center justify-content-between mb-4 mt-5">
+<div class="container text-center" style="margin-top: 5%; margin-bottom: 15%;">
+  <div class="row align-items-center justify-content-between mb-4 mt-5 border-bottom">
     <div class="col-12 col-md-6">
         <h2 class="text-start mb-0"> Favorited dates</h2>
     </div>
@@ -13,8 +13,28 @@
         </div>
       <% end %>
     <% else %>
-      <h4> You have No current Favorites 💔💔 </h4> 
-      <h4><%= link_to "Lets find some", experiences_path %> </h4> 
+      <h4 style="color: #636464; margin: 4%;"> You currently have no Favorites 💔 </h4>
+      <%= link_to "Plan my date", experiences_path, class: "btn-book", style: "width: 250px; height: 55px; padding: 14px; font-size: large;" %>
     <% end %>
+  </div>
+</div>
+
+
+<div class="second-banner">
+  <div class="second-banner-content text-center d-flex justify-content-around">
+    <div class="flex-item" id="second-banner-text">
+      <h2 id="second-banner-header">What people are saying</h2>
+      <br>
+      <br>
+        <h5><strong>So much fun!</strong></h5>
+          <p>Dateful has brought back the excitement in my marriage! I've been able to plan surprise dates for my husband in Germany without giving away all the details. It's easy to use and suits my busy lifestyle. </p>
+          <p>- Talina, Richmond</p>
+      <%#= link_to "Plan my date", experiences_path, class: "btn btn-primary", id: "banner-button"  %>
+    </div>
+    <div class="flex-item">
+      <div class="talina-banner-image">
+        <%# <img src="couple_at_home.png" alt="Couple embracing" width="200" height="300"> %>
+      </div>
+    </div>
   </div>
 </div>

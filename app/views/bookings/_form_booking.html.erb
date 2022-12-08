@@ -2,9 +2,9 @@
     <%= f.error_notification %>
     <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
     <div class="form-inputs">
-      <%= f.input :when, as: :string, label: "Select a date", placeholder: "9 Dec 2022",
+      <%= f.input :when, as: :string, label: "Select a date", placeholder: "December 9, 2022",
         input_html: {
-          class: "datepicker", id: "cal-click", data: { inline: true }, dateFormat: 'd-m-Y'
+          class: "datepicker", id: "cal-click", data: { inline: true }
         }
       %>
 
@@ -20,7 +20,7 @@
           title="Hide details of your date from your partner and surprise them!"></i>
         </li>
         <div class="d-flex">
-          <li class="p-2 w-100 price-large"><%="$ #{@booking.experience.cost}"%></li>
+          <li class="p-2 w-100 price-large"><%="$ #{sprintf('%.2f', @booking.experience.cost)}"%></li>
           <li class="form-actions p-2 flex-shrink-1">
             <%= f.button :submit, class: "disabled btn-book", id: "show-book" %>
           </li>

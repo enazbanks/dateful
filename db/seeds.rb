@@ -15,7 +15,8 @@ Booking.destroy_all
 Couple.destroy_all
 
 
-MOOD = %w[Romantic Adventurous Relaxed Playful Spicy Foodie Instagrammable Pamper Active Retro Roadtrip]
+MOOD = %w[Romantic Adventurous Relaxed Playful Spicy Foodie Instagrammable Pamper Active Retro Roadtrip Outdoors Home]
+FEATURE = %w[Food Transport Accessible Children Pets]
 
 15.times do
   couple = Couple.new
@@ -46,7 +47,7 @@ end
 
 experience = Experience.new(
   title: 'Zoomies Playdate',
-  description: 'For the dog lovers. Sign up to the new social media app for furballs, Zoomies! Zoomies offers a terrific, fun way to connect with other pet parents. A great opportunity to make new friends while spending time with your loved one.',
+  description: "For the dog lovers. Zoomies offers a terrific, fun way to connect with other pet parents. Sign up to the new social media app for furballs. Get swiping and match with your doggo's new fur-friend. Orgainse a playdate at a park near you. A great opportunity to meet others while spending time with your loved one.",
   address: "104 Coppin Street, Richmond, Victoria",
   instructions: "Bring your best boy doggo, head to the nearest park with your partner and don't forget the frisbee",
   secret_instructions: "Wear active clothes, Turn up at the park just after lunch",
@@ -65,7 +66,13 @@ experience.photos.attach(io: file, filename: "zoomies2.jpg", content_type: "imag
 experience.mood_list.add("Playful")
 experience.mood_list.add("Adventurous")
 experience.mood_list.add("Active")
-experience.save
+experience.mood_list.add("Outdoors")
+experience.feature_list.add("Pets")
+experience.feature_list.add("Accessible")
+experience.feature_list.add("Transport")
+experience.feature_list.add("Children")
+experience.save!
+
 
 rand(10..50).times do
   booking = Booking.new(
@@ -110,9 +117,13 @@ experience.photos.attach(io: file, filename: "balter2.jpg", content_type: "image
 
 experience.mood_list.add("Foodie")
 experience.mood_list.add("Instagrammable")
+experience.mood_list.add("Outdoors")
 experience.mood_list.add("Active")
-
+experience.feature_list.add("Food")
+experience.feature_list.add("Transport")
+experience.feature_list.add("Accessible")
 experience.save
+
 rand(10..50).times do
   booking = Booking.new(
     when: Faker::Date.between(from: 1.years.ago, to: Date.today),
@@ -135,8 +146,8 @@ end
 
 experience = Experience.new(
   title: 'Take Stock Check',
-  description: "For the couples who are in it for the long haul and want to retire early. The new innovative app Take Stock offers the greatest potential for growth both romantically and finacially. Rekindle the flame with your loved one at home with a click of a button.",
-  address: "Home",
+  description: "For the couples who are in it for the long haul and want to retire early. Take Stock offers the greatest potential for growth both romantically and finacially. Hop online and start checking out the latest news, trends and tweets then you can start investing! Rekindle the flame with your loved one at home with a click of a button.",
+  address: "At the comfort of your own home",
   cost: 0,
   time: "30 minutes",
   instructions: "Bring your phone or laptop fully charged and dress comfy.",
@@ -152,6 +163,7 @@ file = URI.open("https://images.unsplash.com/photo-1493958187845-a4aee2466f2a?ix
 experience.photos.attach(io: file, filename: "stock.2jpg", content_type: "image/jpg")
 
 experience.mood_list.add("Relaxed")
+experience.mood_list.add("Home")
 
 experience.save
 rand(10..50).times do
@@ -176,7 +188,7 @@ end
 
 experience = Experience.new(
   title: 'Cycle with Gruappo',
-  description: "Couples that ride together, stay together. Download the hottest new app, Gruappo and join a group ride at Red Hill Trail where you will enjoy a picturesque view. Cycling with your partner can strengthen your relationship and brings the two of you together.",
+  description: "Couples that ride together, stay together. Download the hottest new app, Gruappo and join a group ride at Red Hill Trail where you will cycle to your heart's content while enjoying a picturesque view. Cycling with your partner can strengthen your relationship and brings the two of you together.",
   address: "Argyle Street, Camden, New South Wales",
   instructions: "Meet guide Jan at the entrance and follow along, or if you can't keep up Ryan is happy to take you on a more relaxed ride",
   secret_instructions: "Have a light lunch, wear something active and head to Argyle street by 2pm",
@@ -195,6 +207,9 @@ experience.photos.attach(io: file, filename: "ride.jpg", content_type: "image/jp
 experience.mood_list.add("Active")
 experience.mood_list.add("Adventurous")
 experience.mood_list.add("Retro")
+experience.mood_list.add("Outdoor")
+experience.feature_list.add("Transport")
+
 experience.save
 
 rand(10..50).times do
@@ -218,7 +233,7 @@ end
 
 experience = Experience.new(
   title: 'Stargaze with Astrolog',
-  description: "Astrolog's stargazing experience is made for space lovers. Learn about stars and our Milky Way galaxy with a romantic stargazing night. Snacks and hot cocoa provided.",
+  description: "Astrolog's stargazing experience will have you wishing upon a star. Learn about space and our Milky Way galaxy with a romantic stargazing night. Snacks and hot cocoa provided.",
   address: "Birdwood Ave, Melbourne, Victoria",
   instructions: "Bring a picnic blanket and meet at 6pm near the Observatory",
   secret_instructions: "6pm dress for outside, head to the space near the Observatory",
@@ -237,6 +252,11 @@ experience.photos.attach(io: file, filename: "star1.jpg", content_type: "image/j
 experience.mood_list.add("Relaxed")
 experience.mood_list.add("Adventurous")
 experience.mood_list.add("Retro")
+experience.mood_list.add("Outdoor")
+experience.feature_list.add("Transport")
+experience.feature_list.add("Accessible")
+experience.feature_list.add("Children")
+
 experience.save
 
 experience.save
@@ -261,8 +281,8 @@ rand(10..50).times do
 end
 
 experience = Experience.new(
-  title: 'Romantic Picnic with Mealful',
-  description: "Hire a professional chef to create an exquisite and one of a kind dining experience at your chosen location with Mealful. Meals and picnic set up can be customised to your liking. This is the perfect option for a special day.",
+  title: 'Picnic with Mealful',
+  description: "Visit Mealful online and hire a professional chef to create an exquisite and one of a kind dining experience at your chosen location. Meals and picnic set up can be customised to your liking. This is the perfect option for a special day.",
   address: "Central Springs Road, Daylesford, Victoria",
   instructions: "Meet at Daylesford Garden at 12pm and dress beautifully comfy.",
   secret_instructions: "Stylish Casual is the name of the game,  Daylesford Garden 12pm sharp",
@@ -282,6 +302,11 @@ experience.mood_list.add("Relaxed")
 experience.mood_list.add("Romantic")
 experience.mood_list.add("Foodie")
 experience.mood_list.add("Instagrammable")
+experience.mood_list.add("Outdoors")
+experience.feature_list.add("Transport")
+experience.feature_list.add("Accessible")
+experience.feature_list.add("Children")
+experience.feature_list.add("Pets")
 experience.save
 
 rand(10..50).times do
@@ -305,7 +330,7 @@ end
 
 experience = Experience.new(
   title: 'Roadtrip with ServoMate',
-  description: "All the fun of the journey without the hassle. ServoMate ensures you and your lover will be safe on your journey with no hiccups along the way. Drive and venture the Great Ocean Road, you'll discover the greatest nature, food, wine and adventure",
+  description: "All the fun of the journey without the hassle. ServoMate ensures you and your lover will be safe on your journey with no hiccups along the way. Download the app and venture the Great Ocean Road, you'll discover the greatest nature, food, wine and adventure",
   address: "Great Ocean Road, Victoria",
   instructions: "Download ServoMate and be ready by 6am to watch the sunrise on the drive. Dress in active wear",
   secret_instructions: "Prep your favourite playlist and get a good nights sleep ready for a 6am start",
@@ -326,6 +351,9 @@ experience.mood_list.add("Romantic")
 experience.mood_list.add("Foodie")
 experience.mood_list.add("Instagrammable")
 experience.mood_list.add("Adventurous")
+experience.mood_list.add("Outdoors")
+experience.feature_list.add("Pets")
+experience.feature_list.add("Children")
 experience.save
 
 rand(10..50).times do
@@ -349,7 +377,7 @@ end
 # new experiences below
 
 experience = Experience.new(
-  title: 'Yoga Class with Guru Paal',
+  title: 'Yoga with Guru Paal',
   description: "Highly exclusive, rooftop yoga class. Connect with your partner spiritually and physically. Yoga positions, moderate movement patterns, breath practise, supported silent meditation, and guided relaxation are all included in this class to help you become more attentive of your breathing and body as well as your partner.",
   address: "43 Stewart Street, Richmond, Melbourne, Victoria",
   instructions: "Enrol in Le wagon's Fullstack Bootcamp to discover it's not actually included.",
@@ -369,6 +397,10 @@ experience.photos.attach(io: file, filename: "yoga2.jpg", content_type: "image/j
 experience.mood_list.add("Instagrammable")
 experience.mood_list.add("Active")
 experience.mood_list.add("Spicy")
+experience.mood_list.add("Outdoors")
+experience.feature_list.add("Children")
+experience.feature_list.add("Transport")
+
 experience.save
 
 rand(10..50).times do
@@ -392,7 +424,7 @@ end
 # add exp
 
 experience = Experience.new(
-  title: 'Indoor Rock Climbing for Two',
+  title: 'Indoor Rock Climbing',
   description: "Premier indoor rock climbing and bouldering venues, this spot houses rock climbing, bouldering, high ropes course and training for all ages and sizes. Offering an exceptional 25 fully automated climbing stations, climbing walls, cargo nets, caving and even spider mountain and over 300-square-metres of bouldering with a large concession area to chill, they have nonpareil. They also offer rock climbing coaching classes for kids and adults and their most recognized Top Rope Climbing experience.",
   address: "41 Down Street, Collingwood, Victoria",
   instructions: "Meet at Collingwood and dress in active wear",
@@ -411,6 +443,7 @@ experience.photos.attach(io: file, filename: "rock2.jpg", content_type: "image/j
 
 experience.mood_list.add("Active")
 experience.mood_list.add("Adventurous")
+experience.feature_list.add("Transport")
 experience.save
 
 rand(10..50).times do
@@ -433,7 +466,7 @@ rand(10..50).times do
 end
 
 experience = Experience.new(
-  title: 'Hot Strings Spa and Massage',
+  title: 'Hot Strings Spa',
   description: "Find tranquility in Mornington's dreamy spa house. Spoil your loved one with the relaxation and peace of a private bath. You have the choice of basking under a moonlight bathing sky or journey up to the iconic hilltop pool, followed by a couple's massage, you will never forget.",
   address: "140 Springs Lane, Fingal, Victoria",
   instructions: "Meet at Peninsula Hot Springs and dress comfy",
@@ -454,8 +487,12 @@ experience.mood_list.add("Relaxed")
 experience.mood_list.add("Pamper")
 experience.mood_list.add("Romantic")
 experience.mood_list.add("Spicy")
-experience.mood_list.add("Roadtrip")
 experience.mood_list.add("Instagrammable")
+experience.mood_list.add("Outdoors")
+experience.feature_list.add("Accessible")
+experience.feature_list.add("Food")
+experience.feature_list.add("Transport")
+
 experience.save
 
 rand(10..50).times do
@@ -499,6 +536,10 @@ experience.photos.attach(io: file, filename: "lost.jpg", content_type: "image/jp
 experience.mood_list.add("Relaxed")
 experience.mood_list.add("Instagrammable")
 experience.mood_list.add("Playful")
+experience.mood_list.add("Retro")
+experience.mood_list.add("Home")
+experience.feature_list.add("Children")
+
 experience.save
 
 rand(10..50).times do
@@ -519,6 +560,54 @@ rand(10..50).times do
   rating.booking = booking
   rating.save
 end
+
+experience = Experience.new(
+  title: "Icehouse Skating",
+  description: "Icehouse is the perfect place for a healthy, active and enjoyable day out. Whether you're a beginner or an ice skating pro, you are guaranteed to have a day jam-packed with fun at the best ice skating rink in Docklands.",
+  address: "105 Pearl River Road, Docklands, Victoria",
+  instructions: "Dress in warm, active clothes and meet me at Docklands station",
+  secret_instructions: "Dress in warm, active clothes and meet me at Docklands station",
+  cost: 0,
+  time: "30 - 60 minutes"
+)
+
+file = URI.open("")
+experience.photos.attach(io: file, filename: "xxx.jpg", content_type: "image/jpg")
+
+file = URI.open("")
+experience.photos.attach(io: file, filename: "xxx.jpg", content_type: "image/png")
+
+file = URI.open("")
+experience.photos.attach(io: file, filename: "xxxx.jpg", content_type: "image/jpg")
+
+experience.mood_list.add("Active")
+experience.mood_list.add("Instagrammable")
+experience.mood_list.add("Playful")
+experience.mood_list.add("Retro")
+experience.mood_list.add("Home")
+experience.feature_list.add("Children")
+experience.feature_list.add("Transport")
+experience.save
+
+rand(10..50).times do
+  booking = Booking.new(
+    when: Faker::Date.between(from: 1.years.ago, to: Date.today),
+    instructions: "none",
+    suprise: false,
+    status: 3
+  )
+  booking.couple = Couple.all.sample
+  booking.experience = experience
+  booking.save
+  y = rand(3..5)
+  rating = Rating.new(
+    stars: y,
+    comment: Faker::Restaurant.review
+  )
+  rating.booking = booking
+  rating.save
+end
+
 # test couples
 couple = Couple.new
 couple.save
