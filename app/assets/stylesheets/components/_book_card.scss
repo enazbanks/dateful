@@ -1,19 +1,32 @@
 .card {
   border: none;
   border-radius: 16px;
+  max-width: 1020px;
+  background-color: white;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.10);
+  transition: 200ms ease-in-out;
 }
 
-.secret {
-  border-right: solid;
-  border-width: 10px;
-  border-color: rgba(192, 45, 59, 1);
+.card:hover {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .img_info {
   border-radius: 16px;
+  height: 210px;
+  width: 300px;
+}
+
+.secret_img {
+  border-radius: 16px;
+  width: 300px;
 }
 
 #secret-mask {
   color:rgba(214, 49, 49, 1);
   font-size: x-large;
+}
+
+.fa-caret-right{
+  font-size: 15px;
 }

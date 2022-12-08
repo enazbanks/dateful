@@ -3,7 +3,7 @@
     <div class="index-card">
         <% if experience.cost.positive? %>
           <p class="cost">
-            $<%= experience.cost %>
+            $<%= sprintf('%.2f', experience.cost)%>
           </p>
         <% else %>
           <p class="cost">
