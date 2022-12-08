@@ -10,9 +10,18 @@
   // object-fit: cover;
 }
 
-h1 {
+#banner-header {
   color: white;
   font-size: 60px;
+  animation-name: blue;
+  animation-duration: 12.53s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  font-size: 4em;
+  text-shadow:1px 1px 2px rgba(68, 68, 68, 0.75)
+}
+@keyframes blue {
+  to { color: rgb(214, 49, 49); }
 }
 
 .banner-text {
