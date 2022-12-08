@@ -1,5 +1,5 @@
 <div class="row m-2">
-  <div class="card" style="max-width: 1050px;">
+  <div class="card">
     <div class="row g-0">
 
       <div class="col-md-4">
@@ -9,9 +9,9 @@
       </div>
 
       <div class="col-md-8 text-start">
-        <div class="card-body" style="margin-left: 20px;">
+        <div class="card-body" style="margin-left: 15px;">
           <% if booking.suprise? %>
-              <div class="d-flex justify-content-between">
+              <div class="d-flex justify-content-between mb-3" style="font-size: 20px;">
                 <div><%= link_to booking.experience.title, experience_path(booking.experience)%></div>
                 <div><i class="fa-solid fa-mask" id="secret-mask"></i></div>
               </div>
@@ -20,16 +20,16 @@
               <%= link_to booking.experience.title, experience_path(booking.experience) %>
             </p>
           <% end %>
-          <p class="card-text">
+          <p class="card-title">
             <%= "You are booked in for: #{booking.when.strftime('%d-%m-%Y')}" %>
           </p>
 
-          <p class="card-text">
+          <p class="card-title">
             <%= "#{booking.instructions}" %>
             </p>
             <p class="card-title">
            </p>
-            
+
            <p class="card-title">
             <%= "Total cost: $#{booking.experience.cost}" %>
           </p>
@@ -39,17 +39,38 @@
           </p>
             <% if booking.suprise? %>
               <p class="card-title">
-              </p> 
-                <%= "#{current_user.partner.first_name} will see" %>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn-light" data-bs-toggle="modal" data-bs-target=<%= "#Modal-#{booking.id}" %>>
+                <%= "#{current_user.partner.first_name} will see" %> <i class="fa-sharp fa-solid fa-caret-right fa-lg"></i>
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id=<%= "Modal-#{booking.id}" %> tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <%= render 'secret_book', booking: booking %>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                        <%# <button type="button" class="btn btn-primary">Save changes</button> %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </p>
               <p class="card-title">
                 <%= "#{booking.secret_instructions}" %>
-              </p> 
+              </p>
             <% end %>
         </div>
       </div>
 
-        <ul class="list-inline text-end" style="
-    padding-right: 10px;">
+        <ul class="list-inline text-end" style="padding-right: 10px;">
           <li class="list-inline-item">
             <%= link_to "Edit booking", edit_booking_path(booking), class:"btn btn-primary" if booking.status == "pending" %>
           </li>
