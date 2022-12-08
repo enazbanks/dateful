@@ -571,13 +571,13 @@ experience = Experience.new(
   time: "30 - 60 minutes"
 )
 
-file = URI.open("")
+file = URI.open("https://www.pexels.com/photo/cute-couple-on-a-snow-covered-ground-6712024/")
 experience.photos.attach(io: file, filename: "xxx.jpg", content_type: "image/jpg")
 
-file = URI.open("")
+file = URI.open("https://www.pexels.com/photo/a-couple-ice-skating-6712126/")
 experience.photos.attach(io: file, filename: "xxx.jpg", content_type: "image/png")
 
-file = URI.open("")
+file = URI.open("https://www.pexels.com/photo/photo-of-people-ice-skating-10556555/")
 experience.photos.attach(io: file, filename: "xxxx.jpg", content_type: "image/jpg")
 
 experience.mood_list.add("Active")
