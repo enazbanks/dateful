@@ -21,7 +21,7 @@
         data-bs-toggle="popover"
         data-bs-trigger="hover"
         data-bs-placement="right"
-        data-bs-content="Click to favorite">
+        data-bs-content="Favorite">
       </i>
     <% end %>
     <%= link_to secret_experience_path(experience), data: { turbo_method: :patch } do %>
@@ -30,13 +30,14 @@
         data-bs-toggle="popover"
         data-bs-trigger="hover"
         data-bs-placement="right"
-        data-bs-content="click me if you want to keep it secret from partner">
+        data-bs-content="Favorite without partner knowing">
       </i>
     <% end %>
   <% end %>
   <% if current_user.partner %>
     <% if experience.favorited_by?(current_user.partner) %>
       <%= cl_image_tag current_user.partner.avatar.key,  crop: :fill, class:"avatar-partner"%>
+
     <% end %>
   <% end %>
 <% end %>
