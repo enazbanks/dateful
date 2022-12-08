@@ -11,8 +11,8 @@
       <div class="col-md-8 text-start">
         <div class="card-body" style="margin-left: 1px; margin-top: 10px;">
           <% if booking.suprise? %>
-              <div class="d-flex justify-content-between mb-3" style="font-size: 20px;">
-                <div><%= link_to booking.experience.title, experience_path(booking.experience), :style=>"color: black; text-decoration: none"%></div>
+              <div class="d-flex justify-content-between mb-3" style="font-size: 20px;" >
+                <div><%= link_to booking.experience.title, experience_path(booking.experience), :style=>"color: black; text-decoration: none", class: "book-title"%></div>
                 <div><i class="fa-solid fa-mask" id="secret-mask"></i></div>
               </div>
           <% else %>
@@ -20,36 +20,31 @@
               <%= link_to booking.experience.title, experience_path(booking.experience), :style=>"color: black; text-decoration: none" %>
             </p>
           <% end %>
-          <p class="card-title">
-            <%= "You are booked in for: #{booking.when.to_formatted_s(:long)}" %>
-          </p>
-
-          <p class="card-title">
-            <%= "#{booking.instructions}" %>
-            </p>
-            <p class="card-title">
-           </p>
-
-           <p class="card-title">
-            <%= "Total cost: $#{booking.experience.cost}" %>
-          </p>
-
-          <p class="card-title">
-            <%= "Status: #{booking.status}" %>
-          </p>
+        <div class="d-flex flex-column">
+          <b class="book-info pb-3"> Date: <%="   #{booking.when.to_formatted_s(:long)}"%> </b>
+          <b class="book-info pb-3"> Instructions:   <%= "#{booking.instructions}" %> </b>
+           <div class="d-flex justify-content-between pb-3">
+            <% if booking.experience.cost.positive? %>
+              <strong class="book-info"><%= "Total cost:   $#{sprintf('%.2f', booking.experience.cost)}" %></strong>
+            <% else %>
+              <strong class="book-info">FREE </strong>
+          <% end %>
+            <div class="book-status"><%= "Status: #{booking.status.capitalize}" %></div>
+          </div>
+        </div>
             <% if booking.suprise? %>
-              <p class="card-title">
+              <div class="card-title">
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-link" style="padding: 0px;text-decoration: none;" data-bs-toggle="modal" data-bs-target=<%= "#Modal-#{booking.id}" %>>
                 <%= "#{current_user.partner.first_name} will see"%>
                 </button>
-
+              </div>
                 <!-- Modal -->
                 <div class="modal fade" id=<%= "Modal-#{booking.id}" %> tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog modal-xl">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Invitation sent to <%= current_user.partner.first_name%> :</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
                       <div class="modal-body">
@@ -62,10 +57,11 @@
                     </div>
                   </div>
                 </div>
-              </p>
               <%# <p class="card-title"> %>
                 <%# <%= "#{booking.secret_instructions}" %>
               <%# </p> %>
+              <% else %>
+              <br class= "pb-4">
             <% end %>
           <div>
             <ul class="list-inline text-end" style="margin-bottom: 0;">

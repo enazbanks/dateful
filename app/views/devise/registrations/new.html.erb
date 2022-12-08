@@ -7,7 +7,7 @@
     <%= f.input :first_name %>
     <%= f.input :last_name %>
     <%= f.input :suburb %>
-    <%= f.input :dob, start_year: Date.today.year - 100, end_year: Date.today.year%>
+    <%= f.input :dob, start_year: Date.today.year - 100, end_year: Date.today.year - 15%>
     <%= f.input :phone %>
     <%= f.input :avatar, as: :file %>
     <%= f.input :email,
@@ -21,7 +21,7 @@
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
-    <%= f.input :partner_email, hint: 'only if your partner is already signed up', label: 'Your Partners Dateful email', error: 'Partners Email not Found' %>%>
+    <%= f.input :partner_email, hint: 'only if your partner is already signed up', label: 'Your Partners Dateful email', error: 'Partners Email not Found' %>
   </div>
 
   <div class="form-actions">

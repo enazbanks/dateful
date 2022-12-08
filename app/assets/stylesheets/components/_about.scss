@@ -9,6 +9,7 @@
 #about-header{
   align-items: center;
   text-align: center;
+  margin: 5%;
 }
 
 .ben {
@@ -18,6 +19,7 @@
   color: floralwhite;
   background-size: cover;
   background-position: center;
+  border-radius: 6px;
 }
 .enaz {
   background-image: url("female_avatar.png");
@@ -25,6 +27,7 @@
   width: 250px;
   background-size: cover;
   background-position: center;
+  border-radius: 6px;
 }
 .rachel {
   background-image: url("female_avatar.png");
@@ -32,6 +35,7 @@
   width: 250px;
   background-size: cover;
   background-position: center;
+  border-radius: 6px;
 }
 .brad {
   background-image: url("brad.jpeg");
@@ -40,4 +44,30 @@
   color: floralwhite;
   background-size: cover;
   background-position: center;
+  border-radius: 6px;
+}
+
+.fa-github {
+  font-size: 34px;
+  text-decoration: none;
+  color: #b41313;
+  margin-left: 90px;
+  padding-top: 3%;
+}
+
+.fa-github:hover {
+ color:  #b41313ab;
+}
+
+
+.fa-linkedin {
+  font-size: 34px;
+  text-decoration: none;
+  color: #b41313;
+  margin-left: 20px;
+  padding-top: 3%;
+}
+
+.fa-linkedin:hover {
+ color:  #b41313ab;
 }
