@@ -19,15 +19,15 @@
           data-bs-placement="right"
           title="Hide details of your date from your partner and surprise them!"></i>
         </li>
-        <div class="d-flex">
-          <li class="p-2 w-100 price-large">
+        <div class="d-flex justify-content-between">
+          <li class="p-2 price-large">
             <% if @experience.cost.positive? %>
               <%="$ #{sprintf('%.2f', @experience.cost)}"%>
             <% else %>
               FREE 😍
             <% end %>
           </li>
-          <li class="form-actions p-2 flex-shrink-1">
+          <li class="form-actions">
             <%= f.button :submit, value:"Book Now", class: "disabled btn-book", id: "show-book" %>
           </li>
         </div>
