@@ -2,17 +2,17 @@
   <div class="card">
     <div class="row g-0">
 
-      <div class="col-md-4">
+      <div class="col-md-4" style="margin-top: 10px;">
         <% if booking.experience.photos.attached? %>
           <%= cl_image_tag booking.experience.photos.first.key, class: "img-fluid img_info mt-3", crop: :fill %>
         <% end %>
       </div>
 
       <div class="col-md-8 text-start">
-        <div class="card-body" style="margin-left: 15px;">
+        <div class="card-body">
           <% if booking.suprise? %>
               <div class="d-flex justify-content-between mb-3" style="font-size: 20px;">
-                <div><%= link_to booking.experience.title, experience_path(booking.experience)%></div>
+                <div><%= link_to booking.experience.title, experience_path(booking.experience), :style=>"color: black; text-decoration: none"%></div>
                 <div><i class="fa-solid fa-mask" id="secret-mask"></i></div>
               </div>
           <% else %>
@@ -21,7 +21,7 @@
             </p>
           <% end %>
           <p class="card-title">
-            <%= "You are booked in for: #{booking.when.strftime('%d-%m-%Y')}" %>
+            <%= "You are booked in for: #{booking.when.to_formatted_s(:long)}" %>
           </p>
 
           <p class="card-title">
@@ -34,14 +34,14 @@
             <%= "Total cost: $#{booking.experience.cost}" %>
           </p>
 
-          <p class="card-text">
+          <p class="card-title">
             <%= "Status: #{booking.status}" %>
           </p>
             <% if booking.suprise? %>
               <p class="card-title">
                 <!-- Button trigger modal -->
                 <button type="button" class="btn-light" data-bs-toggle="modal" data-bs-target=<%= "#Modal-#{booking.id}" %>>
-                <%= "#{current_user.partner.first_name} will see" %> <i class="fa-sharp fa-solid fa-caret-right fa-lg"></i>
+                <%= "#{current_user.partner.first_name} will see"%> <i class="fa-sharp fa-solid fa-caret-right fa-lg"></i>
                 </button>
 
                 <!-- Modal -->
@@ -63,21 +63,24 @@
                   </div>
                 </div>
               </p>
-              <p class="card-title">
-                <%= "#{booking.secret_instructions}" %>
-              </p>
+              <%# <p class="card-title"> %>
+                <%# <%= "#{booking.secret_instructions}" %>
+              <%# </p> %>
             <% end %>
+          <div>
+            <ul class="list-inline text-end" style="padding-right: 10px;margin-bottom: 0;">
+              <li class="list-inline-item">
+                <%= link_to "Edit booking", edit_booking_path(booking), class:"btn btn-primary" if booking.status == "pending" %>
+              </li>
+              <li class="list-inline-item">
+                <%= link_to "Cancel", booking, class:"btn btn-primary", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
 
-        <ul class="list-inline text-end" style="padding-right: 10px;">
-          <li class="list-inline-item">
-            <%= link_to "Edit booking", edit_booking_path(booking), class:"btn btn-primary" if booking.status == "pending" %>
-          </li>
-          <li class="list-inline-item">
-            <%= link_to "Cancel", booking, class:"btn btn-primary", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
-          </li>
-        </ul>
+
     </div>
   </div>
 </div>
