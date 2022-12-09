@@ -155,17 +155,17 @@ experience = Experience.new(
   address: "From Gisborne take the Gisborne to Bacchus Marsh Road (C704) and travel approximately 11 km. Turn right into Carrolls Lane which joins Finger Post Road and leads you into the forest.",
   instructions: "We recommend dressing for the weather which might mean bringing a hat, sunscreen, insect repellent, and an umbrella. Always bring a jumper and coat in case the weather changes.",
   secret_instructions: "Bring comfortable clothing for all weathers. Pack overnight gear and trainers you would be comfortable walking in.",
-  cost: Free,
+  cost: 0,
   time: "1-2 days"
 )
-file = URI.open("couple_camping.png")
-experience.photos.attach(io: file, filename: "mayfield.jpg", content_type: "image/jpg")
+file = URI.open("app/assets/images/couple_camping.png")
+experience.photos.attach(io: file, filename: "app/assets/images/couple_camping.png", content_type: "image/png")
 
-file = URI.open("https://www.canva.com/photos/MADQ4nT2_9o-autumn-forest-nature-landscape/")
-experience.photos.attach(io: file, filename: "mayfield1.jpg", content_type: "image/jpg")
+file = URI.open("https://images.unsplash.com/photo-1425913397330-cf8af2ff40a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80")
+experience.photos.attach(io: file, filename: "https://images.unsplash.com/photo-1425913397330-cf8af2ff40a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80", content_type: "image/png")
 
-file = URI.open("https://www.canva.com/photos/MADyRML2CM0-green-forest/")
-experience.photos.attach(io: file, filename: "mayfield2.jpg", content_type: "image/jpg")
+file = URI.open("https://images.unsplash.com/photo-1476231682828-37e571bc172f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80")
+experience.photos.attach(io: file, filename: "https://images.unsplash.com/photo-1476231682828-37e571bc172f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80", content_type: "image/png")
 
 experience.mood_list.add("Outdoors")
 experience.mood_list.add("Relaxed")
@@ -296,6 +296,58 @@ rand(10..50).times do
 end
 
 experience = Experience.new(
+  title: 'Scuba Diving',
+  description: "Want to learn scuba diving in Melbourne? Join us at Aquability to expand your knowledge and skills by enrolling in a scuba diving course. With courses from PADI, IANTD and AIMA/NAS, we offer scuba diving training for everyone from beginner level to instructor level. Melbourne is an amazing place to dive in Victoria with easy access to a vast array of marine life, centuries old shipwrecks and diverse wall diving that is second to none. Feel free to browse our website to see what we can offer you or call in to see our professional staff at our retail dive shop in Mordialloc.",
+  address: "1/270 Lower Dandenong Rd Mordialloc VIC 3195",
+  instructions: "Bring your swim gear, a towel, goggles, a warm jumper and refreshments",
+  secret_instructions: "Bring your swimmers, a towel, goggles, a warm jumper and refreshments",
+  cost: Faker::Number.decimal(l_digits: 2, r_digits: 2),
+  time: "3-4 hours"
+)
+file = URI.open("https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80")
+experience.photos.attach(io: file, filename: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80", content_type: "image/png")
+
+file = URI.open("https://images.unsplash.com/photo-1583212292454-1fe6229603b7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80")
+experience.photos.attach(io: file, filename: "https://images.unsplash.com/photo-1583212292454-1fe6229603b7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80", content_type: "image/jpg")
+
+file = URI.open("https://images.unsplash.com/photo-1664922114319-4700c0ef74b1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80")
+experience.photos.attach(io: file, filename: "https://images.unsplash.com/photo-1664922114319-4700c0ef74b1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80", content_type: "image/jpg")
+
+experience.mood_list.add("Outdoors")
+experience.mood_list.add("Adventurous")
+experience.mood_list.add("Active")
+experience.mood_list.add("Instagrammable")
+experience.mood_list.add("Outdoor")
+experience.feature_list.add("Accessible")
+experience.feature_list.add("Children")
+
+experience.save
+
+experience.save
+rand(10..50).times do
+  booking = Booking.new(
+    when: Faker::Date.between(from: 1.years.ago, to: Date.today),
+    instructions: "none",
+    suprise: false,
+    status: 3
+  )
+  booking.couple = Couple.all.sample
+  booking.experience = experience
+  booking.save
+
+  y = rand(0..5)
+  x = rand(0..5)
+  comment = x > y ? Faker::Restaurant.review : REVIEW.sample
+  y = x if x > y
+  rating = Rating.new(
+    stars: y,
+    comment: comment
+  )
+  rating.booking = booking
+  rating.save
+end
+
+experience = Experience.new(
   title: 'Stargaze with Astrolog',
   description: "Astrolog's stargazing experience will have you wishing upon a star. Learn about space and our Milky Way galaxy with a romantic stargazing night. Snacks and hot cocoa provided.",
   address: "Birdwood Ave, Melbourne, Victoria",
@@ -304,8 +356,8 @@ experience = Experience.new(
   cost: Faker::Number.decimal(l_digits: 2, r_digits: 2),
   time: "10 minutes"
 )
-file = URI.open("https://images.unsplash.com/photo-1514770643069-54183731a981?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80.jpg")
-experience.photos.attach(io: file, filename: "star.jpg", content_type: "image/jpg")
+file = URI.open("app/assets/images/stargazing.png")
+experience.photos.attach(io: file, filename: "app/assets/images/stargazing.png", content_type: "image/png")
 
 file = URI.open("https://images.unsplash.com/photo-1444124818704-4d89a495bbae?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80.jpg")
 experience.photos.attach(io: file, filename: "star1.jpg", content_type: "image/jpg")
@@ -808,14 +860,14 @@ experience = Experience.new(
   cost: 25,
   time: "2-3 hours"
 )
-file = URI.open("outdoor_cinema_1.png")
-experience.photos.attach(io: file, filename: "mayfield.jpg", content_type: "image/jpg")
+file = URI.open("app/assets/images/outdoor_cinema_1.png")
+experience.photos.attach(io: file, filename: "app/assets/images/outdoor_cinema_1.png", content_type: "image/png")
 
-file = URI.open("outdoor_cinema_1.png")
-experience.photos.attach(io: file, filename: "mayfield1.jpg", content_type: "image/jpg")
+file = URI.open("app/assets/images/outdoor_cinema.png")
+experience.photos.attach(io: file, filename: "app/assets/images/outdoor_cinema.png", content_type: "image/png")
 
-file = URI.open("popcorn.png")
-experience.photos.attach(io: file, filename: "mayfield2.jpg", content_type: "image/jpg")
+file = URI.open("app/assets/images/popcorn.png")
+experience.photos.attach(io: file, filename: "app/assets/images/popcorn.png", content_type: "image/png")
 
 experience.mood_list.add("Outdoors")
 experience.mood_list.add("Relaxed")
