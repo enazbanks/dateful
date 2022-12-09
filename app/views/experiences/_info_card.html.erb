@@ -4,54 +4,49 @@
     <i class="info-icon fa-regular fa-clock"></i>
     <i class="info-text"><%= @experience.time%></i>
   </div>
-<br>
+
   <% @experience.feature_list.each do |feature| %>
     <% if feature == "Food" %>
-      <div class="d-flex" style="padding: 10px;">
+      <div class="d-flex" style="padding: 10px; padding-top:10px;">
         <i class="info-icon fa-solid fa-utensils"></i>
         <i class="info-text"><%= "Meal included"%></i>
       </div>
-      <br>
     <% end %>
     <% if feature == "Accessible" %>
-      <div class="d-flex" style="padding: 10px;">
+      <div class="d-flex" style="padding: 10px; padding-top:10px;">
         <i class="info-icon fa-solid fa-wheelchair-move"></i>
         <i class="info-text"><%="Accessiblity-friendly"%></i>
       </div>
     <% end %>
     <% if feature == "Transport" %>
-      <div class="d-flex" style="padding: 10px;">
+      <div class="d-flex" style="padding: 10px; padding-top:10px;">
         <i class="info-icon fa-solid fa-van-shuttle"></i>
         <i class="info-text"><%="Transport Provided"%></i>
       </div>
     <% end %>
     <% if feature == "Children" %>
-      <div class="d-flex" style="padding: 10px;">
+      <div class="d-flex" style="padding: 10px; padding-top:10px;">
         <i class="info-icon fa-solid fa-child-reaching"></i>
         <i class="info-text"><%="Child Friendly"%></i>
       </div>
     <% end %>
     <% if feature == "Pets" %>
-      <div class="d-flex" style="padding: 10px;">
+      <div class="d-flex" style="padding: 10px; padding-top:10px;">
         <i class="info-icon fa-solid fa-paw"></i>
         <i class="info-text"><%="Pets Allowed"%></i>
       </div>
     <% end %>
-  <% end %><h4 class="mt-5 border-bottom">Mood</h4>
-  <div class="mt-5 d-flex align-items-center">
-      <% @experience.mood_list.each do |mood| %>
-      <div class="mb-5 d-flex align-items-center flex-column mood-show">
-        <% if @icons[mood] %>
-          <%= image_tag @icons[mood], class: "mood-icon"%>
-        <%= mood %>
-      </div>
-        <% end %>
-      <% end %>
-  </div>
+  <% end %>
 
-<div class="mb-5 d-flex align-items-center">
+  <h4 class="mt-5 border-bottom">Mood</h4>
+
+  <div class="mt-5 d-flex align-items-center" >
     <% @experience.mood_list.each do |mood| %>
       <% if @icons[mood] %>
+        <div class="mb-5 d-flex align-items-center flex-column mood-show">
+          <%= image_tag @icons[mood], class: "mood-icon"%>
+          <%= mood %>
+        </div>
       <% end %>
     <% end %>
-</div>
+  </div>
