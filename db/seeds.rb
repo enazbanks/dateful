@@ -19,7 +19,7 @@ MOOD = %w[Night Romantic Adventurous Relaxed Playful Spicy Foodie Instagrammable
 FEATURE = %w[Food Transport Accessible Children Pets]
 REVIEW = ["I tried to behead it but got truffle all over it.", "talk about sadness!", "My vulture loves to play with it.", "It only works when I'm Samoa.", "talk about pleasure.", "this date is honest.", "It only works when I'm Bahrain.", "I tried to behead it but got truffle all over it.", "heard about this on jump-up radio, decided to give it a try.", "My neighbor Alida has one of these. She works as a gambler and she says it looks spotless.", "talk about anticipation!", "This date works considerably well. It mildly improves my basketball by a lot.", "I saw one of these in Haiti and I bought one.", "I tried to cremate it but got Turkish Delight all over it.", "My neighbor Eller has one of these. She works as a butler and she says it looks smoky.", "My tyrannosaurus rex loves to play with it.", "talk about hatred!!!", "The box this comes in is 3 centimeter by 5 kilometer and weights 13 ounce!!", "I tried to belly-flop it but got Turkish Delight all over it.", "This date works really well. It wildly improves my baseball by a lot.", "This date works outstandingly well. It beautifully improves my basketball by a lot.", "talk about sadness!!", "My neighbor Isabela has one of these. She works as a taxidermist and she says it looks monochromatic.", "talk about contempt!!!", "This date works considerably well. It recklessly improves my basketball by a lot.", "It only works when I'm Samoa.", "This date works really well. It wildly improves my baseball by a lot.", "My neighbor Albertina has one of these. She works as a gardener and she says it looks humongous.", "I tried to grab it but got bonbon all over it.", "This date works excessively well. It mortally improves my golf by a lot.", "i use it hardly when i'm in my prison.", "I saw one of these in Spratly Islands and I bought one.", "heard about this on dance-rock radio, decided to give it a try.", "My co-worker Mohamed has one of these. He says it looks brown.", "this date is honest.", "talk about pleasure!", "talk about irritation.", "The box this comes in is 3 inch by 6 centimeter and weights 15 ounce!", "My neighbor Albertina has one of these. She works as a gardener and she says it looks humongous.", "My co-worker Reed has one of these. He says it looks microscopic.", "talk about sadness!", "heard about this on timba radio, decided to give it a try.", "My neighbor Julisa has one of these. She works as a bartender and she says it looks crooked.", "My neighbor Isabela has one of these. She works as a taxidermist and she says it looks monochromatic.", "i use it for 10 weeks when i'm in my sauna.", "i use it until further notice when i'm in my station.", "The box this comes in is 4 meter by 5 foot and weights 18 kilogram.", "I saw one of these in Cote d'Ivoire and I bought one.", "i use it never again when i'm in my station.", "this date is top-notch."]
 
-18.times do
+1.times do
   couple = Couple.new
   couple.save
   user = User.new(
@@ -150,9 +150,9 @@ rand(10..50).times do
 end
 
 experience = Experience.new(
-  title: 'Camping Weekend to Wombat State Forest',
+  title: 'Camping Weekend',
   description: "Barely an hour out of the city, Wombat State Forest is perfect for a quick and easy getaway. Skirted by The Great Dividing Range, the area is surrounded by extinct volcanoes hidden within the forest. And if the weather heats up and you’re keen to cool off, it’s not too far from Lederderg Gorge to take a dip. On top of all that, if you’re an avid mountain bike rider, the forest offers more than 100kms of tracks.",
-  address: "From Gisborne take the Gisborne to Bacchus Marsh Road (C704) and travel approximately 11 km. Turn right into Carrolls Lane which joins Finger Post Road and leads you into the forest.",
+  address: "Sylvia Creek Road, Toolangi, Victoria",
   instructions: "We recommend dressing for the weather which might mean bringing a hat, sunscreen, insect repellent, and an umbrella. Always bring a jumper and coat in case the weather changes.",
   secret_instructions: "Bring comfortable clothing for all weathers. Pack overnight gear and trainers you would be comfortable walking in.",
   cost: 0,
@@ -403,6 +403,55 @@ rand(10..50).times do
 end
 
 experience = Experience.new(
+  title: "Exotic Wolf Encounter",
+  description: "Accompany a keeper into the enclosure for a once in a lifetime experience feeding this elusive species. You and your partner will find yourself in awe just watching wolves move around the exhibit waiting for you to offer them your next treat.",
+  address: "250 Fussell St, Ballarat East, Victoria",
+  instructions: "Dress in protective and active clothing, and meet me at Flinders station",
+  secret_instructions: "Dress in protective and active clothing, and meet me at Flinders station",
+  cost: 299.00,
+  time: "1 - 2 hours"
+)
+
+file = URI.open("app/assets/images/wolf_1.png")
+experience.photos.attach(io: file, filename: "wolf_2.png", content_type: "image/png")
+
+file = URI.open("app/assets/images/wolf_1.png")
+experience.photos.attach(io: file, filename: "wolf_1.png", content_type: "image/png")
+
+file = URI.open("app/assets/images/wolf.png")
+experience.photos.attach(io: file, filename: "wolf.png", content_type: "image/png")
+
+experience.mood_list.add("Active")
+experience.mood_list.add("Playful")
+experience.mood_list.add("Outdoors")
+experience.feature_list.add("Pets")
+experience.feature_list.add("Transport")
+
+experience.save
+
+rand(10..50).times do
+  booking = Booking.new(
+    when: Faker::Date.between(from: 1.years.ago, to: Date.today),
+    instructions: "none",
+    suprise: false,
+    status: 3
+  )
+  booking.couple = Couple.all.sample
+  booking.experience = experience
+  booking.save
+  y = rand(0..5)
+  x = rand(0..5)
+  comment = x > y ? Faker::Restaurant.review : REVIEW.sample
+  y = x if x > y
+  rating = Rating.new(
+    stars: y,
+    comment: comment
+  )
+  rating.booking = booking
+  rating.save
+end
+
+experience = Experience.new(
   title: 'Picnic with Mealful',
   description: "Visit Mealful online and hire a professional chef to create an exquisite and one of a kind dining experience at your chosen location. Meals and picnic set up can be customised to your liking. This is the perfect option for a special day.",
   address: "Central Springs Road, Daylesford, Victoria",
@@ -454,32 +503,32 @@ rand(10..50).times do
   rating.save
 end
 experience = Experience.new(
-  title: 'Mayfield Garden Walk',
-  description: "Mayfield is Australia’s largest privately-owned, cool climate garden.  It remains a living legacy of the Hawkins family who took much of their inspiration for this project from several of Europe’s most significant horticultural destinations.\nVisitors can also enjoy a unique regional dining experience at Mayfield’s garden restaurant, and it also offers a luxurious glamping experience during its Spring, Autumn and Summer festivals.",
-  address: "530 Mayfield Road Oberon NSW 2787 Australia",
-  instructions: "We recommend wearing closed walking shoes and dressing for the weather which might mean bringing a hat, sunscreen, insect repellent, and an umbrella.  Always bring a jumper or coat, Mayfield is located 1000m above sea level and the weather can turn quickly.  We feel that the European style weather we sometimes experience in Oberon sits comfortably with our garden - don’t let a little rain, mist or snow get in the way of a good tramp - we love the cooler weather here, just dress appropriately and finish the day with a glass of wine or a hot drink in our restaurant. Don’t let the weather stand in the way of exploring this beautiful garden!",
-  secret_instructions: "Bring a hat, Comfy Walking Shoes and be ready for a bit of a drive.",
+  title: 'Mayfield Garden Glamping',
+  description: "Mayfield is Australia’s largest privately-owned, cool climate garden. With picturesque views, it's one of the most beautiful and breathtaking gardens in Australia. You will be set up in a private luxury glamping tent where you will have access to all 26 themed gardens alongside your own tour guide. Before the sunsets, make your way down to our cellar door for some wine tasting. Dinner and breakfast included, we tailor to all dietary requirements.",
+  address: "530 Mayfield Road Oberon, New South Wales",
+  instructions: "Wear closed walking shoes and dress for the weather which might mean bringing a hat and sunscreen. ",
+  secret_instructions: "Pack an overight bag and make sure to bring a Hat, Comfy Walking Shoes and be ready for a bit of a drive.",
   cost: 25,
   time: "4-6 hours"
 )
+file = URI.open("https://images.pexels.com/photos/5358788/pexels-photo-5358788.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
+experience.photos.attach(io: file, filename: "mayfield1.jpg", content_type: "image/jpg")
+
 file = URI.open("https://img.rezdy.com/PRODUCT_IMAGE/90623/Mayfield_Spring22__24.jpg")
 experience.photos.attach(io: file, filename: "mayfield.jpg", content_type: "image/jpg")
 
-file = URI.open("https://lh3.googleusercontent.com/p/AF1QipNuut3XszgPiqyW6ozpVx51IauvrzsRiDl2a3M=s680-w680-h510")
-experience.photos.attach(io: file, filename: "mayfield1.jpg", content_type: "image/jpg")
 
 file = URI.open("https://i0.wp.com/havewheelchairwilltravel.net/wp-content/uploads/2016/10/Mayfield.jpg?resize=1024%2C678&ssl=1")
 experience.photos.attach(io: file, filename: "mayfield2.jpg", content_type: "image/jpg")
 
 experience.mood_list.add("Adventurous")
 experience.mood_list.add("Active")
-experience.mood_list.add("Outdoors")
 experience.mood_list.add("Instagrammable")
 experience.mood_list.add("Roadtrip")
 experience.feature_list.add("Pets")
 experience.feature_list.add("Accessible")
 experience.feature_list.add("Children")
-experience.feature_list.add("Pets")
+experience.feature_list.add("Food")
 experience.save!
 
 
@@ -559,7 +608,7 @@ rand(10..50).times do
 end
 
 experience = Experience.new(
-  title: 'Boudior Photo Shoot',
+  title: 'Boudoir Photo Shoot',
   description: "It doesn’t matter if you’re a new couple finding their mojo, a long-time partner that wants to rekindle your passion, or you want to celebrate a special moment with your twin flame – it’s always a good time to give boudoir a try.",
   address: "13b Edgar St, Ainslie ACT 2602",
   instructions: "What should be worn to couples boudoir sessions? There isn’t a right or wrong answer to this question because it depends on the couple. Actually, it doesn’t even need to be one thing – you can change outfits throughout the photoshoot.",
@@ -626,7 +675,6 @@ file = URI.open("https://images.unsplash.com/photo-1532224589403-0e70ee166b49?ix
 experience.photos.attach(io: file, filename: "road.jpg", content_type: "image/jpg")
 
 experience.mood_list.add("Active")
-experience.mood_list.add("Romantic")
 experience.mood_list.add("Instagrammable")
 experience.mood_list.add("Adventurous")
 experience.mood_list.add("Outdoors")
@@ -753,7 +801,7 @@ rand(10..50).times do
 end
 
 experience = Experience.new(
-  title: 'Hot Strings Spa',
+  title: 'Hot Springs Spa',
   description: "Find tranquility in Mornington's dreamy spa house. Spoil your loved one with the relaxation and peace of a private bath. You have the choice of basking under a moonlight bathing sky or journey up to the iconic hilltop pool, followed by a couple's massage, you will never forget.",
   address: "140 Springs Lane, Fingal, Victoria",
   instructions: "Meet at Peninsula Hot Springs and dress comfy",
@@ -857,7 +905,7 @@ end
 experience = Experience.new(
   title: 'Moonlit Cinema',
   description: "Australia’s largest and longest running outdoor cinema, Moonlight Cinema has been a summer staple since 1996 showing your favourite movies under the stars in some of the country’s most iconic inner city green spaces. Moonlight strives to maintain the beautiful botanic parks and gardens we operate in, and to celebrate the stunning natural spaces our capital cities have to offer.",
-  address: "Melbourne’s Moonlight Cinema is located on the Central Lawn at Royal Botanic Gardens Melbourne. Enter the venue via Gate D on Birdwood Avenue (near the intersection of Domain Road) and follow the path to the Central Lawn.",
+  address: "155 Newlands Rd, Coburg North, Victoria",
   instructions: "We recommend dressing for the weather which might mean bringing a hat, sunscreen, insect repellent, and an umbrella. Always bring a jumper, coat or blanket in case it cools down as the sun sets.",
   secret_instructions: "Bring a blanket, a warm jumper and some shades.",
   cost: 25,
@@ -923,7 +971,7 @@ file = URI.open("https://images.pexels.com/photos/6712024/pexels-photo-6712024.j
 experience.photos.attach(io: file, filename: "xxx.jpg", content_type: "image/jpg")
 
 file = URI.open("https://images.pexels.com/photos/6712126/pexels-photo-6712126.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
-experience.photos.attach(io: file, filename: "xxx.jpg", content_type: "image/png")
+experience.photos.attach(io: file, filename: "xxx2.jpg", content_type: "image/png")
 
 file = URI.open("https://images.pexels.com/photos/10556555/pexels-photo-10556555.jpeg")
 experience.photos.attach(io: file, filename: "xxxx.jpg", content_type: "image/jpg")
@@ -932,7 +980,6 @@ experience.mood_list.add("Active")
 experience.mood_list.add("Instagrammable")
 experience.mood_list.add("Playful")
 experience.mood_list.add("Retro")
-experience.mood_list.add("Home")
 experience.feature_list.add("Children")
 experience.feature_list.add("Transport")
 experience.save
@@ -958,6 +1005,7 @@ rand(10..50).times do
   rating.booking = booking
   rating.save
 end
+
 
 # test couples
 couple = Couple.new
