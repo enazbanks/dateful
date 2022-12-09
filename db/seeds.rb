@@ -402,6 +402,55 @@ rand(10..50).times do
 end
 
 experience = Experience.new(
+  title: "Exotic Wolf Encounter",
+  description: "Accompany a keeper into the enclosure for a once in a lifetime experience feeding this elusive species. You and your partner will find yourself in awe just watching wolves move around the exhibit waiting for you to offer them your next treat.",
+  address: "250 Fussell St, Ballarat East, Victoria",
+  instructions: "Dress in protective and active clothing, and meet me at Flinders station",
+  secret_instructions: "Dress in protective and active clothing, and meet me at Flinders station",
+  cost: 299.00,
+  time: "1 - 2 hours"
+)
+
+file = URI.open("app/assets/images/wolf_1.png")
+experience.photos.attach(io: file, filename: "wolf_2.png", content_type: "image/png")
+
+file = URI.open("app/assets/images/wolf_1.png")
+experience.photos.attach(io: file, filename: "wolf_1.png", content_type: "image/png")
+
+file = URI.open("app/assets/images/wolf.png")
+experience.photos.attach(io: file, filename: "wolf.png", content_type: "image/png")
+
+experience.mood_list.add("Active")
+experience.mood_list.add("Playful")
+experience.mood_list.add("Outdoors")
+experience.feature_list.add("Pets")
+experience.feature_list.add("Transport")
+
+experience.save
+
+rand(10..50).times do
+  booking = Booking.new(
+    when: Faker::Date.between(from: 1.years.ago, to: Date.today),
+    instructions: "none",
+    suprise: false,
+    status: 3
+  )
+  booking.couple = Couple.all.sample
+  booking.experience = experience
+  booking.save
+  y = rand(0..5)
+  x = rand(0..5)
+  comment = x > y ? Faker::Restaurant.review : REVIEW.sample
+  y = x if x > y
+  rating = Rating.new(
+    stars: y,
+    comment: comment
+  )
+  rating.booking = booking
+  rating.save
+end
+
+experience = Experience.new(
   title: 'Picnic with Mealful',
   description: "Visit Mealful online and hire a professional chef to create an exquisite and one of a kind dining experience at your chosen location. Meals and picnic set up can be customised to your liking. This is the perfect option for a special day.",
   address: "Central Springs Road, Daylesford, Victoria",
@@ -461,11 +510,12 @@ experience = Experience.new(
   cost: 25,
   time: "4-6 hours"
 )
+file = URI.open("https://images.pexels.com/photos/5358788/pexels-photo-5358788.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
+experience.photos.attach(io: file, filename: "mayfield1.jpg", content_type: "image/jpg")
+
 file = URI.open("https://img.rezdy.com/PRODUCT_IMAGE/90623/Mayfield_Spring22__24.jpg")
 experience.photos.attach(io: file, filename: "mayfield.jpg", content_type: "image/jpg")
 
-file = URI.open("https://lh3.googleusercontent.com/p/AF1QipNuut3XszgPiqyW6ozpVx51IauvrzsRiDl2a3M=s680-w680-h510")
-experience.photos.attach(io: file, filename: "mayfield1.jpg", content_type: "image/jpg")
 
 file = URI.open("https://i0.wp.com/havewheelchairwilltravel.net/wp-content/uploads/2016/10/Mayfield.jpg?resize=1024%2C678&ssl=1")
 experience.photos.attach(io: file, filename: "mayfield2.jpg", content_type: "image/jpg")
@@ -955,54 +1005,6 @@ rand(10..50).times do
   rating.save
 end
 
-experience = Experience.new(
-  title: "Exotic Wolf Encounter",
-  description: "Accompany a keeper into the enclosure for a once in a lifetime experience feeding this elusive species. You and your partner will find yourself in awe just watching wolves move around the exhibit waiting for you to offer them your next treat.",
-  address: "250 Fussell St, Ballarat East, Victoria",
-  instructions: "Dress in protective and active clothing, and meet me at Flinders station",
-  secret_instructions: "Dress in protective and active clothing, and meet me at Flinders station",
-  cost: 299.00,
-  time: "1 - 2 hours"
-)
-
-file = URI.open("app/assets/images/wolf_1.png")
-experience.photos.attach(io: file, filename: "wolf_2.png", content_type: "image/png")
-
-file = URI.open("app/assets/images/wolf_1.png")
-experience.photos.attach(io: file, filename: "wolf_1.png", content_type: "image/png")
-
-file = URI.open("app/assets/images/wolf.png")
-experience.photos.attach(io: file, filename: "wolf.png", content_type: "image/png")
-
-experience.mood_list.add("Active")
-experience.mood_list.add("Playful")
-experience.mood_list.add("Outdoors")
-experience.feature_list.add("Pets")
-experience.feature_list.add("Transport")
-
-experience.save
-
-rand(10..50).times do
-  booking = Booking.new(
-    when: Faker::Date.between(from: 1.years.ago, to: Date.today),
-    instructions: "none",
-    suprise: false,
-    status: 3
-  )
-  booking.couple = Couple.all.sample
-  booking.experience = experience
-  booking.save
-  y = rand(0..5)
-  x = rand(0..5)
-  comment = x > y ? Faker::Restaurant.review : REVIEW.sample
-  y = x if x > y
-  rating = Rating.new(
-    stars: y,
-    comment: comment
-  )
-  rating.booking = booking
-  rating.save
-end
 
 # test couples
 couple = Couple.new
