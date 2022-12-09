@@ -150,6 +150,59 @@ rand(10..50).times do
 end
 
 experience = Experience.new(
+  title: 'Camping Weekend to Wombat State Forest',
+  description: "Barely an hour out of the city, Wombat State Forest is perfect for a quick and easy getaway. Skirted by The Great Dividing Range, the area is surrounded by extinct volcanoes hidden within the forest. And if the weather heats up and you’re keen to cool off, it’s not too far from Lederderg Gorge to take a dip. On top of all that, if you’re an avid mountain bike rider, the forest offers more than 100kms of tracks.",
+  address: "From Gisborne take the Gisborne to Bacchus Marsh Road (C704) and travel approximately 11 km. Turn right into Carrolls Lane which joins Finger Post Road and leads you into the forest.",
+  instructions: "We recommend dressing for the weather which might mean bringing a hat, sunscreen, insect repellent, and an umbrella. Always bring a jumper and coat in case the weather changes.",
+  secret_instructions: "Bring comfortable clothing for all weathers. Pack overnight gear and trainers you would be comfortable walking in.",
+  cost: Free,
+  time: "1-2 days"
+)
+file = URI.open("couple_camping.png")
+experience.photos.attach(io: file, filename: "mayfield.jpg", content_type: "image/jpg")
+
+file = URI.open("https://www.canva.com/photos/MADQ4nT2_9o-autumn-forest-nature-landscape/")
+experience.photos.attach(io: file, filename: "mayfield1.jpg", content_type: "image/jpg")
+
+file = URI.open("https://www.canva.com/photos/MADyRML2CM0-green-forest/")
+experience.photos.attach(io: file, filename: "mayfield2.jpg", content_type: "image/jpg")
+
+experience.mood_list.add("Outdoors")
+experience.mood_list.add("Relaxed")
+experience.mood_list.add("Instagrammable")
+experience.mood_list.add("Active")
+experience.mood_list.add("Adventurous")
+experience.feature_list.add("Pets")
+experience.feature_list.add("Accessible")
+experience.feature_list.add("Children")
+experience.feature_list.add("Transport")
+experience.save!
+
+rand(10..50).times do
+  booking = Booking.new(
+    when: Faker::Date.between(from: 1.years.ago, to: Date.today),
+    instructions: "none",
+    suprise: false,
+    status: 3
+  )
+
+  booking.couple = Couple.all.sample
+  booking.experience = experience
+  booking.save
+
+  y = rand(0..5)
+  x = rand(0..5)
+  comment = x > y ? Faker::Restaurant.review : REVIEW.sample
+  y = x if x > y
+  rating = Rating.new(
+    stars: y,
+    comment: comment
+  )
+  rating.booking = booking
+  rating.save
+end
+
+experience = Experience.new(
   title: 'Take Stock Check',
   description: "For the couples who are in it for the long haul and want to retire early. Take Stock offers the greatest potential for growth both romantically and finacially. Hop online and start checking out the latest news, trends and tweets then you can start investing! Rekindle the flame with your loved one at home with a click of a button.",
   address: "At the comfort of your own home",
@@ -519,7 +572,6 @@ experience.photos.attach(io: file, filename: "road.jpg", content_type: "image/jp
 
 experience.mood_list.add("Active")
 experience.mood_list.add("Romantic")
-experience.mood_list.add("Foodie")
 experience.mood_list.add("Instagrammable")
 experience.mood_list.add("Adventurous")
 experience.mood_list.add("Outdoors")
@@ -698,7 +750,7 @@ rand(10..50).times do
 end
 
 experience = Experience.new(
-  title: "Board Game's for two",
+  title: "Board Games for two",
   description: "Forget snap, now there is a wide range of modern boardgames perfect for that relaxing night in",
   address: "At the comfort of your own home",
   instructions: "Grab a coupy of Lost Cities, Carcasonne, The Crew or your own favourite",
@@ -735,6 +787,59 @@ rand(10..50).times do
   booking.couple = Couple.all.sample
   booking.experience = experience
   booking.save
+  y = rand(0..5)
+  x = rand(0..5)
+  comment = x > y ? Faker::Restaurant.review : REVIEW.sample
+  y = x if x > y
+  rating = Rating.new(
+    stars: y,
+    comment: comment
+  )
+  rating.booking = booking
+  rating.save
+end
+
+experience = Experience.new(
+  title: 'Moonlit Cinema',
+  description: "Australia’s largest and longest running outdoor cinema, Moonlight Cinema has been a summer staple since 1996 showing your favourite movies under the stars in some of the country’s most iconic inner city green spaces. Moonlight strives to maintain the beautiful botanic parks and gardens we operate in, and to celebrate the stunning natural spaces our capital cities have to offer.",
+  address: "Melbourne’s Moonlight Cinema is located on the Central Lawn at Royal Botanic Gardens Melbourne. Enter the venue via Gate D on Birdwood Avenue (near the intersection of Domain Road) and follow the path to the Central Lawn.",
+  instructions: "We recommend dressing for the weather which might mean bringing a hat, sunscreen, insect repellent, and an umbrella. Always bring a jumper, coat or blanket in case it cools down as the sun sets.",
+  secret_instructions: "Bring a blanket, a warm jumper and some shades.",
+  cost: 25,
+  time: "2-3 hours"
+)
+file = URI.open("outdoor_cinema_1.png")
+experience.photos.attach(io: file, filename: "mayfield.jpg", content_type: "image/jpg")
+
+file = URI.open("outdoor_cinema_1.png")
+experience.photos.attach(io: file, filename: "mayfield1.jpg", content_type: "image/jpg")
+
+file = URI.open("popcorn.png")
+experience.photos.attach(io: file, filename: "mayfield2.jpg", content_type: "image/jpg")
+
+experience.mood_list.add("Outdoors")
+experience.mood_list.add("Relaxed")
+experience.mood_list.add("Retro")
+experience.feature_list.add("Pets")
+experience.feature_list.add("Accessible")
+experience.feature_list.add("Children")
+experience.feature_list.add("Transport")
+experience.feature_list.add("Food")
+experience.save!
+
+
+rand(10..50).times do
+  booking = Booking.new(
+    when: Faker::Date.between(from: 1.years.ago, to: Date.today),
+    instructions: "none",
+    suprise: false,
+    status: 3
+  )
+
+  booking.couple = Couple.all.sample
+  booking.experience = experience
+  booking.save
+
   y = rand(0..5)
   x = rand(0..5)
   comment = x > y ? Faker::Restaurant.review : REVIEW.sample
