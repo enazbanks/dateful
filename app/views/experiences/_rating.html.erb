@@ -1,10 +1,22 @@
     <div class="review-card">
       <div class="d-flex">
         <% if rating.booking.couple.users.first %>
-          <%= cl_image_tag rating.booking.couple.users.first.avatar.key, crop: :fill, class:"avatar-show" %>
+          <%= cl_image_tag rating.booking.couple.users.first.avatar.key, crop: :fill, class:"avatar-show",data: {
+          controller: 'popover',
+          bs_toggle: 'popover',
+          bs_trigger: 'hover',
+          bs_placement: 'top',
+          bs_content: "#{rating.booking.couple.users.first.name} & #{rating.booking.couple.users.last.name} say"
+          }%>
         <% end %>
         <% if rating.booking.couple.users.last %>
-          <%= cl_image_tag rating.booking.couple.users.last.avatar.key, crop: :fill, class:"avatar-show mr-auto", id:"last_avatar"%>
+          <%= cl_image_tag rating.booking.couple.users.last.avatar.key, crop: :fill, class:"avatar-show mr-auto", id:"last_avatar", data: {
+          controller: 'popover',
+          bs_toggle: 'popover',
+          bs_trigger: 'hover',
+          bs_placement: 'top',
+          bs_content: "#{rating.booking.couple.users.first.name} & #{rating.booking.couple.users.last.name} say"
+        }%>
         <% end %>
         <% if rating.stars %>
           <%  rating.stars.times do %>

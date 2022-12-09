@@ -807,14 +807,14 @@ experience = Experience.new(
   cost: 25,
   time: "2-3 hours"
 )
-file = URI.open("app/assets/images/outdoor_cinema_1.png")
-experience.photos.attach(io: file, filename: "mayfield.jpg", content_type: "image/jpg")
+# file = URI.open("app/assets/images/outdoor_cinema_1.png")
+# experience.photos.attach(io: file, filename: "Moonlit.jpg", content_type: "image/jpg")
 
-file = URI.open("app/assets/images/outdoor_cinema_2.png")
-experience.photos.attach(io: file, filename: "mayfield1.jpg", content_type: "image/jpg")
+# file = URI.open("app/assets/images/outdoor_cinema_2.png")
+# experience.photos.attach(io: file, filename: "Moonlit1.jpg", content_type: "image/jpg")
 
-file = URI.open("app/assets/images/popcorn.png")
-experience.photos.attach(io: file, filename: "mayfield2.jpg", content_type: "image/jpg")
+#  file = URI.open("app/assets/images/popcorn.png")
+#  experience.photos.attach(io: file, filename: "Moonlit2.jpg", content_type: "image/jpg")
 
 experience.mood_list.add("Outdoors")
 experience.mood_list.add("Relaxed")
