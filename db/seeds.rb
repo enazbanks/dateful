@@ -15,7 +15,7 @@ Booking.destroy_all
 Couple.destroy_all
 
 
-MOOD = %w[Romantic Adventurous Relaxed Playful Spicy Foodie Instagrammable Pamper Active Retro Roadtrip Outdoors Home]
+MOOD = %w[Night Romantic Adventurous Relaxed Playful Spicy Foodie Instagrammable Pamper Active Retro Roadtrip Outdoors Home]
 FEATURE = %w[Food Transport Accessible Children Pets]
 REVIEW = ["I tried to behead it but got truffle all over it.", "talk about sadness!", "My vulture loves to play with it.", "It only works when I'm Samoa.", "talk about pleasure.", "this date is honest.", "It only works when I'm Bahrain.", "I tried to behead it but got truffle all over it.", "heard about this on jump-up radio, decided to give it a try.", "My neighbor Alida has one of these. She works as a gambler and she says it looks spotless.", "talk about anticipation!", "This date works considerably well. It mildly improves my basketball by a lot.", "I saw one of these in Haiti and I bought one.", "I tried to cremate it but got Turkish Delight all over it.", "My neighbor Eller has one of these. She works as a butler and she says it looks smoky.", "My tyrannosaurus rex loves to play with it.", "talk about hatred!!!", "The box this comes in is 3 centimeter by 5 kilometer and weights 13 ounce!!", "I tried to belly-flop it but got Turkish Delight all over it.", "This date works really well. It wildly improves my baseball by a lot.", "This date works outstandingly well. It beautifully improves my basketball by a lot.", "talk about sadness!!", "My neighbor Isabela has one of these. She works as a taxidermist and she says it looks monochromatic.", "talk about contempt!!!", "This date works considerably well. It recklessly improves my basketball by a lot.", "It only works when I'm Samoa.", "This date works really well. It wildly improves my baseball by a lot.", "My neighbor Albertina has one of these. She works as a gardener and she says it looks humongous.", "I tried to grab it but got bonbon all over it.", "This date works excessively well. It mortally improves my golf by a lot.", "i use it hardly when i'm in my prison.", "I saw one of these in Spratly Islands and I bought one.", "heard about this on dance-rock radio, decided to give it a try.", "My co-worker Mohamed has one of these. He says it looks brown.", "this date is honest.", "talk about pleasure!", "talk about irritation.", "The box this comes in is 3 inch by 6 centimeter and weights 15 ounce!", "My neighbor Albertina has one of these. She works as a gardener and she says it looks humongous.", "My co-worker Reed has one of these. He says it looks microscopic.", "talk about sadness!", "heard about this on timba radio, decided to give it a try.", "My neighbor Julisa has one of these. She works as a bartender and she says it looks crooked.", "My neighbor Isabela has one of these. She works as a taxidermist and she says it looks monochromatic.", "i use it for 10 weeks when i'm in my sauna.", "i use it until further notice when i'm in my station.", "The box this comes in is 4 meter by 5 foot and weights 18 kilogram.", "I saw one of these in Cote d'Ivoire and I bought one.", "i use it never again when i'm in my station.", "this date is top-notch."]
 
@@ -367,6 +367,7 @@ experience.photos.attach(io: file, filename: "star1.jpg", content_type: "image/j
 file = URI.open("https://images.unsplash.com/photo-1480569798454-4c8d2d1cf5e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80.jpg")
 experience.photos.attach(io: file, filename: "star1.jpg", content_type: "image/jpg")
 
+experience.mood_list.add("Night")
 experience.mood_list.add("Relaxed")
 experience.mood_list.add("Adventurous")
 experience.mood_list.add("Retro")
@@ -872,7 +873,7 @@ experience.photos.attach(io: file, filename: "outdoor_cinema.png", content_type:
 file = URI.open("app/assets/images/popcorn.png")
 experience.photos.attach(io: file, filename: "popcorn.png", content_type: "image/png")
 
-
+experience.mood_list.add("Night")
 experience.mood_list.add("Outdoors")
 experience.mood_list.add("Relaxed")
 experience.mood_list.add("Retro")
