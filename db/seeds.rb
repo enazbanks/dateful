@@ -19,7 +19,7 @@ MOOD = %w[Romantic Adventurous Relaxed Playful Spicy Foodie Instagrammable Pampe
 FEATURE = %w[Food Transport Accessible Children Pets]
 REVIEW = ["I tried to behead it but got truffle all over it.", "talk about sadness!", "My vulture loves to play with it.", "It only works when I'm Samoa.", "talk about pleasure.", "this date is honest.", "It only works when I'm Bahrain.", "I tried to behead it but got truffle all over it.", "heard about this on jump-up radio, decided to give it a try.", "My neighbor Alida has one of these. She works as a gambler and she says it looks spotless.", "talk about anticipation!", "This date works considerably well. It mildly improves my basketball by a lot.", "I saw one of these in Haiti and I bought one.", "I tried to cremate it but got Turkish Delight all over it.", "My neighbor Eller has one of these. She works as a butler and she says it looks smoky.", "My tyrannosaurus rex loves to play with it.", "talk about hatred!!!", "The box this comes in is 3 centimeter by 5 kilometer and weights 13 ounce!!", "I tried to belly-flop it but got Turkish Delight all over it.", "This date works really well. It wildly improves my baseball by a lot.", "This date works outstandingly well. It beautifully improves my basketball by a lot.", "talk about sadness!!", "My neighbor Isabela has one of these. She works as a taxidermist and she says it looks monochromatic.", "talk about contempt!!!", "This date works considerably well. It recklessly improves my basketball by a lot.", "It only works when I'm Samoa.", "This date works really well. It wildly improves my baseball by a lot.", "My neighbor Albertina has one of these. She works as a gardener and she says it looks humongous.", "I tried to grab it but got bonbon all over it.", "This date works excessively well. It mortally improves my golf by a lot.", "i use it hardly when i'm in my prison.", "I saw one of these in Spratly Islands and I bought one.", "heard about this on dance-rock radio, decided to give it a try.", "My co-worker Mohamed has one of these. He says it looks brown.", "this date is honest.", "talk about pleasure!", "talk about irritation.", "The box this comes in is 3 inch by 6 centimeter and weights 15 ounce!", "My neighbor Albertina has one of these. She works as a gardener and she says it looks humongous.", "My co-worker Reed has one of these. He says it looks microscopic.", "talk about sadness!", "heard about this on timba radio, decided to give it a try.", "My neighbor Julisa has one of these. She works as a bartender and she says it looks crooked.", "My neighbor Isabela has one of these. She works as a taxidermist and she says it looks monochromatic.", "i use it for 10 weeks when i'm in my sauna.", "i use it until further notice when i'm in my station.", "The box this comes in is 4 meter by 5 foot and weights 18 kilogram.", "I saw one of these in Cote d'Ivoire and I bought one.", "i use it never again when i'm in my station.", "this date is top-notch."]
 
-18.times do
+1.times do
   couple = Couple.new
   couple.save
   user = User.new(
@@ -150,9 +150,9 @@ rand(10..50).times do
 end
 
 experience = Experience.new(
-  title: 'Camping Weekend to Wombat State Forest',
+  title: 'Camping Weekend',
   description: "Barely an hour out of the city, Wombat State Forest is perfect for a quick and easy getaway. Skirted by The Great Dividing Range, the area is surrounded by extinct volcanoes hidden within the forest. And if the weather heats up and you’re keen to cool off, it’s not too far from Lederderg Gorge to take a dip. On top of all that, if you’re an avid mountain bike rider, the forest offers more than 100kms of tracks.",
-  address: "From Gisborne take the Gisborne to Bacchus Marsh Road (C704) and travel approximately 11 km. Turn right into Carrolls Lane which joins Finger Post Road and leads you into the forest.",
+  address: "Sylvia Creek Road, Toolangi, Victoria",
   instructions: "We recommend dressing for the weather which might mean bringing a hat, sunscreen, insect repellent, and an umbrella. Always bring a jumper and coat in case the weather changes.",
   secret_instructions: "Bring comfortable clothing for all weathers. Pack overnight gear and trainers you would be comfortable walking in.",
   cost: 0,
@@ -571,7 +571,6 @@ file = URI.open("https://images.unsplash.com/photo-1532224589403-0e70ee166b49?ix
 experience.photos.attach(io: file, filename: "road.jpg", content_type: "image/jpg")
 
 experience.mood_list.add("Active")
-experience.mood_list.add("Romantic")
 experience.mood_list.add("Instagrammable")
 experience.mood_list.add("Adventurous")
 experience.mood_list.add("Outdoors")
@@ -698,7 +697,7 @@ rand(10..50).times do
 end
 
 experience = Experience.new(
-  title: 'Hot Strings Spa',
+  title: 'Hot Springs Spa',
   description: "Find tranquility in Mornington's dreamy spa house. Spoil your loved one with the relaxation and peace of a private bath. You have the choice of basking under a moonlight bathing sky or journey up to the iconic hilltop pool, followed by a couple's massage, you will never forget.",
   address: "140 Springs Lane, Fingal, Victoria",
   instructions: "Meet at Peninsula Hot Springs and dress comfy",
@@ -875,9 +874,57 @@ experience.mood_list.add("Active")
 experience.mood_list.add("Instagrammable")
 experience.mood_list.add("Playful")
 experience.mood_list.add("Retro")
-experience.mood_list.add("Home")
 experience.feature_list.add("Children")
 experience.feature_list.add("Transport")
+experience.save
+
+rand(10..50).times do
+  booking = Booking.new(
+    when: Faker::Date.between(from: 1.years.ago, to: Date.today),
+    instructions: "none",
+    suprise: false,
+    status: 3
+  )
+  booking.couple = Couple.all.sample
+  booking.experience = experience
+  booking.save
+  y = rand(0..5)
+  x = rand(0..5)
+  comment = x > y ? Faker::Restaurant.review : REVIEW.sample
+  y = x if x > y
+  rating = Rating.new(
+    stars: y,
+    comment: comment
+  )
+  rating.booking = booking
+  rating.save
+end
+
+experience = Experience.new(
+  title: "Exotic Wolf Encounter",
+  description: "Accompany a keeper into the enclosure for a once in a lifetime experience feeding this elusive species. You and your partner will find yourself in awe just watching wolves move around the exhibit waiting for you to offer them your next treat.",
+  address: "250 Fussell St, Ballarat East, Victoria",
+  instructions: "Dress in protective and active clothing, and meet me at Flinders station",
+  secret_instructions: "Dress in protective and active clothing, and meet me at Flinders station",
+  cost: 299.00,
+  time: "1 - 2 hours"
+)
+
+file = "app/assets/images/wolf_2.jpeg"
+experience.photos.attach(io: file, filename: "wolf_2.jpeg", content_type: "image/jpeg")
+
+file = "app/assets/images/wolf_1.jpeg"
+experience.photos.attach(io: file, filename: "wolf_1.jpeg", content_type: "image/jpeg")
+
+file = "app/assets/images/wolf.jpeg"
+experience.photos.attach(io: file, filename: "wolf.jpge", content_type: "image/jpeg")
+
+experience.mood_list.add("Active")
+experience.mood_list.add("Playful")
+experience.mood_list.add("Outdoors")
+experience.feature_list.add("Pets")
+experience.feature_list.add("Transport")
+
 experience.save
 
 rand(10..50).times do
