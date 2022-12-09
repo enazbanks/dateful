@@ -155,16 +155,16 @@ experience = Experience.new(
   address: "From Gisborne take the Gisborne to Bacchus Marsh Road (C704) and travel approximately 11 km. Turn right into Carrolls Lane which joins Finger Post Road and leads you into the forest.",
   instructions: "We recommend dressing for the weather which might mean bringing a hat, sunscreen, insect repellent, and an umbrella. Always bring a jumper and coat in case the weather changes.",
   secret_instructions: "Bring comfortable clothing for all weathers. Pack overnight gear and trainers you would be comfortable walking in.",
-  cost: Free,
+  cost: 0,
   time: "1-2 days"
 )
-file = URI.open("couple_camping.png")
+file = URI.open("app/assets/images/couple_camping.png")
 experience.photos.attach(io: file, filename: "mayfield.jpg", content_type: "image/jpg")
 
-file = URI.open("https://www.canva.com/photos/MADQ4nT2_9o-autumn-forest-nature-landscape/")
+file = URI.open("app/assets/images/couple_camping.png")
 experience.photos.attach(io: file, filename: "mayfield1.jpg", content_type: "image/jpg")
 
-file = URI.open("https://www.canva.com/photos/MADyRML2CM0-green-forest/")
+file = URI.open("app/assets/images/couple_camping.png")
 experience.photos.attach(io: file, filename: "mayfield2.jpg", content_type: "image/jpg")
 
 experience.mood_list.add("Outdoors")
@@ -808,13 +808,13 @@ experience = Experience.new(
   cost: 25,
   time: "2-3 hours"
 )
-file = URI.open("outdoor_cinema_1.png")
+file = URI.open("app/assets/images/outdoor_cinema_1.png")
 experience.photos.attach(io: file, filename: "mayfield.jpg", content_type: "image/jpg")
 
-file = URI.open("outdoor_cinema_1.png")
+file = URI.open("app/assets/images/outdoor_cinema_2.png")
 experience.photos.attach(io: file, filename: "mayfield1.jpg", content_type: "image/jpg")
 
-file = URI.open("popcorn.png")
+file = URI.open("app/assets/images/popcorn.png")
 experience.photos.attach(io: file, filename: "mayfield2.jpg", content_type: "image/jpg")
 
 experience.mood_list.add("Outdoors")
@@ -907,7 +907,7 @@ couple = Couple.new
 couple.save
 
 frank = User.create!(
-  first_name: 'Frank',
+  first_name: 'Edward',
   last_name: 'liaison',
   email: 'frank@lewagon.com',
   password: 'franktest',
@@ -915,19 +915,19 @@ frank = User.create!(
 )
 
 frank.couple = couple
-file = URI.open("app/assets/images/frank_avatar.jpg")
+file = URI.open("app/assets/images/ed.png")
 frank.avatar.attach(io: file, filename: "frank_avatar.jpg", content_type: "image/jpg")
 frank.save
 
 bertha = User.create(
-  first_name: 'Bertha',
+  first_name: 'Bella',
   last_name: 'liaison',
   email: 'bertha@lewagon.com',
   password: 'berthatest',
   couple: couple,
   dob: Faker::Date.between(from: 28.years.ago, to: 29.years.ago)
 )
-file = URI.open("https://cdn.pixabay.com/photo/2019/03/21/20/29/eyewear-4071870__340.jpg")
+file = URI.open("app/assets/images/bel.png")
 bertha.avatar.attach(io: file, filename: "bertha.png", content_type: "image/png")
 bertha.save
 
