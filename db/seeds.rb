@@ -453,11 +453,11 @@ rand(10..50).times do
   rating.save
 end
 experience = Experience.new(
-  title: 'Mayfield Garden Walk',
-  description: "Mayfield is Australia’s largest privately-owned, cool climate garden.  It remains a living legacy of the Hawkins family who took much of their inspiration for this project from several of Europe’s most significant horticultural destinations.\nVisitors can also enjoy a unique regional dining experience at Mayfield’s garden restaurant, and it also offers a luxurious glamping experience during its Spring, Autumn and Summer festivals.",
-  address: "530 Mayfield Road Oberon NSW 2787 Australia",
-  instructions: "We recommend wearing closed walking shoes and dressing for the weather which might mean bringing a hat, sunscreen, insect repellent, and an umbrella.  Always bring a jumper or coat, Mayfield is located 1000m above sea level and the weather can turn quickly.  We feel that the European style weather we sometimes experience in Oberon sits comfortably with our garden - don’t let a little rain, mist or snow get in the way of a good tramp - we love the cooler weather here, just dress appropriately and finish the day with a glass of wine or a hot drink in our restaurant. Don’t let the weather stand in the way of exploring this beautiful garden!",
-  secret_instructions: "Bring a hat, Comfy Walking Shoes and be ready for a bit of a drive.",
+  title: 'Mayfield Garden Glamping',
+  description: "Mayfield is Australia’s largest privately-owned, cool climate garden. With picturesque views, it's one of the most beautiful and breathtaking gardens in Australia. You will be set up in a private luxury glamping tent where you will have access to all 26 themed gardens alongside your own tour guide. Before the sunsets, make your way down to our cellar door for some wine tasting. Dinner and breakfast included, we tailor to all dietary requirements.",
+  address: "530 Mayfield Road Oberon, New South Wales",
+  instructions: "Wear closed walking shoes and dress for the weather which might mean bringing a hat and sunscreen. ",
+  secret_instructions: "Pack an overight bag and make sure to bring a Hat, Comfy Walking Shoes and be ready for a bit of a drive.",
   cost: 25,
   time: "4-6 hours"
 )
@@ -472,13 +472,12 @@ experience.photos.attach(io: file, filename: "mayfield2.jpg", content_type: "ima
 
 experience.mood_list.add("Adventurous")
 experience.mood_list.add("Active")
-experience.mood_list.add("Outdoors")
 experience.mood_list.add("Instagrammable")
 experience.mood_list.add("Roadtrip")
 experience.feature_list.add("Pets")
 experience.feature_list.add("Accessible")
 experience.feature_list.add("Children")
-experience.feature_list.add("Pets")
+experience.feature_list.add("Food")
 experience.save!
 
 
@@ -558,7 +557,7 @@ rand(10..50).times do
 end
 
 experience = Experience.new(
-  title: 'Boudior Photo Shoot',
+  title: 'Boudoir Photo Shoot',
   description: "It doesn’t matter if you’re a new couple finding their mojo, a long-time partner that wants to rekindle your passion, or you want to celebrate a special moment with your twin flame – it’s always a good time to give boudoir a try.",
   address: "13b Edgar St, Ainslie ACT 2602",
   instructions: "What should be worn to couples boudoir sessions? There isn’t a right or wrong answer to this question because it depends on the couple. Actually, it doesn’t even need to be one thing – you can change outfits throughout the photoshoot.",
@@ -855,7 +854,7 @@ end
 experience = Experience.new(
   title: 'Moonlit Cinema',
   description: "Australia’s largest and longest running outdoor cinema, Moonlight Cinema has been a summer staple since 1996 showing your favourite movies under the stars in some of the country’s most iconic inner city green spaces. Moonlight strives to maintain the beautiful botanic parks and gardens we operate in, and to celebrate the stunning natural spaces our capital cities have to offer.",
-  address: "Melbourne’s Moonlight Cinema is located on the Central Lawn at Royal Botanic Gardens Melbourne. Enter the venue via Gate D on Birdwood Avenue (near the intersection of Domain Road) and follow the path to the Central Lawn.",
+  address: "155 Newlands Rd, Coburg North, Victoria",
   instructions: "We recommend dressing for the weather which might mean bringing a hat, sunscreen, insect repellent, and an umbrella. Always bring a jumper, coat or blanket in case it cools down as the sun sets.",
   secret_instructions: "Bring a blanket, a warm jumper and some shades.",
   cost: 25,
@@ -966,13 +965,13 @@ experience = Experience.new(
   time: "1 - 2 hours"
 )
 
-file = "app/assets/images/wolf_2.png"
+file = URI.open("app/assets/images/wolf_1.png")
 experience.photos.attach(io: file, filename: "wolf_2.png", content_type: "image/png")
 
-file = "app/assets/images/wolf_1.png"
+file = URI.open("app/assets/images/wolf_1.png")
 experience.photos.attach(io: file, filename: "wolf_1.png", content_type: "image/png")
 
-file = "app/assets/images/wolf.png"
+file = URI.open("app/assets/images/wolf.png")
 experience.photos.attach(io: file, filename: "wolf.png", content_type: "image/png")
 
 experience.mood_list.add("Active")
