@@ -921,7 +921,7 @@ file = URI.open("https://images.pexels.com/photos/6712024/pexels-photo-6712024.j
 experience.photos.attach(io: file, filename: "xxx.jpg", content_type: "image/jpg")
 
 file = URI.open("https://images.pexels.com/photos/6712126/pexels-photo-6712126.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
-experience.photos.attach(io: file, filename: "xxx.jpg", content_type: "image/png")
+experience.photos.attach(io: file, filename: "xxx2.jpg", content_type: "image/png")
 
 file = URI.open("https://images.pexels.com/photos/10556555/pexels-photo-10556555.jpeg")
 experience.photos.attach(io: file, filename: "xxxx.jpg", content_type: "image/jpg")
@@ -966,14 +966,14 @@ experience = Experience.new(
   time: "1 - 2 hours"
 )
 
-file = "app/assets/images/wolf_2.jpeg"
-experience.photos.attach(io: file, filename: "wolf_2.jpeg", content_type: "image/jpg")
+file = "app/assets/images/wolf_2.png"
+experience.photos.attach(io: file, filename: "wolf_2.png", content_type: "image/png")
 
-file = "app/assets/images/wolf_1.jpeg"
-experience.photos.attach(io: file, filename: "wolf_1.jpeg", content_type: "image/jpg")
+file = "app/assets/images/wolf_1.png"
+experience.photos.attach(io: file, filename: "wolf_1.png", content_type: "image/png")
 
-file = "app/assets/images/wolf.jpeg"
-experience.photos.attach(io: file, filename: "wolf.jpge", content_type: "image/jpg")
+file = "app/assets/images/wolf.png"
+experience.photos.attach(io: file, filename: "wolf.png", content_type: "image/png")
 
 experience.mood_list.add("Active")
 experience.mood_list.add("Playful")
