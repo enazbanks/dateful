@@ -162,10 +162,12 @@ file = URI.open("app/assets/images/couple_camping.png")
 experience.photos.attach(io: file, filename: "app/assets/images/couple_camping.png", content_type: "image/png")
 
 file = URI.open("https://images.unsplash.com/photo-1425913397330-cf8af2ff40a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80")
-experience.photos.attach(io: file, filename: "https://images.unsplash.com/photo-1425913397330-cf8af2ff40a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80", content_type: "image/png")
+experience.photos.attach(io: file, filename: "camping1.png", content_type: "image/png")
 
 file = URI.open("https://images.unsplash.com/photo-1476231682828-37e571bc172f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80")
-experience.photos.attach(io: file, filename: "https://images.unsplash.com/photo-1476231682828-37e571bc172f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80", content_type: "image/png")
+experience.photos.attach(io: file, filename: "camping2.png", content_type: "image/png")
+
+
 
 experience.mood_list.add("Outdoors")
 experience.mood_list.add("Relaxed")
@@ -860,14 +862,16 @@ experience = Experience.new(
   cost: 25,
   time: "2-3 hours"
 )
+
 file = URI.open("app/assets/images/outdoor_cinema_1.png")
-experience.photos.attach(io: file, filename: "app/assets/images/outdoor_cinema_1.png", content_type: "image/png")
+experience.photos.attach(io: file, filename: "outdoor_cinema_1.png", content_type: "image/png")
 
 file = URI.open("app/assets/images/outdoor_cinema.png")
-experience.photos.attach(io: file, filename: "app/assets/images/outdoor_cinema.png", content_type: "image/png")
+experience.photos.attach(io: file, filename: "outdoor_cinema.png", content_type: "image/png")
 
 file = URI.open("app/assets/images/popcorn.png")
-experience.photos.attach(io: file, filename: "app/assets/images/popcorn.png", content_type: "image/png")
+experience.photos.attach(io: file, filename: "popcorn.png", content_type: "image/png")
+
 
 experience.mood_list.add("Outdoors")
 experience.mood_list.add("Relaxed")
@@ -959,7 +963,7 @@ couple = Couple.new
 couple.save
 
 frank = User.create!(
-  first_name: 'Frank',
+  first_name: 'Edward',
   last_name: 'liaison',
   email: 'frank@lewagon.com',
   password: 'franktest',
@@ -967,19 +971,19 @@ frank = User.create!(
 )
 
 frank.couple = couple
-file = URI.open("app/assets/images/frank_avatar.jpg")
+file = URI.open("app/assets/images/ed.png")
 frank.avatar.attach(io: file, filename: "frank_avatar.jpg", content_type: "image/jpg")
 frank.save
 
 bertha = User.create(
-  first_name: 'Bertha',
+  first_name: 'Bella',
   last_name: 'liaison',
   email: 'bertha@lewagon.com',
   password: 'berthatest',
   couple: couple,
   dob: Faker::Date.between(from: 28.years.ago, to: 29.years.ago)
 )
-file = URI.open("https://cdn.pixabay.com/photo/2019/03/21/20/29/eyewear-4071870__340.jpg")
+file = URI.open("app/assets/images/bel.png")
 bertha.avatar.attach(io: file, filename: "bertha.png", content_type: "image/png")
 bertha.save
 
