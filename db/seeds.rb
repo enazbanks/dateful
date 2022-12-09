@@ -911,13 +911,13 @@ experience = Experience.new(
 )
 
 file = "app/assets/images/wolf_2.jpeg"
-experience.photos.attach(io: file, filename: "wolf_2.jpeg", content_type: "image/jpeg")
+experience.photos.attach(io: file, filename: "wolf_2.jpeg", content_type: "image/jpg")
 
 file = "app/assets/images/wolf_1.jpeg"
-experience.photos.attach(io: file, filename: "wolf_1.jpeg", content_type: "image/jpeg")
+experience.photos.attach(io: file, filename: "wolf_1.jpeg", content_type: "image/jpg")
 
 file = "app/assets/images/wolf.jpeg"
-experience.photos.attach(io: file, filename: "wolf.jpge", content_type: "image/jpeg")
+experience.photos.attach(io: file, filename: "wolf.jpge", content_type: "image/jpg")
 
 experience.mood_list.add("Active")
 experience.mood_list.add("Playful")
