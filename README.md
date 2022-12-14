@@ -1,4 +1,4 @@
-<a href="https://www.dateful.me" target="blank"><img align="center" src="https://www.dateful.me/assets/dateful_logo-7f46ab7d0916a649c5a0f6cbfe6c5de27a3635d17b6152eaa92cc2e81f232691.png" alt="Bradley-Tucker" height="30" width="40" /></a>
+<a href="https://www.dateful.me" target="blank"><img align="center" src="https://www.dateful.me/assets/dateful_logo-7f46ab7d0916a649c5a0f6cbfe6c5de27a3635d17b6152eaa92cc2e81f232691.png" alt="Bradley-Tucker" height="60" width="100" /></a>
 
 <h1 align="center">Dateful</h1>
 
@@ -20,6 +20,7 @@
 <p align="left">If you encounter any issues with Dateful or simply want to chat about how we did things you can contact any of the creators.</P>
 
 <h3 align="left">Authors and acknowledgment<h/3>
+ 
  
 <p align="center">Project Contributors: Enaz Banks, Benjamin Greig, Rachel Bach and Bradley Tucker
  
