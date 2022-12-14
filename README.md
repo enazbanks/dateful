@@ -1,4 +1,4 @@
-<a href="https://www.dateful.me" target="blank"><img align="center" src="https://www.dateful.me/assets/dateful_logo-7f46ab7d0916a649c5a0f6cbfe6c5de27a3635d17b6152eaa92cc2e81f232691.png" alt="Bradley-Tucker" height="60" width="100" /></a>
+<a href="https://www.dateful.me" target="blank"><img align="center" src="https://www.dateful.me/assets/dateful_logo-7f46ab7d0916a649c5a0f6cbfe6c5de27a3635d17b6152eaa92cc2e81f232691.png" alt="Bradley-Tucker" height="60" width="120" /></a>
 
 <h1 align="center">Dateful</h1>
 
