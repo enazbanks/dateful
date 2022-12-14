@@ -1,4 +1,4 @@
-<a href="https://www.dateful.me" target="blank"><img align="center" src="https://www.dateful.me/assets/dateful_logo-7f46ab7d0916a649c5a0f6cbfe6c5de27a3635d17b6152eaa92cc2e81f232691.png" alt="Bradley-Tucker" height="60" width="120" /></a>
+<a href="https://www.dateful.me" target="blank"><img align="center" src="https://www.dateful.me/assets/dateful_logo-7f46ab7d0916a649c5a0f6cbfe6c5de27a3635d17b6152eaa92cc2e81f232691.png" alt="Bradley-Tucker" height="60" width="150" /></a>
 
 <h1 align="center">Dateful</h1>
 
@@ -21,10 +21,9 @@
 
 <h3 align="left">Authors and acknowledgment</h3>
  
+<p align="left">Project Contributors: Enaz Banks, Benjamin Greig, Rachel Bach and Bradley Tucker</p>
  
-<p align="center">Project Contributors: Enaz Banks, Benjamin Greig, Rachel Bach and Bradley Tucker</p>
- 
-<p align="center">Acknowledgement goes to the course TA’s and instructors at Le Wagon for their support throughout our bootcamp.</p>
+<p align="left">Acknowledgement goes to the course TA’s and instructors at Le Wagon for their support throughout our bootcamp.</p>
  
 <h3 align="left">License</h3>
  
