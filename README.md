@@ -18,7 +18,7 @@ Support
 If you encounter any issues with Dateful or simply want to chat about how we did things you can contact any of the creators.
 
 Authors and acknowledgment
-Project Contributors: Enaz Banks, Benjamin Greig, Rachel Bach and Bradley Tucker
+Project Contributors: [Enaz Banks](https://github.com/enazbanks), [Benjamin Greig](https://github.com/aquillo-au,), [Rachel Bach](https://github.com/ngoc-bach) and [Bradley Tucker](https://github.com/BradleyTucker701)
 Acknowledgement goes to the course TA’s and instructors at Le Wagon for their support throughout our bootcamp.
  
 License
