@@ -21,7 +21,7 @@
 
 <h3 align="left">Authors and acknowledgment</h3>
  
-<p align="left">Project Contributors: Enaz Banks, Benjamin Greig, Rachel Bach and Bradley Tucker</p>
+<p align="left">Project Contributors: <a href="https://github.com/enazbanks">Enaz Banks</a>, <a href="https://github.com/aquillo-au">Benjamin Greig</a>, <a href="https://github.com/ngoc-bach">Rachel Bach</a> and <a href="https://github.com/BradleyTucker701">Bradley Tucker</a></p>
  
 <p align="left">Acknowledgement goes to the course TA’s and instructors at Le Wagon for their support throughout our bootcamp.</p>
  
