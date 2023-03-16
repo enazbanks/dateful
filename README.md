@@ -4,13 +4,7 @@
 
 <p align="left">Dateful is a web based app that offers couples a resource for different dates and dating ideas. We realized there was a gap in the current market for a platform to help diversify and spice up people's dating lives. The USP (unique selling point) of the site was that each member of the couple could “favorite” dates for their partner to see, or “secret” dates so that they could surprise their partner at a preferred time. Dateful was developed in less than 2 weeks and then presented to an audience.</p>
 
-<h3> Watch Demo </h3>
 <video src= "https://user-images.githubusercontent.com/113505086/225485341-0b550877-57f9-48c8-a13e-d5dc598cd7d5.mov"></video>
-
-
-
-https://user-images.githubusercontent.com/113505086/225485666-d4d997f9-6f4d-482b-8ce6-7fc6e60f0745.mov
-
 
 <h3 align="left">Usage</h3>
  
