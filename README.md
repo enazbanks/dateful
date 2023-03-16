@@ -9,6 +9,8 @@
  <p align="left">Insert video</p>
  https://img.youtube.com/vi/WrS5e9ul_Wg/maxresdefault.jpg
  https://youtu.be/WrS5e9ul_Wg
+ 
+ [![Watch the video](https://img.youtube.com/vi/WrS5e9ul_Wg/maxresdefault.jpg)](https://youtu.be/WrS5e9ul_Wg)
 
 <h3 align="left">Usage</h3>
  
